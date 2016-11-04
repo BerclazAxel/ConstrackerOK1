@@ -22,66 +22,76 @@
             android:layout_height="wrap_content" >
 
             <RadioButton
-                android:text="Mr"
+                android:text="Male"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/MrBtn"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textSize="20sp"               />
 
             <RadioButton
-                android:text="Mrs"
+                android:text="Female"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/MrsBtn"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textSize="20sp"/>
         </RadioGroup>
 
         <TextView
-            android:text="Name"
+            android:text="Name:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Name" />
+            android:id="@+id/Name"
+            android:textSize="20sp"
+            android:layout_marginTop="20dp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/Nametxt" />
+            android:id="@+id/Nametxt"
+            android:textSize="20sp"/>
 
         <TextView
-            android:text="Surname"
+            android:text="Surname:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Surname" />
+            android:id="@+id/Surname"
+            android:textSize="20sp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/Surnametxt" />
+            android:id="@+id/Surnametxt"
+            android:textSize="20sp"/>
 
         <TextView
-            android:text="Phone number"
+            android:text="Phone number:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/PhoneNumber" />
+            android:id="@+id/PhoneNumber"
+            android:textSize="20sp"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/PhoneNumbertxt" />
+            android:id="@+id/PhoneNumbertxt"
+            android:textSize="20sp"/>
 
         <Button
-            android:text="Submit"
+            android:text="SUBMIT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/SubmitBtn" />
+            android:id="@+id/SubmitBtn"
+            android:onClick="startSubmitProfile"/>
     </LinearLayout>
 
 </RelativeLayout>
