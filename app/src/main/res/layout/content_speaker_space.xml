@@ -18,14 +18,16 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:text="Your futurs topics"
+            android:text="Your futurs topics:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Yourfuturstopics" />
+            android:id="@+id/Yourfuturstopics"
+            android:textSize="20sp"/>
 
         <ListView
             android:layout_width="match_parent"
-            android:layout_height="123dp" />
+            android:layout_height="123dp"
+            android:textSize="20sp"/>
 
         <Button
             android:text="Propose a new topic"
@@ -33,7 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/ProposeanewtopicBtn" />
+            android:id="@+id/ProposeanewtopicBtn"
+            android:onClick="startProposeTopic"/>
     </LinearLayout>
 
 </RelativeLayout>

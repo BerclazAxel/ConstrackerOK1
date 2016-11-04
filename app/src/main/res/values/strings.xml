@@ -27,4 +27,5 @@
     <string name="hour_info">Hour info</string>
     <string name="duration">Duration:</string>
     <string name="date_info">Date info</string>
+    <string name="your_new_topic">Your new topic</string>
 </resources>
