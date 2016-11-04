@@ -19,4 +19,12 @@
     <string name="to">To:</string>
     <string name="from">From:</string>
     <string name="your_suitable_date">Your suitable date</string>
+    <string name="inscription">Inscription</string>
+    <string name="click_there_if_you_agree_with_our_conditions_of_use">Click there if you agree with our conditions of use</string>
+    <string name="speaker_info">Speaker info</string>
+    <string name="speaker">Speaker:</string>
+    <string name="duration_info">Duration info</string>
+    <string name="hour_info">Hour info</string>
+    <string name="duration">Duration:</string>
+    <string name="date_info">Date info</string>
 </resources>

@@ -32,10 +32,11 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Title"
+                android:text="@string/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/TitleD" />
+                android:id="@+id/TitleD"
+                android:textSize="20sp"/>
 
             <TextView
                 android:text="Date:"
@@ -45,10 +46,11 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Date"
+                android:text="@string/date_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/DateD" />
+                android:id="@+id/DateD"
+                android:textSize="20sp"/>
 
             <TextView
                 android:text="Hour:"
@@ -58,51 +60,56 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Hour"
+                android:text="@string/hour_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/HourD" />
-
-            <TextView
-                android:text="Duration:"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/Duration"
+                android:id="@+id/HourD"
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Duration"
-                android:layout_width="wrap_content"
+                android:text="@string/duration"
+                android:layout_width="107dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/DurationD" />
+                android:id="@+id/Duration"
+                android:textSize="20sp"
+              />
 
             <TextView
-                android:text="Speaker: "
+                android:text="@string/duration_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/DurationD"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:text="@string/speaker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Speaker"
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Speaker"
+                android:text="@string/speaker_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/SpeakerD" />
+                android:id="@+id/SpeakerD"
+                android:textSize="20sp"/>
         </GridLayout>
 
         <CheckBox
-            android:text="Click there if you agree with our conditions of use"
+            android:text="@string/click_there_if_you_agree_with_our_conditions_of_use"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/checkBox" />
 
          <Button
-            android:text="Inscription"
+            android:text="@string/inscription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/InscriptionBtn" />
+            android:id="@+id/InscriptionBtn"
+             android:onClick="startConfirmInscription" />
 
     </LinearLayout>
 
