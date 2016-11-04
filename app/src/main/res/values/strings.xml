@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name" translatable="false">ConstrackerOK</string>
+    <string name="title_activity_language" translatable="false">LanguageActivity</string>
+    <string name="please_select_your_language_ns_il_vous_pla_t_s_lectionnez_la_langue" translatable="false">Please select your language\nS\'il vous plaît, sélectionnez la langue</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+    <string name="title_activity_search_conference">SearchConference</string>
+    <string name="title_activity_conference_data">ConferenceData</string>
+    <string name="title_activity_log_in_speaker_space">LogInSpeakerSpace</string>
+    <string name="title_activity_create_account">CreateAccount</string>
+    <string name="title_activity_profils_informations">ProfilsInformations</string>
+    <string name="title_activity_speaker_space">SpeakerSpace</string>
+    <string name="title_activity_propose_topic">ProposeTopic</string>
+</resources>
