@@ -45,7 +45,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/EnglishBtn" />
+            android:id="@+id/EnglishBtn"
+            android:onClick="startEnglish"/>
 
         <Button
             android:text="Français"
@@ -53,7 +54,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/FrançaisBtn" />
+            android:id="@+id/FrançaisBtn"
+            android:onClick="startFrench"/>
     </LinearLayout>
 
 </RelativeLayout>

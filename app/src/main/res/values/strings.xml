@@ -10,4 +10,7 @@
     <string name="title_activity_profils_informations">ProfilsInformations</string>
     <string name="title_activity_speaker_space">SpeakerSpace</string>
     <string name="title_activity_propose_topic">ProposeTopic</string>
+    <string name="search_a_conference">Search a conference</string>
+    <string name="speaker_space">Speaker space</string>
+    <string name="want_to_be_a_speaker">Want to be a speaker?</string>
 </resources>

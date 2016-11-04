@@ -18,28 +18,31 @@
         android:layout_height="match_parent">
 
         <Button
-            android:text="search_a_conference"
+            android:text="@string/search_a_conference"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/SearchBtn" />
+            android:id="@+id/SearchBtn"
+            android:onClick="startConferenceSearch"/>
 
         <Button
-            android:text="Speaker space"
+            android:text="@string/speaker_space"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/SpeakerspaceBtn" />
+            android:id="@+id/SpeakerspaceBtn"
+            android:onClick="startSpeakerSpace"/>
 
         <Button
-            android:text="Want to be speaker ?"
+            android:text="@string/want_to_be_a_speaker"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/BeSpeakerBtn" />
+            android:id="@+id/BeSpeakerBtn"
+            android:onClick="startToBeSpeaker"/>
     </LinearLayout>
 
 </RelativeLayout>
