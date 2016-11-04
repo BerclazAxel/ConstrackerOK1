@@ -1,5 +1,6 @@
 package com.exemple.constrackerok;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,7 +17,12 @@ public class CreateAccount extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
     }
 
+
+    public void startConnection(View view) {
+
+        Intent intent = new Intent(this, ProfilsInformations.class);
+        startActivity(intent);
+    }
 }

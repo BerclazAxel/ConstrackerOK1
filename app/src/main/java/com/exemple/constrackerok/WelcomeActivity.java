@@ -40,7 +40,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
     public void startSpeakerSpace(View view) {
-        Intent intent = new Intent(this, SpeakerSpace.class);
+        Intent intent = new Intent(this, LogInSpeakerSpace.class);
         startActivity(intent);
     }
 
