@@ -13,4 +13,10 @@
     <string name="search_a_conference">Search a conference</string>
     <string name="speaker_space">Speaker space</string>
     <string name="want_to_be_a_speaker">Want to be a speaker?</string>
+    <string name="title">Title</string>
+    <string name="search">Search</string>
+    <string name="date">Date</string>
+    <string name="to">To:</string>
+    <string name="from">From:</string>
+    <string name="your_suitable_date">Your suitable date</string>
 </resources>
