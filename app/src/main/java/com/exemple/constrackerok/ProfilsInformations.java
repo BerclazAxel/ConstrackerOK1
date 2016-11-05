@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -19,10 +20,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ProfilsInformations extends AppCompatActivity {
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
+
     private GoogleApiClient client;
 
     @Override
@@ -33,6 +32,7 @@ public class ProfilsInformations extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     public void startSubmitProfile(View view) {

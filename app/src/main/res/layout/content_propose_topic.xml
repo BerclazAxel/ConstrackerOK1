@@ -81,7 +81,7 @@
         </GridLayout>
 
         <Button
-            android:text="Propose"
+            android:text="PROPOSE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

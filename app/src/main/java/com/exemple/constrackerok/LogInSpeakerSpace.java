@@ -73,8 +73,6 @@ public class LogInSpeakerSpace extends AppCompatActivity {
     public void onStop() {
         super.onStop();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
@@ -105,5 +103,6 @@ public class LogInSpeakerSpace extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 }

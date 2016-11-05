@@ -1,5 +1,6 @@
 package com.exemple.constrackerok;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -29,6 +30,18 @@ db.execSQL(CREATE_QUERY);
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
+    public void putInformation(DatabaseOperations dop, String name, String password) {
+        SQLiteDatabase sq = dop.getWritableDatabase();
+        ContentValues cv = new ContentValues();
+        cv.put(TableData.TableInfo.USER_NAME, name);
+        cv.put(TableData.TableInfo.USER_PASSWORD, password);
+        long k = sq.insert(TableData.TableInfo.TABLE_NAME, null, cv);
+
+        Log.d("Database operations", "One raw inserted");
+
 
     }
 }
