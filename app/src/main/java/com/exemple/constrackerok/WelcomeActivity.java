@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -39,14 +40,13 @@ public class WelcomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");
 
         //Inflate the manu; this adds to the action bar if it is present
-        getMenuInflater().inflate(R.menu.menu_main,menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-
 
   public boolean onOptionsItemSelected(MenuItem item) {
         Log.d("WelcomeActivity", "onOptionsItemSelected");
@@ -57,11 +57,11 @@ public class WelcomeActivity extends AppCompatActivity {
         int id = item.getItemIf();
 
         //nonInspection SimlifiableIfStatement
-        if (id == R.id.action_ssettings) {
+        if (id == R.id.action_information) {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
     public void startSpeakerSpace(View view) {
         Intent intent = new Intent(this, LogInSpeakerSpace.class);
