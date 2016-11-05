@@ -52,7 +52,6 @@ public class WelcomeActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
         Log.d("WelcomeActivity", "onOptionsItemSelected");
         //handle action bar clicks here
-      //sjdhjf
 //the action bar will automatically handle clicks on the home/Up button, so long
         //as we specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
@@ -63,6 +62,23 @@ public class WelcomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void actionResourceClickMenuContacts(MenuItem item) {
+        Intent intent = new Intent(this, Contacts.class);
+        startActivity(intent);
+    }
+
+    public void actionResourceClickMenuInfo(MenuItem item) {
+        Intent intent = new Intent(this, AboutUs.class);
+        startActivity(intent);
+    }
+
+    public void actionResourceClickMenuLanguage(MenuItem item) {
+        Intent intent = new Intent(this, LanguageActivity.class);
+        startActivity(intent);
+    }
+
 
     public void startSpeakerSpace(View view) {
         Intent intent = new Intent(this, LogInSpeakerSpace.class);
@@ -106,18 +122,5 @@ public class WelcomeActivity extends AppCompatActivity {
         client.disconnect();
     }
 
-    public void actionResourceClickMenuContacts(MenuItem item) {
-        Intent intent = new Intent(this, Contacts.class);
-        startActivity(intent);
-    }
 
-    public void actionResourceClickMenuInfo(MenuItem item) {
-        Intent intent = new Intent(this, AboutUs.class);
-        startActivity(intent);
-    }
-
-    public void actionResourceClickMenuLanguage(MenuItem item) {
-        Intent intent = new Intent(this, LanguageActivity.class);
-        startActivity(intent);
-    }
 }
