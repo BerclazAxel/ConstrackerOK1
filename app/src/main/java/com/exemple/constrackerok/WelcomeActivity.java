@@ -53,7 +53,6 @@ public class WelcomeActivity extends AppCompatActivity {
         //handle action bar clicks here
 //the action bar will automatically handle clicks on the home/Up button, so long
         //as we specify a parent activity in AndroidManifest.xml.
-
         int id = item.getItemId();
 
         //nonInspection SimlifiableIfStatement
@@ -103,5 +102,13 @@ public class WelcomeActivity extends AppCompatActivity {
 
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
+    }
+
+    public void actionResourceClickMenuContacts(MenuItem item) {
+//
+    }
+
+    public void actionResourceClickMenuInfo(MenuItem item) {
+        //
     }
 }
