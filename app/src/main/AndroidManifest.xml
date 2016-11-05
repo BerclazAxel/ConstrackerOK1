@@ -12,11 +12,6 @@
             android:name=".LanguageActivity"
             android:label="@string/title_activity_language"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".WelcomeActivity"
@@ -38,6 +33,8 @@
             android:name=".CreateAccount"
             android:label="@string/title_activity_create_account"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".ProfilsInformations"
             android:label="@string/title_activity_profils_informations"
@@ -49,7 +46,9 @@
         <activity
             android:name=".ProposeTopic"
             android:label="@string/title_activity_propose_topic"
-            android:theme="@style/AppTheme.NoActionBar"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"
