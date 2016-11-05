@@ -19,15 +19,6 @@ public class Contacts extends AppCompatActivity {
         setContentView(R.layout.activity_contacts);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,32 +31,22 @@ public class Contacts extends AppCompatActivity {
 
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.d("WelcomeActivity", "onOptionsItemSelected");
-        //handle action bar clicks here
-//the action bar will automatically handle clicks on the home/Up button, so long
-        //as we specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+// handle presses on the action bar item
+        switch (item.getItemId()) {
 
-        //nonInspection SimlifiableIfStatement
-        if (id == R.id.action_information) {
-            return true;
+            case R.id.action_information:
+                startActivity(new Intent(this, AboutUs.class));
+                return true;
+
+            case R.id.action_contacts:
+                startActivity(new Intent(this, Contacts.class));
+                return true;
+
+            case R.id.action_language:
+                startActivity(new Intent(this, LanguageActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    public void actionResourceClickMenuContacts(MenuItem item) {
-        Intent intent = new Intent(this, Contacts.class);
-        startActivity(intent);
-    }
-
-    public void actionResourceClickMenuInfo(MenuItem item) {
-        Intent intent = new Intent(this, AboutUs.class);
-        startActivity(intent);
-    }
-
-    public void actionResourceClickMenuLanguage(MenuItem item) {
-        Intent intent = new Intent(this, LanguageActivity.class);
-        startActivity(intent);
     }
 
 }

@@ -38,8 +38,8 @@ public class WelcomeActivity extends AppCompatActivity {
 
     public void startConferenceSearch(View view) {
         Intent intent = new Intent(this, SearchConference.class);
-        startActivity(intent);
-    }
+    startActivity(intent);
+}
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");
@@ -49,34 +49,24 @@ public class WelcomeActivity extends AppCompatActivity {
         return true;
     }
 
-  public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         Log.d("WelcomeActivity", "onOptionsItemSelected");
-        //handle action bar clicks here
-//the action bar will automatically handle clicks on the home/Up button, so long
-        //as we specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+// handle presses on the action bar item
+        switch (item.getItemId()) {
 
-        //nonInspection SimlifiableIfStatement
-        if (id == R.id.action_information) {
-            return true;
+            case R.id.action_information:
+                startActivity(new Intent(this, AboutUs.class));
+                return true;
+
+            case R.id.action_contacts:
+                startActivity(new Intent(this, Contacts.class));
+                return true;
+
+            case R.id.action_language:
+                startActivity(new Intent(this, LanguageActivity.class));
+                return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    public void actionResourceClickMenuContacts(MenuItem item) {
-        Intent intent = new Intent(this, Contacts.class);
-        startActivity(intent);
-    }
-
-    public void actionResourceClickMenuInfo(MenuItem item) {
-        Intent intent = new Intent(this, AboutUs.class);
-        startActivity(intent);
-    }
-
-    public void actionResourceClickMenuLanguage(MenuItem item) {
-        Intent intent = new Intent(this, LanguageActivity.class);
-        startActivity(intent);
     }
 
 
