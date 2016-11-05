@@ -8,6 +8,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -51,6 +52,7 @@ public class WelcomeActivity extends AppCompatActivity {
   public boolean onOptionsItemSelected(MenuItem item) {
         Log.d("WelcomeActivity", "onOptionsItemSelected");
         //handle action bar clicks here
+      //sjdhjf
 //the action bar will automatically handle clicks on the home/Up button, so long
         //as we specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
