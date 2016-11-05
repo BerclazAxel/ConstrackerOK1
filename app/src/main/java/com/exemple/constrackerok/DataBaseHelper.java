@@ -16,7 +16,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     public static final String COL_5 = "FIRSTNAME";
     public static final String COL_6 = "LASTNAME";
     public static final String COL_7 = "PHONENUMBER";
-
+//
     public DataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
         SQLiteDatabase db = this.getWritableDatabase();
