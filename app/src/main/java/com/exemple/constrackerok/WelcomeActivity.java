@@ -54,7 +54,7 @@ public class WelcomeActivity extends AppCompatActivity {
 //the action bar will automatically handle clicks on the home/Up button, so long
         //as we specify a parent activity in AndroidManifest.xml.
 
-        int id = item.getItemIf();
+        int id = item.getItemId();
 
         //nonInspection SimlifiableIfStatement
         if (id == R.id.action_information) {
