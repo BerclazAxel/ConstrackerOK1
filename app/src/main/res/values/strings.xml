@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">ConstrackerOK</string>
-    <string name="title_activity_language" translatable="false">LanguageActivity</string>
-    <string name="please_select_your_language_ns_il_vous_pla_t_s_lectionnez_la_langue" translatable="false">Please select your language\nS\'il vous plaît, sélectionnez la langue</string>
+    <string name="title_activity_language" translatable="false">ConstrackerOK</string>
+    <string name="please_select_your_language_ns_il_vous_pla_t_s_lectionnez_la_langue">Please select your language\nS\'il vous plaît, sélectionnez la langue</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
     <string name="title_activity_search_conference">SearchConference</string>
     <string name="title_activity_conference_data">ConferenceData</string>

@@ -8,6 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".LanguageActivity"
             android:label="@string/title_activity_language"
@@ -49,7 +50,18 @@
         <activity
             android:name=".ProposeTopic"
             android:label="@string/title_activity_propose_topic"
-            android:theme="@style/AppTheme.NoActionBar"></activity><!-- ATTENTION: This was auto-generated to add Google Play services to your project for
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Contacts"
+            android:label="ConsTracker"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".AboutUs"
+            android:label="ConsTracker"
+
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <!-- ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information. -->
         <meta-data
             android:name="com.google.android.gms.version"

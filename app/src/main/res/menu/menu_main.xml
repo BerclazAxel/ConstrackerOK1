@@ -7,18 +7,20 @@
     android:title = "About us"
     android:orderInCategory="100"
     app:showAsAction="never"
-    android:onClick="actionResourceClickMenuInfo"/>
+
+    />
 
     <item android:id="@+id/action_contacts"
         android:title = "Contacts"
         android:orderInCategory="101"
         app:showAsAction="never"
-        android:onClick="actionResourceClickMenuContacts"/>
+
+       />
 
 
     <item android:id="@+id/action_language"
         android:title = "Change language"
         android:orderInCategory="101"
         app:showAsAction="never"
-        android:onClick="actionResourceClickMenuLanguage"/>
+       />
 </menu>
