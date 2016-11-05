@@ -107,10 +107,17 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     public void actionResourceClickMenuContacts(MenuItem item) {
-//
+        Intent intent = new Intent(this, Contacts.class);
+        startActivity(intent);
     }
 
     public void actionResourceClickMenuInfo(MenuItem item) {
-        //
+        Intent intent = new Intent(this, AboutUs.class);
+        startActivity(intent);
+    }
+
+    public void actionResourceClickMenuLanguage(MenuItem item) {
+        Intent intent = new Intent(this, LanguageActivity.class);
+        startActivity(intent);
     }
 }

@@ -15,4 +15,10 @@
         app:showAsAction="never"
         android:onClick="actionResourceClickMenuContacts"/>
 
+
+    <item android:id="@+id/action_language"
+        android:title = "Change language"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:onClick="actionResourceClickMenuLanguage"/>
 </menu>

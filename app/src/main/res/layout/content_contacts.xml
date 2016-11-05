@@ -68,7 +68,7 @@
             android:id="@+id/textView16" />
 
         <TextView
-            android:text="TextView"
+            android:text="Email address:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -80,7 +80,7 @@
             android:id="@+id/textView17" />
 
         <TextView
-            android:text="TextView"
+            android:text="Address:"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -91,7 +91,7 @@
             android:id="@+id/textView18" />
 
         <TextView
-            android:text="TextView"
+            android:text="+4178 777 00 00"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -103,7 +103,7 @@
             android:id="@+id/textView19" />
 
         <TextView
-            android:text="TextView"
+            android:text="contact@constracker.ch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/textView17"
@@ -112,7 +112,9 @@
             android:id="@+id/textView21" />
 
         <TextView
-            android:text="TextView"
+            android:text=
+                "Rue de Best 7,  Sion-1950,
+            Switzerland"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView22"
