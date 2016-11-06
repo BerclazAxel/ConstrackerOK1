@@ -13,7 +13,8 @@ public static final int database_version = 1;
     // using the table name
     // we specify 2 column names and 2 data type (text)
     // operator "," between 2 column names
-public String CREATE_QUERY =  "CREATE TABLE" + TableData.TableInfo.TABLE_NAME + "(" + TableData.TableInfo.USER_NAME + "TEXT, " + TableData.TableInfo.USER_PASSWORD + "TEXT );";
+    // before data type - > add espace
+public String CREATE_QUERY =  "CREATE TABLE " + TableData.TableInfo.TABLE_NAME + "(" + TableData.TableInfo.USER_NAME + " TEXT," + TableData.TableInfo.USER_PASSWORD + " TEXT);";
 
     public DatabaseOperations(Context context){
 
