@@ -25,7 +25,7 @@
 
 
         <TextView
-            android:text="E-Mail"
+            android:text="E-Mail:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/EMail_txt"
@@ -36,14 +36,14 @@
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:ems="10"
-            android:id="@+id/EMail"
+            android:id="@+id/emailTypedtxt"
             android:textSize="20sp"/>
 
         <TextView
-            android:text="Password"
+            android:text="Password:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Password_txt"
+            android:id="@+id/password_txt"
             android:textSize="20sp"/>
 
 
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:ems="10"
-            android:id="@+id/editText"
+            android:id="@+id/passwordTypedtxt"
             android:textSize="20sp"/>
 
         <Button
@@ -61,8 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/Connect"
-            android:onClick="startConnection"  />
+            android:id="@+id/Connect" />
     </LinearLayout>
 
 </RelativeLayout>

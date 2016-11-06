@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -47,7 +45,6 @@ public class CreateAccount extends AppCompatActivity {
         REG = (Button) findViewById(R.id.NextBtn);
 
 
-
         REG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,18 +54,16 @@ public class CreateAccount extends AppCompatActivity {
 
                 if (!(user_pass.equals(con_pass))) {
                     Toast.makeText(getBaseContext(), "Passwords are not matching", Toast.LENGTH_LONG).show();
-              //and we reset all fields
+                    //and we reset all fields
                     USER_NAME.setText("");
                     USER_PASS.setText("");
                     CON_PASS.setText("");
-                }
-
-                else {
+                } else {
 
                     DatabaseOperations DB = new DatabaseOperations(ctx);
                     //we insert information into database table
-                    DB.putInformation(DB, user_name, user_pass);
-                Toast.makeText(getBaseContext(), "Registration success", Toast.LENGTH_LONG).show();
+                    DB.registerUserToDB(DB, user_name, user_pass);
+                    Toast.makeText(getBaseContext(), "Registration success", Toast.LENGTH_LONG).show();
                     finish();
 
                 }
@@ -79,12 +74,8 @@ public class CreateAccount extends AppCompatActivity {
         });
 
 
-
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-
-
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
