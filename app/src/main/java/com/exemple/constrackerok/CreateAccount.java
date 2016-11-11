@@ -1,17 +1,35 @@
 package com.exemple.constrackerok;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.appindexing.Action;
+import com.google.android.gms.appindexing.AppIndex;
+import com.google.android.gms.appindexing.Thing;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class CreateAccount extends AppCompatActivity {
+
+
+    //Name of the user (email), Password, Confirmed password.
+    EditText USER_NAME, USER_PASS, CON_PASS;
+    String user_name, user_pass, con_pass;
+    //we create an object for the button
+    Button REG;
+    Context ctx = this;
+    private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,14 +38,45 @@ public class CreateAccount extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //DATABASE part
+        USER_NAME = (EditText) findViewById(R.id.EMailtxt);
+        USER_PASS = (EditText) findViewById(R.id.Passwordtxt);
+        CON_PASS = (EditText) findViewById(R.id.RepeatPasswordtxt);
+        REG = (Button) findViewById(R.id.NextBtn);
+
+
+        REG.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                user_name = USER_NAME.getText().toString();
+                user_pass = USER_PASS.getText().toString();
+                con_pass = CON_PASS.getText().toString();
+
+                if (!(user_pass.equals(con_pass))) {
+                    Toast.makeText(getBaseContext(), "Passwords are not matching", Toast.LENGTH_LONG).show();
+                    //and we reset all fields
+                    USER_NAME.setText("");
+                    USER_PASS.setText("");
+                    CON_PASS.setText("");
+                } else {
+
+                    DatabaseOperations DB = new DatabaseOperations(ctx);
+                    //we insert information into database table
+                    DB.registerUserToDB(DB, user_name, user_pass);
+                    Toast.makeText(getBaseContext(), "Registration success", Toast.LENGTH_LONG).show();
+                    finish();
+
+                }
+
+                Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
+                startActivity(intent);
+            }
+        });
+
+
+        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-
-    public void startConnection(View view) {
-
-        Intent intent = new Intent(this, ProfilsInformations.class);
-        startActivity(intent);
-    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");
@@ -57,4 +106,39 @@ public class CreateAccount extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    public Action getIndexApiAction() {
+        Thing object = new Thing.Builder()
+                .setName("CreateAccount Page") // TODO: Define a title for the content shown.
+                // TODO: Make sure this auto-generated URL is correct.
+                .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
+                .build();
+        return new Action.Builder(Action.TYPE_VIEW)
+                .setObject(object)
+                .setActionStatus(Action.STATUS_TYPE_COMPLETED)
+                .build();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        client.connect();
+        AppIndex.AppIndexApi.start(client, getIndexApiAction());
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+        // ATTENTION: This was auto-generated to implement the App Indexing API.
+        // See https://g.co/AppIndexing/AndroidStudio for more information.
+        AppIndex.AppIndexApi.end(client, getIndexApiAction());
+        client.disconnect();
+    }
 }

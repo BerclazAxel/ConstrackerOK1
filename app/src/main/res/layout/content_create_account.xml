@@ -52,7 +52,7 @@
             android:text="Repeat password:"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Repeatpassword"
+            android:id="@+id/Repeatassword"
             android:textSize="20sp"/>
 
         <EditText
@@ -69,8 +69,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:id="@+id/NextBtn"
-            android:onClick="startConnection"/>
+            android:id="@+id/NextBtn"/>
+
+
     </LinearLayout>
 
 </RelativeLayout>
