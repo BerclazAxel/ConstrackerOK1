@@ -25,9 +25,15 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.jar.Attributes;
+
 public class SpeakerSpace extends AppCompatActivity {
+
+    //replace it by the object
     Bundle bn;
     String USERNAME;
+    String PASSWORD;
+
     Button del;
     DatabaseOperations dop;
     Context ctx = this;
@@ -62,6 +68,7 @@ public class SpeakerSpace extends AppCompatActivity {
                                 String userNameDel = "Dob";
                                 dop.deleteUser(dop, userNameDel, passwordDel);
                                 Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
+                                //finish the activity
                                 finish();
                             }
                         })
@@ -72,18 +79,26 @@ public class SpeakerSpace extends AppCompatActivity {
                         })
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .show();
-
-
             }
         });
-
     }
 
     public void startProposeTopic(View view) {
+
         Intent intent = new Intent(SpeakerSpace.this, ProposeTopic.class);
+
+        bn.putString("user_name", USERNAME );
+        bn.putString("user_password", PASSWORD);
+        //we attache the bunddle calss to the activity
+         intent.putExtras(bn);
         startActivity(intent);
     }
 
+   public void modifyMyProfile(View view) {
+
+       Intent intent = new Intent(SpeakerSpace.this, ProposeTopic.class);
+       startActivity(intent);
+   }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");

@@ -69,6 +69,18 @@ String selection = TableData.TableInfo.USER_NAME+ " LIKE ? AND " + TableData.Tab
         // delete (table, whereClause, whereArgs)
         sq.delete(TableData.TableInfo.TABLE_NAME, selection, arg);
 
+    }
+
+    //send object instead of string
+    public void updateUserInfo(DatabaseOperations dop, String user_name, String user_pass, String  newuser_name) {
+SQLiteDatabase sq = dop.getWritableDatabase();
+        String selection = TableData.TableInfo.USER_NAME + " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ? ";
+        String args [] = {user_name, user_pass};
+        ContentValues values = new ContentValues();
+        values.put(TableData.TableInfo.USER_NAME, newuser_name);
+        sq.update(TableData.TableInfo.TABLE_NAME, values, selection, args);
 
     }
-}
+
+
+}//END
