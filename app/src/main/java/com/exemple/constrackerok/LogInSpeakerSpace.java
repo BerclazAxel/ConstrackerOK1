@@ -62,9 +62,14 @@ public class LogInSpeakerSpace extends AppCompatActivity {
 
                 } while (cr.moveToNext()); //move untill there is a raw
                 if (login_status) {
+
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
                     startActivity(intent);
+                    Bundle b = new Bundle();
+                    //key string, value
+                    b.putString("user_email", NAME);
+                    intent.putExtras(b);
 
                 } else {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();

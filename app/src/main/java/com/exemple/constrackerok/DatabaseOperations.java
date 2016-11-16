@@ -59,4 +59,16 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
         return cr;
     }
+
+//we remove user-speaker from database
+    public void deleteUser(DatabaseOperations dop, String user, String pass) {
+String selection = TableData.TableInfo.USER_NAME+ " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ?";
+        String coloumns [] = {TableData.TableInfo.USER_PASSWORD};
+        String arg[] = {user, pass};
+        SQLiteDatabase sq = dop.getWritableDatabase();
+        // delete (table, whereClause, whereArgs)
+        sq.delete(TableData.TableInfo.TABLE_NAME, selection, arg);
+
+
+    }
 }
