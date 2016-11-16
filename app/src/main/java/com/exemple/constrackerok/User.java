@@ -1,6 +1,6 @@
 package com.exemple.constrackerok;
 
-public class Users {
+public class User {
 
     private int idUser;
     private String title;
@@ -11,10 +11,10 @@ public class Users {
     private String password;
 
 
-    public Users() {
+    public User() {
     }
 
-    public Users(int idUser, String title, String name, String surname, String tel, String email, String password) {
+    public User(int idUser, String title, String name, String surname, String tel, String email, String password) {
         this.idUser = idUser;
         this.title = title;
         this.name = name;

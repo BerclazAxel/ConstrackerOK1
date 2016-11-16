@@ -27,7 +27,7 @@ public class Topic {
         this.date = date;
         this.idRoom = idRoom;
         this.idSpeaker = idSpeaker;
-        
+
     }
 
     public Date getDate() {

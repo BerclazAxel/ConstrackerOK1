@@ -15,7 +15,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
     // we specify 2 column names and 2 data type (text)
     // operator "," between 2 column names
     // before data type - > add espace
-    public String CREATE_QUERY = "CREATE TABLE " + TableData.TableInfo.TABLE_NAME + "(" + TableData.TableInfo.USER_NAME + " TEXT," + TableData.TableInfo.USER_PASSWORD + " TEXT);";
+    public String CREATE_QUERY = "CREATE TABLE " + TableData.TableInfo.TABLE_NAME_USER + "(" + TableData.TableInfo.USER_NAME + " TEXT," + TableData.TableInfo.USER_PASSWORD + " TEXT);";
 
     public DatabaseOperations(Context context) {
 
@@ -40,7 +40,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put(TableData.TableInfo.USER_NAME, name);
         cv.put(TableData.TableInfo.USER_PASSWORD, password);
-        long k = sq.insert(TableData.TableInfo.TABLE_NAME, null, cv);
+        long k = sq.insert(TableData.TableInfo.TABLE_NAME_USER, null, cv);
 
         Log.d("Database operations", "One raw inserted");
 
@@ -55,7 +55,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
         Query the given URL, returning a Cursor over the result set.
         Parameters: distinct
         boolean: true if you want each row to be unique, false otherwise. */
-        Cursor cr = sq.query(TableData.TableInfo.TABLE_NAME, coloumns, null, null, null, null, null);
+        Cursor cr = sq.query(TableData.TableInfo.TABLE_NAME_USER, coloumns, null, null, null, null, null);
 
         return cr;
     }
@@ -67,7 +67,7 @@ String selection = TableData.TableInfo.USER_NAME+ " LIKE ? AND " + TableData.Tab
         String arg[] = {user, pass};
         SQLiteDatabase sq = dop.getWritableDatabase();
         // delete (table, whereClause, whereArgs)
-        sq.delete(TableData.TableInfo.TABLE_NAME, selection, arg);
+        sq.delete(TableData.TableInfo.TABLE_NAME_USER, selection, arg);
 
     }
 
@@ -78,7 +78,7 @@ SQLiteDatabase sq = dop.getWritableDatabase();
         String args [] = {user_name, user_pass};
         ContentValues values = new ContentValues();
         values.put(TableData.TableInfo.USER_NAME, newuser_name);
-        sq.update(TableData.TableInfo.TABLE_NAME, values, selection, args);
+        sq.update(TableData.TableInfo.TABLE_NAME_USER, values, selection, args);
 
     }
 
