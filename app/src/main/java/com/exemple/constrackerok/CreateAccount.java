@@ -60,7 +60,7 @@ public class CreateAccount extends AppCompatActivity {
                     CON_PASS.setText("");
                 } else {
 
-                    DatabaseOperations DB = new DatabaseOperations(ctx);
+                    OpenHelperUSERdb DB = new OpenHelperUSERdb(ctx);
                     //we insert information into database table
                     DB.registerUserToDB(DB, user_name, user_pass);
                     Toast.makeText(getBaseContext(), "Registration success", Toast.LENGTH_LONG).show();

@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -31,7 +29,7 @@ public class ProfilsInformations extends AppCompatActivity {
     String user_name, user_pass;
     String new_gender, new_name, new_surname, new_telephone;
     Context ctx = this;
-    DatabaseOperations dop;
+    OpenHelperUSERdb dop;
 
 
     private GoogleApiClient client;
@@ -68,8 +66,8 @@ public class ProfilsInformations extends AppCompatActivity {
 
         New_telephone = (EditText) findViewById(R.id.newPhoneNumbertxt);
         new_telephone = New_telephone.getText().toString();
-        
-        dop = new DatabaseOperations(ctx);
+
+        dop = new OpenHelperUSERdb(ctx);
         dop.updateUserInfo(dop, user_name, user_pass, new_name);
         Toast.makeText(getBaseContext(), "Modification Success", Toast.LENGTH_LONG).show();
         // to get Bundle values
