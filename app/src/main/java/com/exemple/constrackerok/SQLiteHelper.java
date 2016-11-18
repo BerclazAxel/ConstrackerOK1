@@ -54,7 +54,7 @@ public class SQLiteHelper extends SQLiteOpenHelper{
         db.execSQL("DROP TABLE IF EXISTS " + NewConferenceDB.TableRoom.CREATE_TABLE_ROOM);
         db.execSQL("DROP TABLE IF EXISTS " + NewConferenceDB.TableTopic.CREATE_TABLE_TOPIC);
 
-        //create new tables
+        //create new tables/
         onCreate(db);
     }
 
