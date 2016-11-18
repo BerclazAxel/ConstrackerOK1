@@ -77,7 +77,7 @@ public class NewConferenceDB {
         public static String TOPIC_ID_ROOM = "idRoom";
 
         //Table topic create statement
-        public static final String CREATE_TABLE_ROOM = "CREATE TABLE "
+        public static final String CREATE_TABLE_TOPIC = "CREATE TABLE "
                 + TABLE_NAME_TOPIC + "("
                 + TableTopic.TOPIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TableTopic.TOPIC_NAME + " TEXT, "
@@ -87,7 +87,7 @@ public class NewConferenceDB {
                 + "FOREIGN KEY (" + TOPIC_ID_SPEAKER+ ") REFERENCES " + TableUser.TABLE_NAME_USER + " (" + TOPIC_ID + "), "
                 + "FOREIGN KEY (" + TOPIC_ID_ROOM  + ") REFERENCES " + TableRoom.TABLE_NAME_ROOM + " (" + TOPIC_ID +") "
                 + ");";
-                
+
     }
 
 

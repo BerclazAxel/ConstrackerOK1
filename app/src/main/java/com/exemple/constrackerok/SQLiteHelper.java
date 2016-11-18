@@ -42,17 +42,17 @@ public class SQLiteHelper extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(PersonEntry.CREATE_TABLE_PERSON);
-        db.execSQL(RecordEntry.CREATE_TABLE_RECORD);
-        db.execSQL(PersonRecordEntry.CREATE_TABLE_PERSON_RECORD);
+        db.execSQL(NewConferenceDB.TableUser.CREATE_TABLE_USER);
+        db.execSQL(NewConferenceDB.TableRoom.CREATE_TABLE_ROOM);
+        db.execSQL(NewConferenceDB.TableTopic.CREATE_TABLE_TOPIC);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //drop old tables
-        db.execSQL("DROP TABLE IF EXISTS " + PersonEntry.TABLE_PERSON);
-        db.execSQL("DROP TABLE IF EXISTS " + RecordEntry.TABLE_RECORD);
-        db.execSQL("DROP TABLE IF EXISTS " + PersonRecordEntry.TABLE_PERSON_RECORD);
+        db.execSQL("DROP TABLE IF EXISTS " + NewConferenceDB.TableUser.CREATE_TABLE_USER);
+        db.execSQL("DROP TABLE IF EXISTS " + NewConferenceDB.TableRoom.CREATE_TABLE_ROOM);
+        db.execSQL("DROP TABLE IF EXISTS " + NewConferenceDB.TableTopic.CREATE_TABLE_TOPIC);
 
         //create new tables
         onCreate(db);
