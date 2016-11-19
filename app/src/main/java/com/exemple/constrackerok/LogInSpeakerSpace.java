@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -47,7 +45,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
             public void onClick(View v) {
                 username = USERNAME.getText().toString();
                 userpass = USERPASS.getText().toString();
-                DatabaseOperations dop = new DatabaseOperations(ctx);
+                OpenHelperUSERdb dop = new OpenHelperUSERdb(ctx);
                 Cursor cr = dop.getInformation(dop);
                 // here we receive info of registered data
                 cr.moveToFirst();
@@ -62,9 +60,14 @@ public class LogInSpeakerSpace extends AppCompatActivity {
 
                 } while (cr.moveToNext()); //move untill there is a raw
                 if (login_status) {
+
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
                     startActivity(intent);
+                    Bundle b = new Bundle();
+                    //key string, value
+                    b.putString("user_email", NAME);
+                    intent.putExtras(b);
 
                 } else {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();

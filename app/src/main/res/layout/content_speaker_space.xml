@@ -41,6 +41,28 @@
             android:textSize="20sp"
             android:id="@+id/ProposeanewtopicBtn"
             android:onClick="startProposeTopic"/>
+
+        <Button
+            android:text="MODIFY MY PROFILE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textSize="20sp"
+            android:id="@+id/modifyMyProfilebtn"
+            android:onClick="modifyMyProfile"
+            />
+
+
+
+        <Button
+            android:text="@string/delete_my_profile"
+            android:textColor="@android:color/holo_red_dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textSize="20sp"
+            android:id="@+id/deleteAccountbtn"
+           />
     </LinearLayout>
 
 </RelativeLayout>
