@@ -8,15 +8,13 @@ public class NewConferenceDB {
 
     public static abstract class TableUser implements BaseColumns {
 
-        // public static final String DATABASE_USER = "user_table";
-
         //Table name
         public static final String TABLE_NAME_USER = "User";
 
         //TABLE FOR SPEAKERS
         public static final String USER_ID = "idUser";
         public static final String USER_TITLE = "user_title";
-        public static final String USER_NAME_USER = "user_name";
+        public static final String USER_NAME = "user_name";
         public static final String USER_SURNAME = "user_surname";
         public static final String USER_TEL = "user_tel";
         public static final String USER_EMAIL = "user_email";
@@ -29,7 +27,7 @@ public class NewConferenceDB {
                 + TABLE_NAME_USER + "("
                 + TableUser.USER_ID + " ID INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TableUser.USER_TITLE + " TEXT, "
-                + TableUser.USER_NAME_USER + " TEXT, "
+                + TableUser.USER_NAME + " TEXT, "
                 + TableUser.USER_SURNAME + " TEXT, "
                 + TableUser.USER_TEL + " TEXT, "
                 + TableUser.USER_EMAIL + " TEXT, "
@@ -39,15 +37,14 @@ public class NewConferenceDB {
     }
 
     public static abstract class TableRoom implements BaseColumns {
-
-        //public static final String DATABASE_TOPIC = "topic_table";
+        //Table name
+        public static final String TABLE_NAME_ROOM = "Room";
 
         //TABLE FOR ROOM
         public static final String ROOM_ID = "idRoom";
         public static final String ROOM_NAME = "room_name";
         public static final int ROOM_NBPEOPLE = 0;
-        //Table name
-        public static final String TABLE_NAME_ROOM = "Room";
+
 
 
         //Table room create statement

@@ -46,7 +46,7 @@ public class OpenHelperTOPICdb {
     public void registerUserToDB(OpenHelperUSERdb dop, String name, String password) {
         SQLiteDatabase sq = dop.getWritableDatabase();
         ContentValues cv = new ContentValues();
-        cv.put(TableData.TableInfo.USER_NAME_USER, name);
+        cv.put(TableData.TableInfo.USER_NAME, name);
         cv.put(TableData.TableInfo.USER_PASSWORD, password);
         long k = sq.insert(TableData.TableInfo.TABLE_NAME_USER, null, cv);
 
@@ -57,7 +57,7 @@ public class OpenHelperTOPICdb {
     //Object cursor
     public Cursor getInformation(OpenHelperUSERdb dop) {
         SQLiteDatabase sq = dop.getReadableDatabase();
-        String[] coloumns = {TableData.TableInfo.USER_NAME_USER, TableData.TableInfo.USER_PASSWORD};
+        String[] coloumns = {TableData.TableInfo.USER_NAME, TableData.TableInfo.USER_PASSWORD};
       /* Cursor query (String table, String[] columns, String selection, String[] selectionArgs,
         String groupBy, String having, String orderBy)
         Query the given URL, returning a Cursor over the result set.
@@ -70,7 +70,7 @@ public class OpenHelperTOPICdb {
 
     //we remove user-speaker from database
     public void deleteUser(OpenHelperUSERdb dop, String user, String pass) {
-        String selection = TableData.TableInfo.USER_NAME_USER + " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ?";
+        String selection = TableData.TableInfo.USER_NAME + " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ?";
         String coloumns[] = {TableData.TableInfo.USER_PASSWORD};
         String arg[] = {user, pass};
         SQLiteDatabase sq = dop.getWritableDatabase();
@@ -82,10 +82,10 @@ public class OpenHelperTOPICdb {
     //send object instead of string
     public void updateUserInfo(OpenHelperUSERdb dop, String user_name, String user_pass, String newuser_name) {
         SQLiteDatabase sq = dop.getWritableDatabase();
-        String selection = TableData.TableInfo.USER_NAME_USER + " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ? ";
+        String selection = TableData.TableInfo.USER_NAME + " LIKE ? AND " + TableData.TableInfo.USER_PASSWORD + " LIKE ? ";
         String args[] = {user_name, user_pass};
         ContentValues values = new ContentValues();
-        values.put(TableData.TableInfo.USER_NAME_USER, newuser_name);
+        values.put(TableData.TableInfo.USER_NAME, newuser_name);
         sq.update(TableData.TableInfo.TABLE_NAME_USER, values, selection, args);
 
     }*/
