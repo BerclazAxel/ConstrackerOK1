@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -45,8 +46,8 @@ public class LogInSpeakerSpace extends AppCompatActivity {
             public void onClick(View v) {
                 username = USERNAME.getText().toString();
                 userpass = USERPASS.getText().toString();
-                OpenHelperUSERdb dop = new OpenHelperUSERdb(ctx);
-                Cursor cr = dop.getInformation(dop);
+
+
                 // here we receive info of registered data
                 cr.moveToFirst();
                 boolean login_status = false;

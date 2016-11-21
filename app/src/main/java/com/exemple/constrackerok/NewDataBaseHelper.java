@@ -4,25 +4,25 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class NewSQLiteHelper extends SQLiteOpenHelper{
+public class NewDataBaseHelper extends SQLiteOpenHelper{
     private SQLiteDatabase db;
 
     //Infos about database
     private static final String DATABASE_NAME = "ConsTracker.db";
     private static final int DATABASE_VERSION = 1;
-    private static NewSQLiteHelper instance;
+    private static NewDataBaseHelper instance;
 
 
     //use a singleton
     //we want always just one instance of the database
-    private NewSQLiteHelper(Context context) {
+    public NewDataBaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         db = this.getWritableDatabase();
     }
 
-    public static NewSQLiteHelper getInstance(Context context){
+    public static NewDataBaseHelper getInstance(Context context){
         if(instance == null){
-            instance = new NewSQLiteHelper(context.getApplicationContext());
+            instance = new NewDataBaseHelper(context.getApplicationContext());
             //Enable foreign key support
             instance.db.execSQL("PRAGMA foreign_keys = ON;");
         }

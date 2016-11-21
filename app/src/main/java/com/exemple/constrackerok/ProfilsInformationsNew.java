@@ -16,22 +16,15 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class ProfilsInformations extends AppCompatActivity {
+public class ProfilsInformationsNew extends AppCompatActivity {
     private RadioGroup groupGenderGR;
     private RadioButton radioGenderButton;
-
-    EditText New_name, New_surname, New_telephone;
-
-    //declaration of variables
-
-    String new_gender, new_name, new_surname, new_telephone;
-    Context ctx = this;
-    UserDataSource dop;
 
 
     private GoogleApiClient client;
@@ -54,28 +47,35 @@ public class ProfilsInformations extends AppCompatActivity {
 
     public void startSubmitProfile(View view) {
         // here we recieve typed data from EditText, Radiobutton
-// get selected radio button from radioGroup
+        // get selected radio button from radioGroup
+        User speaker = new User ();
+
         int selectedId = groupGenderGR.getCheckedRadioButtonId();
         // find the radiobutton by returned id
         radioGenderButton = (RadioButton) findViewById(selectedId);
-        new_gender = radioGenderButton.getText().toString();
+        speaker.setTitle(radioGenderButton.getText().toString());
 
-        New_name = (EditText) findViewById(R.id.newNametxt);
-        new_name = New_name.getText().toString();
+        EditText name = (EditText) findViewById(R.id.newNametxt);
+        String nameStr = name.getText().toString();
+        speaker.setName(nameStr);
 
-        New_surname = (EditText) findViewById(R.id.newSurnametxt);
-        new_surname = New_surname.getText().toString();
+        EditText surname = (EditText) findViewById(R.id.newSurnametxt);
+        String surnameStr = name.getText().toString();
+        speaker.setName(surnameStr);
 
-        New_telephone = (EditText) findViewById(R.id.newPhoneNumbertxt);
-        new_telephone = New_telephone.getText().toString();
+        EditText telephone = (EditText) findViewById(R.id.phoneNumbertxt);
+        String telephoneStr = telephone.getText().toString();
+        speaker.setTel(telephoneStr);
 
+        //to get email + password from Intent - previous activity
+        speaker.setEmail(getIntent().getStringExtra("passMeUserEmail"));
+        speaker.setPassword(getIntent().getStringExtra("passMeUserPassword"));
 
-        Toast.makeText(getBaseContext(), "Modification Success", Toast.LENGTH_LONG).show();
-        // to get Bundle values
-        // we recive it thanks to the key values
-        //Bundle bn = getIntent().getExtras();
-        //user_name = bn.getString("user_name");
-        //user_pass = bn.getString("user_pass");
+        UserDataSource uds = new UserDataSource(this);
+        uds.createUser(speaker);
+
+        //check all fields to be filled it
+        Toast.makeText(getBaseContext(), "Registration is done successfully", Toast.LENGTH_LONG).show();
 
         //check all fields to be filled it
 

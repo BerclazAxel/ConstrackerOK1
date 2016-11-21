@@ -6,7 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.exemple.constrackerok.NewConferenceDB;
-import com.exemple.constrackerok.NewSQLiteHelper;
+import com.exemple.constrackerok.NewDataBaseHelper;
 import com.exemple.constrackerok.Objects.Topic;
 import com.exemple.constrackerok.Objects.User;
 
@@ -20,7 +20,7 @@ public class UserDataSource {
     private Context context;
 
     public UserDataSource(Context context){
-        NewSQLiteHelper sqliteHelper = NewSQLiteHelper.getInstance(context);
+        NewDataBaseHelper sqliteHelper = NewDataBaseHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
         this.context = context;
     }

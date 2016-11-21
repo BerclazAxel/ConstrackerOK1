@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.Contacts"
-    tools:showIn="@layout/activity_contacts">
+    tools:showIn="@layout/activity_contacts"
+    android:background="@drawable/triangle">
 
     <RelativeLayout
         android:layout_width="match_parent"

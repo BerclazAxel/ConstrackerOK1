@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.LanguageActivity"
-    tools:showIn="@layout/activity_language">
+    tools:showIn="@layout/activity_language"
+    android:background="@drawable/triangle">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"

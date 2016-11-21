@@ -67,8 +67,9 @@ public class NewConferenceDB {
         public static final String TOPIC_ID = "idTopic";
         public static final String TOPIC_NAME = "topic_name";
         public static final String TOPIC_START_TIME = "start_time";
-        public static final String TOPIC_END_TIME = "end_time";
         public static final String TOPIC_DATE = "date";
+        public static final String TOPIC_END_TIME = "end_time";
+
         public static String TOPIC_ID_SPEAKER = "idUser";
         public static String TOPIC_ID_ROOM = "idRoom";
 
@@ -77,9 +78,9 @@ public class NewConferenceDB {
                 + TABLE_NAME_TOPIC + "("
                 + TableTopic.TOPIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TableTopic.TOPIC_NAME + " TEXT, "
+                + TableTopic.TOPIC_DATE + " TEXT, "
                 + TableTopic.TOPIC_START_TIME + " TEXT, "
                 + TableTopic.TOPIC_END_TIME + " TEXT, "
-                + TableTopic.TOPIC_DATE + " TEXT, "
                 + "FOREIGN KEY (" + TOPIC_ID_SPEAKER+ ") REFERENCES " + TableUser.TABLE_NAME_USER + " (" + TOPIC_ID + "), "
                 + "FOREIGN KEY (" + TOPIC_ID_ROOM  + ") REFERENCES " + TableRoom.TABLE_NAME_ROOM + " (" + TOPIC_ID +") "
                 + ");";
