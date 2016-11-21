@@ -69,9 +69,9 @@ public class UserDataSource {
     }
 
     /**
-     * Get all Persons
+     * Get all Users
      */
-    public List<User> getAllPersons(){
+    public List<User> getAllUsers(){
         List<User> users = new ArrayList<User>();
         String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER + " ORDER BY " + NewConferenceDB.TableUser.USER_SURNAME;
 
@@ -115,7 +115,7 @@ public class UserDataSource {
      * Delete a User - this will also delete all records
      * for the user
      */
-    public void deletePerson(long id) {
+    public void deleteUser(long id) {
 
             TopicUserRoomDataSource pra = new TopicUserRoomDataSource(context);
             //get all records of the user
