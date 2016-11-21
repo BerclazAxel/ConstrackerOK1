@@ -43,7 +43,7 @@ public class NewConferenceDB {
         //TABLE FOR ROOM
         public static final String ROOM_ID = "idRoom";
         public static final String ROOM_NAME = "room_name";
-        public static final int ROOM_NBPEOPLE = 0;
+        public static final String ROOM_NBPEOPLE = "number_people";
 
 
 
@@ -52,8 +52,7 @@ public class NewConferenceDB {
                 + TABLE_NAME_ROOM + "("
                 + TableRoom.ROOM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + TableRoom.ROOM_NAME + " TEXT, "
-                + TableRoom.ROOM_NAME + " TEXT, " +
-                TableRoom.ROOM_NBPEOPLE + " INTEGER "
+                + TableRoom.ROOM_NBPEOPLE + " INTEGER "
                 + ");";
 
 
