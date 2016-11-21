@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.exemple.constrackerok.NewConferenceDB;
 import com.exemple.constrackerok.NewSQLiteHelper;
+import com.exemple.constrackerok.Objects.Topic;
 import com.exemple.constrackerok.Objects.User;
 
 import java.util.ArrayList;
@@ -114,21 +115,23 @@ public class UserDataSource {
      * Delete a User - this will also delete all records
      * for the user
      */
-    public void deletePerson(long id){
-        //Darya, modify this!!!
+    public void deletePerson(long id) {
 
-        /*RecordDataSource pra = new RecordDataSource(context);
-        //get all records of the user
-        List<Record> records = pra.getAllRecordsByPerson(id);
+            TopicUserRoomDataSource pra = new TopicUserRoomDataSource(context);
+            //get all records of the user
+            List<Topic> topics = pra.getAllTopicsByUser(id);
 
-        for(Record record : records){
-            pra.deleteRecord(record.getId());
-        }*/
+            for (Topic topic : topics) {
+                pra.deleteTopic(topic.getIdTopic());
+            }
 
-        //delete the person
-        this.db.delete(NewConferenceDB.TableUser.TABLE_NAME_USER, NewConferenceDB.TableUser.USER_ID + " = ?",
-                new String[] { String.valueOf(id) });
 
+            //delete the user
+            this.db.delete(NewConferenceDB.TableUser.TABLE_NAME_USER, NewConferenceDB.TableUser.USER_ID + " = ?",
+                    new String[]{String.valueOf(id)});
+
+        }
     }
 
-}
+
+

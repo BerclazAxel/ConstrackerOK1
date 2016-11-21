@@ -78,7 +78,7 @@ public class TopicUserRoomDataSource {
      */
     public Topic getTopicById(long id){
         String sql = "SELECT * FROM " + NewConferenceDB.TableTopic.TABLE_NAME_TOPIC +
-                " WHERE " + NewConferenceDB.TableTopic.TOPIC_ID+ " = " + id;
+                " WHERE " + NewConferenceDB.TableTopic.TOPIC_ID + " = " + id;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
@@ -96,5 +96,46 @@ public class TopicUserRoomDataSource {
 
         return topic;
     }
+
+
+    /**
+     * Get all Topics by User
+     */
+    public List<Topic> getAllTopicsByUser(long user_id){
+        List<Topic> topics = new ArrayList<Topic>();
+        String sql = "SELECT * FROM " + NewConferenceDB.TableTopic.TABLE_NAME_TOPIC + " r, "
+                + NewConferenceDB.TableUser.TABLE_NAME_USER + " p, "
+                + " WHERE p." + NewConferenceDB.TableUser.USER_ID + " = " + user_id
+                + " AND p." + NewConferenceDB.TableUser.USER_ID + " = " + "pr." + NewConferenceDB.TableTopic.TOPIC_ID_SPEAKER
+                + " ORDER BY " + NewConferenceDB.TableTopic.TOPIC_DATE + " DESC";
+
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor.moveToFirst()){
+            do{
+                Topic topic = new Topic();
+                topic.setIdTopic(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
+                topic.setNameTopic(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_NAME)));
+                topic.setStartTime(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_START_TIME)));
+                topic.setEndTime(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_END_TIME)));
+                topic.setIdSpeaker(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID_SPEAKER)));
+                topic.setIdRoom(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID_ROOM)));
+
+                topics.add(topic);
+            } while(cursor.moveToNext());
+        }
+
+        return topics;
+    }
+
+    /**
+     * Delete a Topic
+     */
+    public void deleteTopic(long id){
+        this.db.delete(NewConferenceDB.TableTopic.TABLE_NAME_TOPIC, NewConferenceDB.TableTopic.TOPIC_ID + " = ?",
+                new String[] { String.valueOf(id) });
+    }
+
 
 }
