@@ -75,7 +75,6 @@ public class LogInSpeakerSpace extends AppCompatActivity {
 
                 }
 
-
             }
         });
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

@@ -59,6 +59,7 @@ public class CreateAccount extends AppCompatActivity {
                     USER_EMAIL.setText("");
                     USER_PASS.setText("");
                     CON_PASS.setText("");
+
                 } else {
 
                     UserDataSource uds = new UserDataSource(ctx);

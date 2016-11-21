@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/newNametxt"
+            android:id="@+id/nametxt"
             android:textSize="20sp"/>
 
         <TextView
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/newSurnametxt"
+            android:id="@+id/surnametxt"
             android:textSize="20sp"/>
 
         <TextView
