@@ -81,7 +81,9 @@ public class ProfilsInformations extends AppCompatActivity {
 
         //check all fields to be filled it
 
-
+        UserDataSource uds = new UserDataSource(this);
+        uds.createUser(speaker);
+        
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
