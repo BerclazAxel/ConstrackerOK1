@@ -30,7 +30,7 @@ public class ProfilsInformations extends AppCompatActivity {
 
     //declaration of variables
 
-    String new_gender, nameStr, surnameStr, telStr;
+    String new_gender, nameStr, surnameStr, telStr, email, password;
     Context ctx = this;
     UserDataSource dop;
 
@@ -72,18 +72,19 @@ public class ProfilsInformations extends AppCompatActivity {
         tel = (EditText) findViewById(R.id.phoneNumbertxt);
         telStr = tel.getText().toString();
 
-        String email = getIntent().getStringExtra("passMeUserEmail");
+        email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
-        String password = getIntent().getStringExtra("passMeUserPassword");
+        password = getIntent().getStringExtra("passMeUserPassword");
         speaker.setPassword(password);
 
-        Toast.makeText(getBaseContext(), "Modification Success", Toast.LENGTH_LONG).show();
 
         //check all fields to be filled it
-
+        // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.createUser(speaker);
+        Toast.makeText(getBaseContext(), "Account creation is completed", Toast.LENGTH_LONG).show();
 
+//we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }

@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -25,7 +26,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
     String usernameStr, userpassStr;
     // create Object of Context class
     Context ctx = this;
-
+    UserDataSource uds = new UserDataSource(this);
 
     private GoogleApiClient client;
 
@@ -45,7 +46,8 @@ public class LogInSpeakerSpace extends AppCompatActivity {
                 usernameStr = USERNAME.getText().toString();
                 userpassStr = USERPASS.getText().toString();
 
-                if () {
+                String password = uds.searchPass(usernameStr);
+                if (userpassStr.equals(password)) {
 
 
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();

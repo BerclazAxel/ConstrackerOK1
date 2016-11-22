@@ -111,6 +111,30 @@ public class UserDataSource {
                 new String[] { String.valueOf(user.getIdUser()) });
     }
 
+
+    /*
+
+     */
+   public String searchPass (String uname) {
+              String sql = "SELECT " + NewConferenceDB.TableUser.USER_EMAIL + ", "
+       + NewConferenceDB.TableUser.USER_PASSWORD + " FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER;
+               Cursor cursor = db.rawQuery(sql, null);
+       String a, b;
+       b = "not found";
+
+       if (cursor.moveToFirst()) {
+           do {
+               a = cursor.getString(0);
+
+               if (a.equals(uname)) {
+                   b = cursor.getString(1);
+                   break;
+               }
+           }
+           while (cursor.moveToNext());
+       }
+       return b ;
+   }
     /**
      * Delete a User - this will also delete all records
      * for the user
