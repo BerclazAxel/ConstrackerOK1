@@ -54,6 +54,7 @@ public class RoomDataSource {
                 rooms.add(room);
             } while(cursor.moveToNext());
         }
+
         return rooms;
     }
 

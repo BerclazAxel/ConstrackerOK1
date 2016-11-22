@@ -62,12 +62,10 @@ public class CreateAccount extends AppCompatActivity {
 
                 } else {
 
-                    UserDataSource uds = new UserDataSource(ctx);
-                    //we insert information into database table
 
-                    Toast.makeText(getBaseContext(), "Please continue", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Click the button Continue", Toast.LENGTH_SHORT).show();
                 }
-
+                //here we pass data to another activity
                 Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
                 intent.putExtra("passMeUserEmail", user_email);
                 intent.putExtra("passMeUserPassword", user_pass);
@@ -79,6 +77,7 @@ public class CreateAccount extends AppCompatActivity {
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

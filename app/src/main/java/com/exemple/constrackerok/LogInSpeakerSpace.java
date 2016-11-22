@@ -57,7 +57,6 @@ public class LogInSpeakerSpace extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
 
                 }
-
             }
         });
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
