@@ -55,11 +55,11 @@ public class ProfilsInformationsNew extends AppCompatActivity {
         radioGenderButton = (RadioButton) findViewById(selectedId);
         speaker.setTitle(radioGenderButton.getText().toString());
 
-        EditText name = (EditText) findViewById(R.id.newNametxt);
+        EditText name = (EditText) findViewById(R.id.nametxt);
         String nameStr = name.getText().toString();
         speaker.setName(nameStr);
 
-        EditText surname = (EditText) findViewById(R.id.newSurnametxt);
+        EditText surname = (EditText) findViewById(R.id.surnametxt);
         String surnameStr = name.getText().toString();
         speaker.setName(surnameStr);
 

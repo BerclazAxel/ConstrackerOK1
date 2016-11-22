@@ -25,7 +25,7 @@ public class NewConferenceDB {
 
         public static final String CREATE_TABLE_USER = "CREATE TABLE "
                 + TABLE_NAME_USER + "("
-                + TableUser.USER_ID + " ID INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TableUser.USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + TableUser.USER_TITLE + " TEXT, "
                 + TableUser.USER_NAME + " TEXT, "
                 + TableUser.USER_SURNAME + " TEXT, "
@@ -50,7 +50,7 @@ public class NewConferenceDB {
         //Table room create statement
         public static final String CREATE_TABLE_ROOM = "CREATE TABLE "
                 + TABLE_NAME_ROOM + "("
-                + TableRoom.ROOM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TableRoom.ROOM_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + TableRoom.ROOM_NAME + " TEXT, "
                 + TableRoom.ROOM_NBPEOPLE + " INTEGER "
                 + ");";
@@ -64,25 +64,25 @@ public class NewConferenceDB {
 
 
         //TABLE FOR TOPIC
-        public static final String TOPIC_ID = "idTopic";
-        public static final String TOPIC_NAME = "topic_name";
-        public static final String TOPIC_START_TIME = "start_time";
-        public static final String TOPIC_DATE = "date";
-        public static final String TOPIC_END_TIME = "end_time";
+        public static final String TOPIC_ID = "IdTopic";
+        public static final String TOPIC_NAME = "Topic_name";
+        public static final String TOPIC_START_TIME = "Start_time";
+        public static final String TOPIC_DATE = "Date";
+        public static final String TOPIC_END_TIME = "End_time";
 
-        public static String TOPIC_ID_SPEAKER = "idUser";
-        public static String TOPIC_ID_ROOM = "idRoom";
+        public static final String TOPIC_ID_SPEAKER = "IdSpealker";
+        public static final String TOPIC_ID_ROOM = "IdRoom";
 
         //Table topic create statement
         public static final String CREATE_TABLE_TOPIC = "CREATE TABLE "
                 + TABLE_NAME_TOPIC + "("
-                + TableTopic.TOPIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + TableTopic.TOPIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
                 + TableTopic.TOPIC_NAME + " TEXT, "
                 + TableTopic.TOPIC_DATE + " TEXT, "
                 + TableTopic.TOPIC_START_TIME + " TEXT, "
                 + TableTopic.TOPIC_END_TIME + " TEXT, "
-                + "FOREIGN KEY (" + TOPIC_ID_SPEAKER+ ") REFERENCES " + TableUser.TABLE_NAME_USER + " (" + TOPIC_ID + "), "
-                + "FOREIGN KEY (" + TOPIC_ID_ROOM  + ") REFERENCES " + TableRoom.TABLE_NAME_ROOM + " (" + TOPIC_ID +") "
+                + "FOREIGN KEY (" + TOPIC_ID_SPEAKER + ") REFERENCES " + TableUser.TABLE_NAME_USER + " (" + TableUser.USER_ID + "), "
+                + "FOREIGN KEY (" + TOPIC_ID_ROOM  + ") REFERENCES " + TableRoom.TABLE_NAME_ROOM + " (" + TableRoom.ROOM_ID + ") "
                 + ");";
 
     }
