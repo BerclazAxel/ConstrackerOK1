@@ -2,7 +2,6 @@ package com.exemple.constrackerok;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -24,7 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class LogInSpeakerSpace extends AppCompatActivity {
     Button login;
     EditText USERNAME, USERPASS;
-    String username, userpass;
+    String usernameStr, userpassStr;
     // create Object of Context class
     Context ctx = this;
 
@@ -44,31 +42,16 @@ public class LogInSpeakerSpace extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = USERNAME.getText().toString();
-                userpass = USERPASS.getText().toString();
+                usernameStr = USERNAME.getText().toString();
+                userpassStr = USERPASS.getText().toString();
 
+                if () {
 
-                // here we receive info of registered data
-                cr.moveToFirst();
-                boolean login_status = false;
-                String NAME = "";
-                do {
-                    //column index [0], [1]
-                    if (username.equals(cr.getString(0)) && (userpass.equals(cr.getString(1)))) {
-                        login_status = true;
-                        NAME = cr.getString(0);
-                    }
-
-                } while (cr.moveToNext()); //move untill there is a raw
-                if (login_status) {
 
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
                     startActivity(intent);
-                    Bundle b = new Bundle();
-                    //key string, value
-                    b.putString("user_email", NAME);
-                    intent.putExtras(b);
+
 
                 } else {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();

@@ -17,7 +17,7 @@ public class Topic {
 
     }
 
-    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime,int idRoom, int idSpeaker) {
+    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idRoom, int idSpeaker) {
         this.idTopic = idTopic;
         this.nameTopic = nameTopic;
         this.date = date;

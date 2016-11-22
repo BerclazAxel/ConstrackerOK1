@@ -21,6 +21,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.List;
+
 public class WelcomeActivity extends AppCompatActivity {
 
     /**
@@ -99,9 +101,44 @@ public class WelcomeActivity extends AppCompatActivity {
         top1.setIdTopic((int) tds.AddTopicByUser(top1));
         top2.setIdTopic((int) tds.AddTopicByUser(top2));
 
-        //close db instance
-        NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
-        sqlHelper.getWritableDatabase().close();
+
+        // Reading all rooms
+        Log.d("Reading: ", "Reading all rooms..");
+        List<Room> rooms = rds.getAllRooms();
+
+        for (Room room : rooms) {
+            String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();
+            // Writing rooms to log
+            Log.d("Room: ", log);
+        }
+
+            // Reading all users
+            Log.d("Reading: ", "Reading all users..");
+            List<User> users = uds.getAllUsers();
+
+            for (User user : users) {
+                String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getTitle() + " , Name: " + user.getName()
+                        + " , Surname: " + user.getSurname() + " , Tel: " + user.getTel() + " , Email: " + user.getEmail()
+                        + " , Password: " + user.getPassword();
+                // Writing users to log
+                Log.d("Users: ", logU);
+            }
+
+        // Reading all topics
+        Log.d("Reading: ", "Reading all topics..");
+        List<Topic> topics = tds.getAllTopics();
+
+        for (Topic topic : topics) {
+            String logT = "IdTopic: " + topic.getIdTopic() + " , Subject: " + topic.getNameTopic()
+                    + " , Date: " + topic.getDate() + " , Start time: " + topic.getStartTime()
+                    + " , End time: " + topic.getEndTime() + " , Id Speaker: " + topic.getIdSpeaker()
+                    + " , IdRoom: " + topic.getIdRoom();
+            // Writing users to log
+            Log.d("Topics: ", logT);
+        }
+            //close db instance
+            NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
+            sqlHelper.getWritableDatabase().close();
 
     }
 

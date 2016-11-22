@@ -83,7 +83,7 @@ public class ProfilsInformations extends AppCompatActivity {
 
         UserDataSource uds = new UserDataSource(this);
         uds.createUser(speaker);
-        
+
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
