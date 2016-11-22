@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -22,8 +23,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LogInSpeakerSpace extends AppCompatActivity {
     Button login;
-    EditText USERNAME, USERPASS;
-    String usernameStr, userpassStr;
+    EditText USEREMAIL, USERPASS;
+    String useremailStr, userpassStr;
     // create Object of Context class
     Context ctx = this;
     UserDataSource uds = new UserDataSource(this);
@@ -37,23 +38,26 @@ public class LogInSpeakerSpace extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         login = (Button) findViewById(R.id.Connect);
-        USERNAME = (EditText) findViewById(R.id.emailTypedtxt);
+        USEREMAIL = (EditText) findViewById(R.id.emailTypedtxt);
         USERPASS = (EditText) findViewById(R.id.passwordTypedtxt);
 
+        //Method if a user clicked on login
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                usernameStr = USERNAME.getText().toString();
+                useremailStr = USEREMAIL.getText().toString();
                 userpassStr = USERPASS.getText().toString();
 
-                String password = uds.searchPass(usernameStr);
+//Method where we check if the user exists and correct data
+                String password = uds.searchPass(useremailStr);
                 if (userpassStr.equals(password)) {
 
-
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
-                    startActivity(intent);
 
+                    Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
+                    intent.putExtra("passuserEmailToSpeakerSpace", useremailStr);
+
+                    startActivity(intent);
 
                 } else {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
@@ -63,6 +67,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
         });
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");

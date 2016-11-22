@@ -69,6 +69,31 @@ public class UserDataSource {
     }
 
     /**
+     * Find one Person by Email
+     */
+    public User getUserByEmail(String email){
+        String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER +
+                " WHERE " + NewConferenceDB.TableUser.USER_EMAIL + " = " + email;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        User user = new User();
+        user.setIdUser(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_ID)));
+        user.setTitle(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_TITLE)));
+        user.setName(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_NAME)));
+        user.setSurname(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_SURNAME)));
+        user.setTel(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_TEL)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_EMAIL)));
+        user.setPassword(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_PASSWORD)));
+
+        return user;
+    }
+
+    /**
      * Get all Users
      */
     public List<User> getAllUsers(){
@@ -135,10 +160,14 @@ public class UserDataSource {
        }
        return b ;
    }
+
+
+
     /**
      * Delete a User - this will also delete all records
      * for the user
      */
+
     public void deleteUser(long id) {
 
             TopicUserRoomDataSource pra = new TopicUserRoomDataSource(context);
@@ -148,7 +177,6 @@ public class UserDataSource {
             for (Topic topic : topics) {
                 pra.deleteTopic(topic.getIdTopic());
             }
-
 
             //delete the user
             this.db.delete(NewConferenceDB.TableUser.TABLE_NAME_USER, NewConferenceDB.TableUser.USER_ID + " = ?",

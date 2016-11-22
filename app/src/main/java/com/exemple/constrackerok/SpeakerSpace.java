@@ -15,6 +15,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -24,12 +26,12 @@ public class SpeakerSpace extends AppCompatActivity {
 
     //replace it by the object
     Bundle bn;
-    String USERNAME;
-    String PASSWORD;
+    String USERNAME, PASSWORD, email;
 
     Button del;
-    OpenHelperUSERdb dop;
+
     Context ctx = this;
+    UserDataSource uds = new UserDataSource(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +39,12 @@ public class SpeakerSpace extends AppCompatActivity {
         setContentView(R.layout.activity_speaker_space);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//Here we start delete
-        bn = getIntent().getExtras();
-        USERNAME = bn.getString("user_email");
+        //Here we receive the User email from Intent
+        email = getIntent().getStringExtra("passuserEmailToSpeakerSpace");
+        final User speakerInSpeakerSpace = uds.getUserByEmail(email);
+
+        //bn = getIntent().getExtras();
+        //USERNAME = bn.getString("user_email");
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
         del = (Button) findViewById(R.id.deleteAccountbtn);
 
@@ -47,7 +52,7 @@ public class SpeakerSpace extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-// here we just ask if the user really want us to delete him
+// here we just ask if the user really want us to delete the account
                 Context context = null;
                 new AlertDialog.Builder(context)
                         .setTitle("Delete entry")
@@ -56,10 +61,8 @@ public class SpeakerSpace extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which) {
                                 // continue with delete
                                 // pass the id from the object
-                                // change strings to Object
-                                String passwordDel = "123";
-                                String userNameDel = "Dob";
-                                dop.deleteUser(dop, userNameDel, passwordDel);
+                                int id = speakerInSpeakerSpace.getIdUser();
+                                uds.deleteUser(id);
                                 Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
                                 //finish the activity
                                 finish();
