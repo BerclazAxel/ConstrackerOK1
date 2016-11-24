@@ -28,7 +28,7 @@ public class NewDataBaseHelper extends SQLiteOpenHelper{
         }
         return instance;
     }
-
+//test
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(NewConferenceDB.TableUser.CREATE_TABLE_USER);
