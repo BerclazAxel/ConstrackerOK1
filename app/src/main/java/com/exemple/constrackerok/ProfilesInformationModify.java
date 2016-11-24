@@ -21,8 +21,7 @@ public class ProfilesInformationModify extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+                        .setAction("Action", null).show();/*hziuzu*/            }
         });
     }
 
