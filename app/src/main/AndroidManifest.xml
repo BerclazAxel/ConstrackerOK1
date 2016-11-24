@@ -47,6 +47,10 @@
             android:label="@string/title_activity_speaker_space"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ProfilesInformationModify"
+            android:label="Profilw Information Update"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ProposeTopic"
             android:label="@string/title_activity_propose_topic"
             android:theme="@style/AppTheme.NoActionBar" />
