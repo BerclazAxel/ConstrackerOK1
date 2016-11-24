@@ -44,7 +44,8 @@ public class ProfilesInformationModify extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();           }
+                        .setAction("Action", null).show();
+            }
         });
     }
 
@@ -83,11 +84,10 @@ public class ProfilesInformationModify extends AppCompatActivity {
         uds.updateUser(speaker);
         Toast.makeText(getBaseContext(), "Update is completed", Toast.LENGTH_LONG).show();
 
-//we go to next activity
+        //we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

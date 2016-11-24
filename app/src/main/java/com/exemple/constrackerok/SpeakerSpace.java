@@ -55,7 +55,7 @@ public class SpeakerSpace extends AppCompatActivity {
 // here we just ask if the user really want us to delete the account
                 Context context = null;
                 new AlertDialog.Builder(context)
-                        .setTitle("Delete entry")
+                        .setTitle("Delete confirmation")
                         .setMessage("Are you sure you want to delete this entry?")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
@@ -92,7 +92,8 @@ public class SpeakerSpace extends AppCompatActivity {
 
    public void modifyMyProfile(View view) {
 
-       Intent intent = new Intent(SpeakerSpace.this, ProposeTopic.class);
+       Intent intent = new Intent(SpeakerSpace.this, ProfilesInformationModify.class);
+       intent.putExtra("passuserEmailToSpeakerSpace", email);
        startActivity(intent);
    }
 
