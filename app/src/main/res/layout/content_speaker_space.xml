@@ -57,7 +57,7 @@
 
         <Button
             android:text="@string/delete_my_profile"
-            android:textColor="@android:color/holo_red_dark"
+            android:textColor="#F00"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
