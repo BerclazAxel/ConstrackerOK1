@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.ProfilsInformations"
-    tools:showIn="@layout/activity_profils_informations">
+    tools:showIn="@layout/activity_profils_informations"
+    android:background="@drawable/triangle">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
@@ -52,7 +53,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/newNametxt"
+            android:id="@+id/nametxt"
             android:textSize="20sp"/>
 
         <TextView
@@ -67,7 +68,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:id="@+id/newSurnametxt"
+            android:id="@+id/surnametxt"
             android:textSize="20sp"/>
 
         <TextView
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:inputType="phone"
             android:ems="10"
-            android:id="@+id/newPhoneNumbertxt"
+            android:id="@+id/phoneNumbertxt"
             android:textSize="20sp"/>
 
         <Button

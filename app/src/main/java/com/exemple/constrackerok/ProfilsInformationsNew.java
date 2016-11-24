@@ -22,17 +22,9 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class ProfilsInformations extends AppCompatActivity {
+public class ProfilsInformationsNew extends AppCompatActivity {
     private RadioGroup groupGenderGR;
     private RadioButton radioGenderButton;
-
-    EditText name, surname, tel;
-
-    //declaration of variables
-
-    String new_gender, nameStr, surnameStr, telStr, email, password;
-    Context ctx = this;
-    UserDataSource dop;
 
 
     private GoogleApiClient client;
@@ -55,36 +47,38 @@ public class ProfilsInformations extends AppCompatActivity {
 
     public void startSubmitProfile(View view) {
         // here we recieve typed data from EditText, Radiobutton
-// get selected radio button from radioGroup
+        // get selected radio button from radioGroup
+        User speaker = new User ();
 
-        User speaker = new User();
         int selectedId = groupGenderGR.getCheckedRadioButtonId();
         // find the radiobutton by returned id
         radioGenderButton = (RadioButton) findViewById(selectedId);
-        new_gender = radioGenderButton.getText().toString();
-        speaker.setTitle(new_gender);
-        name = (EditText) findViewById(R.id.nametxt);
-        nameStr = name.getText().toString();
+        speaker.setTitle(radioGenderButton.getText().toString());
+
+        EditText name = (EditText) findViewById(R.id.nametxt);
+        String nameStr = name.getText().toString();
         speaker.setName(nameStr);
-        surname = (EditText) findViewById(R.id.surnametxt);
-        surnameStr = surname.getText().toString();
 
-        tel = (EditText) findViewById(R.id.phoneNumbertxt);
-        telStr = tel.getText().toString();
+        EditText surname = (EditText) findViewById(R.id.surnametxt);
+        String surnameStr = name.getText().toString();
+        speaker.setName(surnameStr);
 
-        email = getIntent().getStringExtra("passMeUserEmail");
-        speaker.setEmail(email);
-        password = getIntent().getStringExtra("passMeUserPassword");
-        speaker.setPassword(password);
+        EditText telephone = (EditText) findViewById(R.id.phoneNumbertxt);
+        String telephoneStr = telephone.getText().toString();
+        speaker.setTel(telephoneStr);
 
+        //to get email + password from Intent - previous activity
+        speaker.setEmail(getIntent().getStringExtra("passMeUserEmail"));
+        speaker.setPassword(getIntent().getStringExtra("passMeUserPassword"));
 
-        //check all fields to be filled it
-        // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.createUser(speaker);
-        Toast.makeText(getBaseContext(), "Account creation is completed", Toast.LENGTH_LONG).show();
 
-//we go to next activity
+        //check all fields to be filled it
+        Toast.makeText(getBaseContext(), "Registration is done successfully", Toast.LENGTH_LONG).show();
+
+        //check all fields to be filled it
+
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
@@ -95,7 +89,7 @@ public class ProfilsInformations extends AppCompatActivity {
      */
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
-                .setName("Profile Information Page") // TODO: Define a title for the content shown.
+                .setName("ProfilsInformations Page") // TODO: Define a title for the content shown.
                 // TODO: Make sure this auto-generated URL is correct.
                 .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
                 .build();

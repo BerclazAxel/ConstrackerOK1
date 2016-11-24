@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -23,8 +24,8 @@ public class CreateAccount extends AppCompatActivity {
 
 
     //Name of the user (email), Password, Confirmed password.
-    EditText USER_NAME, USER_PASS, CON_PASS;
-    String user_name, user_pass, con_pass;
+    EditText USER_EMAIL, USER_PASS, CON_PASS;
+    String user_email, user_pass, con_pass;
     //we create an object for the button
     Button REG;
     Context ctx = this;
@@ -39,7 +40,7 @@ public class CreateAccount extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         //DATABASE part
-        USER_NAME = (EditText) findViewById(R.id.EMailtxt);
+        USER_EMAIL = (EditText) findViewById(R.id.EMailtxt);
         USER_PASS = (EditText) findViewById(R.id.Passwordtxt);
         CON_PASS = (EditText) findViewById(R.id.RepeatPasswordtxt);
         REG = (Button) findViewById(R.id.NextBtn);
@@ -48,27 +49,27 @@ public class CreateAccount extends AppCompatActivity {
         REG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                user_name = USER_NAME.getText().toString();
+                user_email = USER_EMAIL.getText().toString();
                 user_pass = USER_PASS.getText().toString();
                 con_pass = CON_PASS.getText().toString();
 
                 if (!(user_pass.equals(con_pass))) {
                     Toast.makeText(getBaseContext(), "Passwords are not matching", Toast.LENGTH_LONG).show();
                     //and we reset all fields
-                    USER_NAME.setText("");
+                    USER_EMAIL.setText("");
                     USER_PASS.setText("");
                     CON_PASS.setText("");
+
                 } else {
 
-                    OpenHelperUSERdb DB = new OpenHelperUSERdb(ctx);
-                    //we insert information into database table
-                    DB.registerUserToDB(DB, user_name, user_pass);
-                    Toast.makeText(getBaseContext(), "Registration success", Toast.LENGTH_LONG).show();
-                    finish();
 
+                    Toast.makeText(getBaseContext(), "Click the button Continue", Toast.LENGTH_SHORT).show();
                 }
-
+                //here we pass data to another activity
                 Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
+                intent.putExtra("passMeUserEmail", user_email);
+                intent.putExtra("passMeUserPassword", user_pass);
+
                 startActivity(intent);
             }
         });
@@ -76,6 +77,7 @@ public class CreateAccount extends AppCompatActivity {
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

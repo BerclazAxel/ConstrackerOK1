@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.exemple.constrackerok.NewConferenceDB;
-import com.exemple.constrackerok.NewSQLiteHelper;
+import com.exemple.constrackerok.NewDataBaseHelper;
+import com.exemple.constrackerok.Objects.Topic;
 import com.exemple.constrackerok.Objects.User;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class UserDataSource {
     private Context context;
 
     public UserDataSource(Context context){
-        NewSQLiteHelper sqliteHelper = NewSQLiteHelper.getInstance(context);
+        NewDataBaseHelper sqliteHelper = NewDataBaseHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
         this.context = context;
     }
@@ -68,9 +69,34 @@ public class UserDataSource {
     }
 
     /**
-     * Get all Persons
+     * Find one Person by Email
      */
-    public List<User> getAllPersons(){
+    public User getUserByEmail(String email){
+        String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER +
+                " WHERE " + NewConferenceDB.TableUser.USER_EMAIL + " = " + email;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if(cursor != null){
+            cursor.moveToFirst();
+        }
+
+        User user = new User();
+        user.setIdUser(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_ID)));
+        user.setTitle(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_TITLE)));
+        user.setName(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_NAME)));
+        user.setSurname(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_SURNAME)));
+        user.setTel(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_TEL)));
+        user.setEmail(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_EMAIL)));
+        user.setPassword(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableUser.USER_PASSWORD)));
+
+        return user;
+    }
+
+    /**
+     * Get all Users
+     */
+    public List<User> getAllUsers(){
         List<User> users = new ArrayList<User>();
         String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER + " ORDER BY " + NewConferenceDB.TableUser.USER_SURNAME;
 
@@ -110,25 +136,54 @@ public class UserDataSource {
                 new String[] { String.valueOf(user.getIdUser()) });
     }
 
+
+    /*
+
+     */
+   public String searchPass (String uname) {
+              String sql = "SELECT " + NewConferenceDB.TableUser.USER_EMAIL + ", "
+       + NewConferenceDB.TableUser.USER_PASSWORD + " FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER;
+               Cursor cursor = db.rawQuery(sql, null);
+       String a, b;
+       b = "not found";
+
+       if (cursor.moveToFirst()) {
+           do {
+               a = cursor.getString(0);
+
+               if (a.equals(uname)) {
+                   b = cursor.getString(1);
+                   break;
+               }
+           }
+           while (cursor.moveToNext());
+       }
+       return b ;
+   }
+
+
+
     /**
      * Delete a User - this will also delete all records
      * for the user
      */
-    public void deletePerson(long id){
-        //Darya, modify this!!!
 
-        /*RecordDataSource pra = new RecordDataSource(context);
-        //get all records of the user
-        List<Record> records = pra.getAllRecordsByPerson(id);
+    public void deleteUser(long id) {
 
-        for(Record record : records){
-            pra.deleteRecord(record.getId());
-        }*/
+            TopicUserRoomDataSource pra = new TopicUserRoomDataSource(context);
+            //get all records of the user
+            List<Topic> topics = pra.getAllTopicsByUser(id);
 
-        //delete the person
-        this.db.delete(NewConferenceDB.TableUser.TABLE_NAME_USER, NewConferenceDB.TableUser.USER_ID + " = ?",
-                new String[] { String.valueOf(id) });
+            for (Topic topic : topics) {
+                pra.deleteTopic(topic.getIdTopic());
+            }
 
+            //delete the user
+            this.db.delete(NewConferenceDB.TableUser.TABLE_NAME_USER, NewConferenceDB.TableUser.USER_ID + " = ?",
+                    new String[]{String.valueOf(id)});
+
+        }
     }
 
-}
+
+

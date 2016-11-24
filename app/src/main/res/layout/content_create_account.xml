@@ -11,7 +11,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.CreateAccount"
-    tools:showIn="@layout/activity_create_account">
+    tools:showIn="@layout/activity_create_account"
+    android:background="@drawable/triangle">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
@@ -64,7 +65,7 @@
             android:textSize="20sp"/>
 
         <Button
-            android:text="NEXT"
+            android:text="CONTINUE"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

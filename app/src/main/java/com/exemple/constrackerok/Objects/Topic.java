@@ -2,9 +2,6 @@ package com.exemple.constrackerok.Objects;
 
 import java.util.Date;
 
-/**
- * Created by Daria on 17-Nov-16.
- */
 
 public class Topic {
 
@@ -12,7 +9,7 @@ public class Topic {
     private String nameTopic;
     private String startTime;
     private String endTime;
-    private Date date;
+    private String date;
     private int idRoom;
     private int idSpeaker;
 
@@ -20,21 +17,22 @@ public class Topic {
 
     }
 
-    public Topic(int idTopic, String nameTopic, String startTime, String endTime, Date date, int idRoom, int IdSpeaker) {
+    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idRoom, int idSpeaker) {
         this.idTopic = idTopic;
+        this.nameTopic = nameTopic;
+        this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.date = date;
         this.idRoom = idRoom;
         this.idSpeaker = idSpeaker;
 
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

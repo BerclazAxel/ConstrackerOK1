@@ -2,7 +2,6 @@ package com.exemple.constrackerok;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -22,11 +23,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LogInSpeakerSpace extends AppCompatActivity {
     Button login;
-    EditText USERNAME, USERPASS;
-    String username, userpass;
+    EditText USEREMAIL, USERPASS;
+    String useremailStr, userpassStr;
     // create Object of Context class
     Context ctx = this;
-
+    UserDataSource uds = new UserDataSource(this);
 
     private GoogleApiClient client;
 
@@ -37,48 +38,36 @@ public class LogInSpeakerSpace extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         login = (Button) findViewById(R.id.Connect);
-        USERNAME = (EditText) findViewById(R.id.emailTypedtxt);
+        USEREMAIL = (EditText) findViewById(R.id.emailTypedtxt);
         USERPASS = (EditText) findViewById(R.id.passwordTypedtxt);
 
+        //Method if a user clicked on login
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                username = USERNAME.getText().toString();
-                userpass = USERPASS.getText().toString();
-                OpenHelperUSERdb dop = new OpenHelperUSERdb(ctx);
-                Cursor cr = dop.getInformation(dop);
-                // here we receive info of registered data
-                cr.moveToFirst();
-                boolean login_status = false;
-                String NAME = "";
-                do {
-                    //column index [0], [1]
-                    if (username.equals(cr.getString(0)) && (userpass.equals(cr.getString(1)))) {
-                        login_status = true;
-                        NAME = cr.getString(0);
-                    }
+                useremailStr = USEREMAIL.getText().toString();
+                userpassStr = USERPASS.getText().toString();
 
-                } while (cr.moveToNext()); //move untill there is a raw
-                if (login_status) {
+//Method where we check if the user exists and correct data
+                String password = uds.searchPass(useremailStr);
+                if (userpassStr.equals(password)) {
 
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
+
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
+                    intent.putExtra("passuserEmailToSpeakerSpace", useremailStr);
+
                     startActivity(intent);
-                    Bundle b = new Bundle();
-                    //key string, value
-                    b.putString("user_email", NAME);
-                    intent.putExtras(b);
 
                 } else {
                     Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
 
                 }
-
-
             }
         });
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
+
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");
