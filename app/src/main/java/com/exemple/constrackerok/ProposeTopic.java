@@ -63,7 +63,7 @@ public class ProposeTopic extends AppCompatActivity {
 
 
 for (Room room : rooms) {
-            String name = room.getNameRoom();
+            String name = room.getNameRoom(); ///
         // Change icon based on name
         String s = values[position];
 
