@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -19,6 +20,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ProposeTopic extends AppCompatActivity {
 private String email;
+
+    ListView lv = (ListView)findViewById(R.id.listViewRoom);
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -38,6 +41,20 @@ private String email;
 
 
     }
+
+    /*
+    lv.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                    long id) {
+                Intent intent = new Intent(MainActivity.this, SendMessage.class);
+                String message = "abc";
+                intent.putExtra(EXTRA_MESSAGE, message);
+                startActivity(intent);
+            }
+        });
+     */
+
 
     public void startSendProposedTopic(View view) {
 

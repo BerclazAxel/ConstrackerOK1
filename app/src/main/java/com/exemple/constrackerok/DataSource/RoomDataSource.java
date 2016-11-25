@@ -58,4 +58,14 @@ public class RoomDataSource {
         return rooms;
     }
 
+
+    /**
+     * Delete a Topic
+     */
+    public void deleteRoom(long id){
+        this.db.delete(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
+                new String[] { String.valueOf(id) });
+    }
+
+
 }
