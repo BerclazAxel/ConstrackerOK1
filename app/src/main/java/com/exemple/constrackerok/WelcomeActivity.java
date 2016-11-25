@@ -42,6 +42,9 @@ List<Room> rooms;
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         NewDataBaseHelper db = new NewDataBaseHelper(this);
+        RoomDataSource rds = new RoomDataSource(this);
+        UserDataSource uds = new UserDataSource(this);
+        TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
         // Inserting Rooms
         Log.d("Insert: ", "Inserting ..");
         Room r1 = new Room(); //id gets automatically incremented
@@ -49,49 +52,6 @@ List<Room> rooms;
         Room r3 = new Room();
         Room r4 = new Room();
         Room r5 = new Room();
-
-        User speaker1 = new User();
-        User speaker2 = new User();
-        Topic top1 = new Topic();
-        Topic top2 = new Topic();
-
-        RoomDataSource rds = new RoomDataSource(this);
-        UserDataSource uds = new UserDataSource(this);
-        TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
-
-        top1.setNameTopic("Life on the Moon");
-        top1.setDate("08.01.2017");
-        top1.setStartTime("10:00");
-        top1.setEndTime("12:00");
-        top1.setIdRoom(1);
-        top1.setIdSpeaker(13);
-
-        top2.setNameTopic("Philosophy in JAVA");
-        top2.setDate("03.03.2017");
-        top2.setStartTime("18:00");
-        top2.setEndTime("20:00");
-        top2.setIdRoom(3);
-        top2.setIdSpeaker(8);
-
-        //r1.setIdRoom((int) rds.createRoom(r1));
-        top1.setIdTopic((int) tds.AddTopic(top1));
-        top2.setIdTopic((int) tds.AddTopic(top2));
-
-
-        /*speaker1.setTitle("Mr.");
-        speaker1.setName("Bob");
-        speaker1.setSurname("Marley");
-        speaker1.setTel("+41 78 800 11 12");
-        speaker1.setEmail("bm@gmail.com");
-        speaker1.setPassword("test");
-
-        speaker2.setTitle("Mrs.");
-        speaker2.setName("Sarah");
-        speaker2.setSurname("Gellar");
-        speaker2.setTel("+41 78 500 10 10");
-        speaker2.setEmail("sg@gmail.com");
-        speaker2.setPassword("test");
-
         r1.setNameRoom("Moon");
         r1.setNbPeople(20);
         r1.setCity("Sion");
@@ -108,6 +68,46 @@ List<Room> rooms;
         r5.setNbPeople(100);
         r5.setCity("Brig");
 
+        User speaker1 = new User();
+        User speaker2 = new User();
+
+        speaker1.setTitle("Mr.");
+        speaker1.setName("Bob");
+        speaker1.setSurname("Marley");
+        speaker1.setTel("+41 78 800 11 12");
+        speaker1.setEmail("bm@gmail.com");
+        speaker1.setPassword("test");
+
+        speaker2.setTitle("Mrs.");
+        speaker2.setName("Sarah");
+        speaker2.setSurname("Gellar");
+        speaker2.setTel("+41 78 500 10 10");
+        speaker2.setEmail("sg@gmail.com");
+        speaker2.setPassword("test");
+
+
+        Topic top1 = new Topic();
+        Topic top2 = new Topic();
+        top1.setNameTopic("Life on the Moon");
+        top1.setDate("08.01.2017");
+        top1.setStartTime("10:00");
+        top1.setEndTime("12:00");
+        top1.setIdRoom(1);
+        top1.setIdSpeaker(1);
+
+        top2.setNameTopic("Philosophy in JAVA");
+        top2.setDate("03.03.2017");
+        top2.setStartTime("18:00");
+        top2.setEndTime("20:00");
+        top2.setIdRoom(3);
+        top2.setIdSpeaker(8);
+
+        //r1.setIdRoom((int) rds.createRoom(r1));
+        top1.setIdTopic((int) tds.AddTopic(top1));
+        top2.setIdTopic((int) tds.AddTopic(top2));
+
+
+
 
         r1.setIdRoom((int) rds.createRoom(r1));
         r2.setIdRoom((int) rds.createRoom(r2));
@@ -117,8 +117,8 @@ List<Room> rooms;
 
 
 
-        /*speaker1.setIdUser((int) uds.createUser(speaker1));
-        speaker2.setIdUser((int) uds.createUser(speaker2));return id; */
+        /* speaker1.setIdUser((int) uds.createUser(speaker1));
+        speaker2.setIdUser((int) uds.createUser(speaker2));return id;*/
 
 
 

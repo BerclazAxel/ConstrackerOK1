@@ -40,10 +40,10 @@
             android:layout_weight="0.10" />
 
         <GridLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="266dp"
             android:columnCount="2"
-            android:layout_weight="2.20">
+            android:layout_weight="0.81">
 
 
             <TextView
