@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.exemple.constrackerok.Objects.User;
 
+import java.util.List;
+
 public class ProfilesInformationModify extends AppCompatActivity {
     private RadioGroup groupGenderGR;
     private RadioButton radioGenderButton;
@@ -96,6 +98,8 @@ public class ProfilesInformationModify extends AppCompatActivity {
         groupGenderGR = (RadioGroup) findViewById(R.id.groupGender);
     }
 
+
+
     public void startUpdateProfile(View view) {
         // here we recieve typed data from EditText, Radiobutton
 // get selected radio button from radioGroup
@@ -109,11 +113,14 @@ public class ProfilesInformationModify extends AppCompatActivity {
         name = (EditText) findViewById(R.id.nametxt);
         nameStr = name.getText().toString();
         speaker.setName(nameStr);
+
         surname = (EditText) findViewById(R.id.surnametxt);
         surnameStr = surname.getText().toString();
+        speaker.setSurname(surnameStr);
 
         tel = (EditText) findViewById(R.id.phoneNumbertxt);
         telStr = tel.getText().toString();
+        speaker.setTel(telStr);
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
@@ -131,6 +138,18 @@ public class ProfilesInformationModify extends AppCompatActivity {
         Intent intent = new Intent(this, SpeakerSpace.class);
         intent.putExtra("passMeUserEmail", email);
         startActivity(intent);
+
+        // Reading all users
+        Log.d("Reading: ", "Reading all users..");
+        List<User> users = uds.getAllUsers();
+
+        for (User user : users) {
+            String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getTitle() + " , Name: " + user.getName()
+                    + " , Surname: " + user.getSurname() + " , Tel: " + user.getTel() + " , Email: " + user.getEmail()
+                    + " , Password: " + user.getPassword();
+            // Writing users to log
+            Log.d("Users: ", logU);
+        }
     }
 
 
