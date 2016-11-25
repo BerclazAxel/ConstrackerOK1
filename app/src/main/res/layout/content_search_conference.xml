@@ -9,9 +9,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.SearchConference"
     tools:showIn="@layout/activity_search_conference"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     android:background="@drawable/triangle">
 
     <TextView
@@ -25,26 +25,23 @@
         android:textStyle="bold"
         android:layout_margin="2dp"/>
 
-<LinerLyaout
-
-
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation = "vertical">
-
-    <ListView
-
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:id="@+id/LVTopic">
+        android:orientation = "vertical">
 
-        
+        <ListView
 
-    </ListView>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:id="@+id/LVTopic">
 
-</LinerLyaout>
 
+
+        </ListView>
+
+    </LinearLayout>
 
 
 </RelativeLayout>

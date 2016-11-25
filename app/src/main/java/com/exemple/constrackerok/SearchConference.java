@@ -7,19 +7,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.TextView;
+
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
 import com.exemple.constrackerok.Objects.Topic;
@@ -31,25 +30,24 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.List;
 
 public class SearchConference extends AppCompatActivity {
-
+    TopicUserRoomDataSource tds;
     private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_conference);
-        showListTopics();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        showListTopics();
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
 
     public void showListTopics() {
-       /*
-        TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
+
+        tds  = new TopicUserRoomDataSource(this);
         final List<Topic> listTopic = tds.getAllTopics();
 
 
@@ -77,17 +75,19 @@ public class SearchConference extends AppCompatActivity {
                     return view;
                 }
             };
-            list = (ListView) findViewById(R.id.LVTopic);
+           list = (ListView) findViewById(R.id.LVTopic);
             list.setAdapter(adapter);
+
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(SearchConference.this, Participate.class);
+                   // intent.putExtra("passMeId", useremailStr);
                     startActivity(intent);
                 }
             });
         }
-        */
+
     }
 
 
