@@ -32,7 +32,6 @@ public class ProfilsInformations extends AppCompatActivity {
 
     String new_gender, nameStr, surnameStr, telStr, email, password;
     Context ctx = this;
-    UserDataSource dop;
 
 
     private GoogleApiClient client;

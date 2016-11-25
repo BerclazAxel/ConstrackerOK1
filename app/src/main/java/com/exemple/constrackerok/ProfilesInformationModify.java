@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.exemple.constrackerok.DataSource.UserDataSource;
@@ -22,14 +23,11 @@ import com.exemple.constrackerok.Objects.User;
 public class ProfilesInformationModify extends AppCompatActivity {
     private RadioGroup groupGenderGR;
     private RadioButton radioGenderButton;
-
-    EditText name, surname, tel;
-
-    //declaration of variables
-
-    String new_gender, nameStr, surnameStr, telStr, email, password;
+    private EditText name, surname, tel;
+    private String new_gender, nameStr, surnameStr, telStr, email, password, genderUser, nameUser, surnameUser, telephoneUser;
     Context ctx = this;
-    UserDataSource dop;
+    UserDataSource uds = new UserDataSource(this);
+    User speaker;
 
 
     @Override
@@ -38,9 +36,54 @@ public class ProfilesInformationModify extends AppCompatActivity {
         setContentView(R.layout.activity_profiles_information_modify);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        email = getIntent().getStringExtra("passMeUserEmail");
+        speaker = uds.getUserByEmail(email);
 
         addListenerOnButton();
+
+        genderUser = speaker.getTitle();
+        nameUser = speaker.getName();
+        surnameUser = speaker.getSurname();
+        telephoneUser = speaker.getTel();
+
+/*
+        RadioGroup rb1 = (RadioGroup) findViewById(R.id.radioGroup1);
+        RadioButton rbu1 = (RadioButton) findViewById(R.id.radio0);
+        RadioButton rbu2 = (RadioButton) findViewById(R.id.radio1);
+        RadioButton rbu3 = (RadioButton) findViewById(R.id.radio2);
+
+        if (genderUser.equalsIgnoreCase("Male") ||genderUser.equalsIgnoreCase("Homme")) {
+            rbu1.setChecked(true);
+        } else if (genderUser.equalsIgnoreCase("2")) {
+
+            rbu2.setChecked(true);
+        }
+*/
+
+        name = (EditText) findViewById(R.id.nametxt);
+        name.setText(nameUser, TextView.BufferType.EDITABLE);
+
+        surname = (EditText) findViewById(R.id.surnametxt);
+        surname.setText(surnameUser, TextView.BufferType.EDITABLE);
+
+        tel = (EditText) findViewById(R.id.phoneNumbertxt);
+        tel.setText(telephoneUser, TextView.BufferType.EDITABLE);
+
+
+        // new_gender = radioGenderButton.getText().toString();
+        speaker.setTitle(new_gender);
+        name = (EditText) findViewById(R.id.nametxt);
+        nameStr = name.getText().toString();
+        speaker.setName(nameStr);
+        surname = (EditText) findViewById(R.id.surnametxt);
+        surnameStr = surname.getText().toString();
+
+        tel = (EditText) findViewById(R.id.phoneNumbertxt);
+        telStr = tel.getText().toString();
+
+        email = getIntent().getStringExtra("passMeUserEmail");
+        speaker.setEmail(email);
+
 
     }
 
@@ -52,7 +95,7 @@ public class ProfilesInformationModify extends AppCompatActivity {
         // here we recieve typed data from EditText, Radiobutton
 // get selected radio button from radioGroup
 
-        User speaker = new User();
+
         int selectedId = groupGenderGR.getCheckedRadioButtonId();
         // find the radiobutton by returned id
         radioGenderButton = (RadioButton) findViewById(selectedId);
@@ -69,7 +112,6 @@ public class ProfilesInformationModify extends AppCompatActivity {
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
-
 
 
         //check all fields to be filled it
