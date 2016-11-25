@@ -71,11 +71,15 @@ public class WelcomeActivity extends AppCompatActivity {
         speaker2.setPassword("test");
 
         r1.setNameRoom("Moon");
-        r1.setNbPeople(10);
-        r2.setNameRoom("Round");
-        r2.setNbPeople(5);
+        r1.setNbPeople(20);
+        r2.setNameRoom("Reka");
+        r2.setNbPeople(10);
         r3.setNameRoom("Polo");
         r3.setNbPeople(25);
+        r4.setNameRoom("Bingo");
+        r4.setNbPeople(50);
+        r5.setNameRoom("Miracle");
+        r5.setNbPeople(100);
 
         top1.setNameTopic("Life on the Moon");
         top1.setDate("08.01.2017");
@@ -105,6 +109,9 @@ public class WelcomeActivity extends AppCompatActivity {
         // Reading all rooms
         Log.d("Reading: ", "Reading all rooms..");
         List<Room> rooms = rds.getAllRooms();
+       /*rds.deleteRoom(1);
+        rds.deleteRoom(2);
+        rds.deleteRoom(3);*/
 
         for (Room room : rooms) {
             String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();

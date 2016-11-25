@@ -1,27 +1,35 @@
 package com.exemple.constrackerok;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
+import android.widget.ImageView;
 
+
+import com.exemple.constrackerok.DataSource.RoomDataSource;
+import com.exemple.constrackerok.Objects.Room;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-public class ProposeTopic extends AppCompatActivity {
-private String email;
+import java.util.List;
 
-    ListView lv = (ListView)findViewById(R.id.listViewRoom);
+public class ProposeTopic extends AppCompatActivity {
+    private String email;
+    private String[] values;
+    List<Room> rooms;
+    Context ctx = this;
+    RoomDataSource rds = new RoomDataSource(this);
+
+    ImageView Iv = (ImageView) findViewById(R.id.roomList);
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -36,28 +44,48 @@ private String email;
         setSupportActionBar(toolbar);
 
         email = getIntent().getStringExtra("passMeUserEmail");
+        rooms = rds.getAllRooms();
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
 
     }
+/*
+    public View getView(int position, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
+        View rowView = inflater.inflate(R.layout.list_mobile, parent, false);
+        TextView textView = (TextView) rowView.findViewById(R.id.label);
+        ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
+        textView.setText(values[position]);
+
+
+for (Room room : rooms) {
+            String name = room.getNameRoom();
+        // Change icon based on name
+        String s = values[position];
+
+        System.out.println(s);
+
+        if (s.equals("WindowsMobile")) {
+            imageView.setImageResource(R.drawable.windowsmobile_logo);
+        } else if (s.equals("iOS")) {
+            imageView.setImageResource(R.drawable.ios_logo);
+        } else if (s.equals("Blackberry")) {
+            imageView.setImageResource(R.drawable.blackberry_logo);
+        } else {
+            imageView.setImageResource(R.drawable.android_logo);
+        }
+
+        return rowView;
+    }
     /*
-    lv.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position,
-                    long id) {
-                Intent intent = new Intent(MainActivity.this, SendMessage.class);
-                String message = "abc";
-                intent.putExtra(EXTRA_MESSAGE, message);
-                startActivity(intent);
-            }
-        });
-     */
+
+
 
 
     public void startSendProposedTopic(View view) {
-
 
 
         Intent intent = new Intent(this, SpeakerSpace.class);
