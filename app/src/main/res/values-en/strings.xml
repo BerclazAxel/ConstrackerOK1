@@ -85,4 +85,5 @@
     <string name="SpeakerSpaceString">SPEAKER SPACE</string>
     <string name="InformationString">Give us your informations</string>
     <string name="ProfileInformationUpdateString">Profile Information Update</string>
+    <string name="CheckInfosString">Check your informations</string>
 </resources>

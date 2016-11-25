@@ -53,16 +53,15 @@ public class CreateAccount extends AppCompatActivity {
                 user_pass = USER_PASS.getText().toString();
                 con_pass = CON_PASS.getText().toString();
 
-                if (!(user_pass.equals(con_pass))) {
-                    Toast.makeText(getBaseContext(), R.string.PasswordNoOkString, Toast.LENGTH_LONG).show();
+                if (!user_pass.equals(con_pass)||user_email.isEmpty()||user_pass.isEmpty()||con_pass.isEmpty()) {
+                    Toast.makeText(getBaseContext(), R.string.CheckInfosString, Toast.LENGTH_SHORT).show();
                     //and we reset all fields
-                    USER_EMAIL.setText("");
+
                     USER_PASS.setText("");
                     CON_PASS.setText("");
 
-                } else {
-
-
+                } else
+                {
                     Toast.makeText(getBaseContext(), R.string.InformationString, Toast.LENGTH_SHORT).show();
                     //here we pass data to another activity
                     Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);

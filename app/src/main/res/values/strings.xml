@@ -87,4 +87,5 @@
     <string name="SpeakerSpaceString">ESPACE ORATEUR</string>
     <string name="InformationString">Donnez nous vos informations</string>
     <string name="ProfileInformationUpdateString">Mettre à jour le profil</string>
+    <string name="CheckInfosString">Contrôlez vos informations</string>
 </resources>
