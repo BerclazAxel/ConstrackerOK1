@@ -46,19 +46,24 @@ public class ProfilesInformationModify extends AppCompatActivity {
         surnameUser = speaker.getSurname();
         telephoneUser = speaker.getTel();
 
-/*
-        RadioGroup rb1 = (RadioGroup) findViewById(R.id.radioGroup1);
-        RadioButton rbu1 = (RadioButton) findViewById(R.id.radio0);
-        RadioButton rbu2 = (RadioButton) findViewById(R.id.radio1);
-        RadioButton rbu3 = (RadioButton) findViewById(R.id.radio2);
 
-        if (genderUser.equalsIgnoreCase("Male") ||genderUser.equalsIgnoreCase("Homme")) {
+        int selectedId = groupGenderGR.getCheckedRadioButtonId();
+        radioGenderButton = (RadioButton) findViewById(selectedId);
+
+
+        RadioButton rbu1 = (RadioButton) findViewById(R.id.maleBtn);
+        RadioButton rbu2 = (RadioButton) findViewById(R.id.femaleBtn);
+
+
+        if (genderUser.equalsIgnoreCase("Male") || genderUser.equalsIgnoreCase("Homme")) {
             rbu1.setChecked(true);
-        } else if (genderUser.equalsIgnoreCase("2")) {
+        } else if (genderUser.equalsIgnoreCase("Female") || genderUser.equalsIgnoreCase("Femme")) {
 
             rbu2.setChecked(true);
+        } else {
+            rbu1.setChecked(true);
         }
-*/
+
 
         name = (EditText) findViewById(R.id.nametxt);
         name.setText(nameUser, TextView.BufferType.EDITABLE);
