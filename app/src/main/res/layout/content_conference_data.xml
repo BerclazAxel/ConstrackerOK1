@@ -26,7 +26,7 @@
             android:columnCount="2">
 
             <TextView
-                android:text="Title:"
+                android:text="@string/TitleString"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Title"
@@ -40,7 +40,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Date:"
+                android:text="@string/DateString"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Date"
@@ -54,7 +54,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Hour:"
+                android:text="@string/HourString"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Hour"
@@ -104,7 +104,7 @@
             android:id="@+id/checkBox" />
 
          <Button
-            android:text="INSCRIPTION"
+            android:text="@string/InscriptionString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

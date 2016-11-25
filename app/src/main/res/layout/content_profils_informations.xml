@@ -27,7 +27,7 @@
             android:id="@+id/groupGender">
 
             <RadioButton
-                android:text="Male"
+                android:text="@string/Male2String"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mrBtn"
@@ -35,7 +35,7 @@
                 android:textSize="20sp"               />
 
             <RadioButton
-                android:text="Female"
+                android:text="@string/Female2String"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mrsBtn"

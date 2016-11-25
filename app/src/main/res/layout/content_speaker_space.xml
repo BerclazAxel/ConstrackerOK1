@@ -23,7 +23,7 @@
         android:layout_marginBottom="14dp">
 
         <TextView
-            android:text="Your futurs topics:"
+            android:text="@string/FutursTopicsString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Yourfuturstopics"
@@ -35,7 +35,7 @@
             android:textSize="20sp"/>
 
         <Button
-            android:text="PROPOSE A NEW TOPIC"
+            android:text="@string/ProposeNewTopicString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -44,7 +44,7 @@
             android:onClick="startProposeTopic"/>
 
         <Button
-            android:text="MODIFY MY PROFILE"
+            android:text="@string/ModifyProfilString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"

@@ -1,6 +1,7 @@
 package com.exemple.constrackerok;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -18,6 +19,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.Locale;
+
 public class LanguageActivity extends AppCompatActivity {
 
     /**
@@ -25,6 +28,7 @@ public class LanguageActivity extends AppCompatActivity {
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +44,25 @@ public class LanguageActivity extends AppCompatActivity {
      */
     public void startEnglish(View view) {
         Intent intent = new Intent(this, WelcomeActivity.class);
+        Locale locale = new Locale("English");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
         startActivity(intent);
     }
 
     public void startFrench(View view) {
         Intent intent = new Intent(this, WelcomeActivity.class);
+        Locale locale = new Locale("Français");
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
         startActivity(intent);
     }
+
 
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
@@ -73,6 +89,7 @@ public class LanguageActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
+
 
 
 }

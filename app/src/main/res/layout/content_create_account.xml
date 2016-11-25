@@ -20,7 +20,7 @@
         android:weightSum="1">
 
         <TextView
-            android:text="E-Mail:"
+            android:text="@string/EMailString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/EMail"
@@ -35,7 +35,7 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:text="Password:"
+            android:text="@string/PasswordString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Password"
@@ -50,7 +50,7 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:text="Repeat password:"
+            android:text="@string/RepeatPasswordString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/Repeatassword"
@@ -65,7 +65,7 @@
             android:textSize="20sp"/>
 
         <Button
-            android:text="CONTINUE"
+            android:text="@string/ContinueString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

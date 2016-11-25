@@ -38,14 +38,14 @@
 
 
             <TextView
-                android:text="Date:"
+                android:text="@string/Date2String"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Date"
                 android:textSize="20sp"/>
 
             <Button
-                android:text="Date"
+                android:text="@string/DateBtnString"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/ChooseDate"
@@ -53,7 +53,7 @@
 
 
             <TextView
-                android:text="Name: "
+                android:text="@string/NameString"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Name"
@@ -68,7 +68,7 @@
                 android:textSize="20sp"/>
 
             <TextView
-                android:text="Room:"
+                android:text="@string/RoomString"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/Room"
@@ -85,7 +85,7 @@
         </GridLayout>
 
         <Button
-            android:text="PROPOSE"
+            android:text="@string/ProposeString"
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

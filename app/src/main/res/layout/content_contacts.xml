@@ -22,7 +22,7 @@
         android:layout_alignParentTop="true">
 
         <TextView
-            android:text="Contacts"
+            android:text="@string/Stringcontact"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -57,7 +57,7 @@
         </TableLayout>
 
         <TextView
-            android:text="Tel:"
+            android:text="@string/StringTel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -70,7 +70,7 @@
             android:textSize="17sp"/>
 
         <TextView
-            android:text="Email:"
+            android:text="@string/EMAILString"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -83,7 +83,7 @@
             android:textSize="17sp"/>
 
         <TextView
-            android:text="Address:"
+            android:text="@string/AddressString"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
