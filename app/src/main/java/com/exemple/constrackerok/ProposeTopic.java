@@ -22,7 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.List;
 
-public class ProposeTopic extends AppCompatActivity {
+public class ProposeTopic extends AppCompatActivity   {
     private String email;
     private String[] values;
     List<Room> rooms;
