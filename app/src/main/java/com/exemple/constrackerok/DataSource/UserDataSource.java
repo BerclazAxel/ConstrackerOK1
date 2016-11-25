@@ -130,7 +130,7 @@ public class UserDataSource {
         values.put(NewConferenceDB.TableUser.USER_SURNAME, user.getSurname());
         values.put(NewConferenceDB.TableUser.USER_TEL, user.getTel());
         values.put(NewConferenceDB.TableUser.USER_EMAIL, user.getEmail());
-        values.put(NewConferenceDB.TableUser.USER_PASSWORD, user.getPassword());
+        //values.put(NewConferenceDB.TableUser.USER_PASSWORD, user.getPassword());
 
         return this.db.update(NewConferenceDB.TableUser.TABLE_NAME_USER, values, NewConferenceDB.TableUser.USER_ID + " = ?",
                 new String[] { String.valueOf(user.getIdUser()) });
