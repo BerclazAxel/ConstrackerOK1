@@ -106,9 +106,9 @@ public class TopicUserRoomDataSource {
     public List<Topic> getAllTopicsByUser(long id){
         List<Topic> topics = new ArrayList<Topic>();
         String sql = "SELECT * FROM " + NewConferenceDB.TableTopic.TABLE_NAME_TOPIC + " r, "
-                + NewConferenceDB.TableUser.TABLE_NAME_USER + " p, "
+                + NewConferenceDB.TableUser.TABLE_NAME_USER + " p"
                 + " WHERE p." + NewConferenceDB.TableUser.USER_ID + " = " + id
-                + " AND p." + NewConferenceDB.TableUser.USER_ID + " = " + "pr." + NewConferenceDB.TableTopic.TOPIC_ID_SPEAKER
+                + " AND p." + NewConferenceDB.TableUser.USER_ID + " = " + "r." + NewConferenceDB.TableTopic.TOPIC_ID_SPEAKER
                 + " ORDER BY " + NewConferenceDB.TableTopic.TOPIC_DATE + " DESC";
 
 

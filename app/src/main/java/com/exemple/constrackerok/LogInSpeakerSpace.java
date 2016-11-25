@@ -55,7 +55,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
                     Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
-                    intent.putExtra("passuserEmailToSpeakerSpace", useremailStr);
+                    intent.putExtra("passMeUserEmail", useremailStr);
 
                     startActivity(intent);
 

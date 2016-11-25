@@ -61,9 +61,8 @@ public class SpeakerSpace extends AppCompatActivity {
     //android:onClick="deleteMyProfile"
     public void deleteMyProfile(View view) {
 
-
-        Context context = null;
-        new AlertDialog.Builder(context)
+        Context context = this.getApplicationContext();
+        new AlertDialog.Builder(ctx)
                 .setTitle("Delete confirmation")
                 .setMessage("Are you sure you want to delete this entry?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
@@ -74,6 +73,10 @@ public class SpeakerSpace extends AppCompatActivity {
                         uds.deleteUser(id);
                         Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
                         //finish the activity
+
+                        Intent intent = new Intent(SpeakerSpace.this, WelcomeActivity.class);
+
+                        startActivity(intent);
                         finish();
                     }
                 })
@@ -85,10 +88,7 @@ public class SpeakerSpace extends AppCompatActivity {
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
 
-        Intent intent = new Intent(SpeakerSpace.this, WelcomeActivity.class);
 
-
-        startActivity(intent);
     }
 
     public void modifyMyProfile(View view) {
