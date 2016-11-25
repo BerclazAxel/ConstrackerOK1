@@ -13,6 +13,14 @@
     tools:context="com.exemple.constrackerok.SearchConference"
     tools:showIn="@layout/activity_search_conference"
     android:background="@drawable/triangle">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="5dp">
+
 
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
@@ -101,5 +109,5 @@
             android:onClick="startSearch" />
 
     </LinearLayout>
-
+    </ScrollView>
 </RelativeLayout>

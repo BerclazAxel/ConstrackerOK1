@@ -18,7 +18,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class ProposeTopic extends AppCompatActivity {
-
+private String email;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -32,11 +32,17 @@ public class ProposeTopic extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        email = getIntent().getStringExtra("passMeUserEmail");
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+
     }
 
     public void startSendProposedTopic(View view) {
+
+
+
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
