@@ -75,7 +75,7 @@ public class ProfilsInformationsNew extends AppCompatActivity {
         uds.createUser(speaker);
 
         //check all fields to be filled it
-        Toast.makeText(getBaseContext(), "Registration is done successfully", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), R.string.RegistrationSuccessString, Toast.LENGTH_LONG).show();
 
         //check all fields to be filled it
 

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".WelcomeActivity">
 
 <item android:id="@+id/action_information"
-    android:title = "About us"
+    android:title = "@string/AboutUsBarString"
     android:orderInCategory="100"
     app:showAsAction="never"
 
     />
 
     <item android:id="@+id/action_contacts"
-        android:title = "Contacts"
+        android:title = "@string/ContactsString"
         android:orderInCategory="101"
         app:showAsAction="never"
 
@@ -19,7 +19,7 @@
 
 
     <item android:id="@+id/action_language"
-        android:title = "Change language"
+        android:title = "@string/ChangelanguageString"
         android:orderInCategory="101"
         app:showAsAction="never"
        />

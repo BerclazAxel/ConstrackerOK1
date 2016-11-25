@@ -28,7 +28,7 @@
             android:onClick="startConferenceSearch"/>
 
         <Button
-            android:text="@string/speaker_space"
+            android:text="@string/SpeakerSpaceString"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

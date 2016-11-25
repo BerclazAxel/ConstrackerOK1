@@ -63,15 +63,15 @@ public class SpeakerSpace extends AppCompatActivity {
 
         Context context = this.getApplicationContext();
         new AlertDialog.Builder(ctx)
-                .setTitle("Delete confirmation")
-                .setMessage("Are you sure you want to delete this entry?")
+                .setTitle(R.string.DeleteConfirmationString)
+                .setMessage(R.string.SurDeleteString)
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // continue with delete
                         // pass the id from the object
                         long id = speakerInSpeakerSpace.getIdUser();
                         uds.deleteUser(id);
-                        Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), R.string.ProfileDeletedString, Toast.LENGTH_LONG).show();
                         //finish the activity
 
                         Intent intent = new Intent(SpeakerSpace.this, WelcomeActivity.class);

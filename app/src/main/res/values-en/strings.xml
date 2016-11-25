@@ -69,4 +69,20 @@
     <string name="passwordString">Password :</string>
     <string name="EnterMailString">Enter your e-mail</string>
     <string name="EnterPasswordString">Enter your password</string>
+    <string name="AccountCreationOkString">Account creation is completed</string>
+    <string name="ClickContinueString">Click the button CONTINUE</string>
+    <string name="DeleteConfirmationString">Delete confirmation</string>
+    <string name="LoginFailedString">Login failed</string>
+    <string name="LoginSuccesString">Login Success</string>
+    <string name="PasswordNoOkString">Passwords are not matching</string>
+    <string name="ProfileDeletedString">Your profile is deleted</string>
+    <string name="RegistrationSuccessString">Registration is done successfully</string>
+    <string name="SurDeleteString">Are you sure you want to delete this entry ?</string>
+    <string name="UpdateCompleteString">Update is completed</string>
+    <string name="AboutUsBarString">About us</string>
+    <string name="ChangelanguageString">Change language</string>
+    <string name="ContactsString">Contacts</string>
+    <string name="SpeakerSpaceString">SPEAKER SPACE</string>
+    <string name="InformationString">Give us your informations</string>
+    <string name="ProfileInformationUpdateString">Profile Information Update</string>
 </resources>

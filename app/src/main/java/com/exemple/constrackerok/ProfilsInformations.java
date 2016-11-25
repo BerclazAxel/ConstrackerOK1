@@ -89,7 +89,7 @@ public class ProfilsInformations extends AppCompatActivity {
         uds.createUser(speaker);
 
 
-        Toast.makeText(getBaseContext(), "Account creation is completed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), R.string.AccountCreationOkString, Toast.LENGTH_SHORT).show();
 
 //we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);

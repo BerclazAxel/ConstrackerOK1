@@ -76,7 +76,7 @@ public class ProfilesInformationModify extends AppCompatActivity {
         // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.updateUser(speaker);
-        Toast.makeText(getBaseContext(), "Update is completed", Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), R.string.UpdateCompleteString, Toast.LENGTH_LONG).show();
 
         //we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);

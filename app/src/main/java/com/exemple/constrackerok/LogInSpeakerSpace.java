@@ -52,7 +52,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
                 String password = uds.searchPass(useremailStr);
                 if (userpassStr.equals(password)) {
 
-                    Toast.makeText(getBaseContext(), "Login Success", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.LoginSuccesString, Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(LogInSpeakerSpace.this, SpeakerSpace.class);
                     intent.putExtra("passMeUserEmail", useremailStr);
@@ -60,7 +60,7 @@ public class LogInSpeakerSpace extends AppCompatActivity {
                     startActivity(intent);
 
                 } else {
-                    Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), R.string.LoginFailedString, Toast.LENGTH_LONG).show();
 
                 }
             }

@@ -48,7 +48,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProfilesInformationModify"
-            android:label="Profilw Information Update"
+            android:label="@string/ProfileInformationUpdateString"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ProposeTopic"
