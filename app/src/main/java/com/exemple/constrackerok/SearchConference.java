@@ -30,8 +30,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.List;
 
 public class SearchConference extends AppCompatActivity {
-    TopicUserRoomDataSource tds;
+    private TopicUserRoomDataSource tds;
     private GoogleApiClient client;
+    private List<Topic> listTopic;
+    Topic topic = new Topic();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +49,8 @@ public class SearchConference extends AppCompatActivity {
 
     public void showListTopics() {
 
-        tds  = new TopicUserRoomDataSource(this);
-        final List<Topic> listTopic = tds.getAllTopics();
+        tds = new TopicUserRoomDataSource(this);
+        listTopic = tds.getAllTopics();
 
 
         final String[] topicList = new String[listTopic.size()];
@@ -60,7 +62,7 @@ public class SearchConference extends AppCompatActivity {
             ListView list;
             final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_search_conference, topicList) {
                 @Override
-                 public View getView(int position, View convertView, ViewGroup parent) {
+                public View getView(int position, View convertView, ViewGroup parent) {
                     final int pos = position;
                     View view;
                     if (convertView == null) {
@@ -75,14 +77,14 @@ public class SearchConference extends AppCompatActivity {
                     return view;
                 }
             };
-           list = (ListView) findViewById(R.id.LVTopic);
+            list = (ListView) findViewById(R.id.LVTopic);
             list.setAdapter(adapter);
 
             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(SearchConference.this, Participate.class);
-                   // intent.putExtra("passMeId", useremailStr);
+                    intent.putExtra("passMeId", listTopic.get(position).getIdTopic());
                     startActivity(intent);
                 }
             });

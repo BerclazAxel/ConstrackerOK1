@@ -84,11 +84,24 @@ public class NewConferenceDB {
                 + TableTopic.TOPIC_START_TIME + " TEXT, "
                 + TableTopic.TOPIC_END_TIME + " TEXT, "
                 + TableTopic.TOPIC_ID_SPEAKER + " INTEGER, "
+                + TableTopic.TOPIC_ID_ROOM + " INTEGER "
+                + " );";
+
+
+        /*
+                        + TABLE_NAME_TOPIC + "("
+                + TableTopic.TOPIC_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "
+                + TableTopic.TOPIC_NAME + " TEXT, "
+                + TableTopic.TOPIC_DATE + " TEXT, "
+                + TableTopic.TOPIC_START_TIME + " TEXT, "
+                + TableTopic.TOPIC_END_TIME + " TEXT, "
+                + TableTopic.TOPIC_ID_SPEAKER + " INTEGER, "
                 + TableTopic.TOPIC_ID_ROOM + " INTEGER, "
                 + "FOREIGN KEY (" + TOPIC_ID_SPEAKER + ") REFERENCES " + TableUser.TABLE_NAME_USER + " (" + TableUser.USER_ID + "), "
                 + "FOREIGN KEY (" + TOPIC_ID_ROOM  + ") REFERENCES " + TableRoom.TABLE_NAME_ROOM + " (" + TableRoom.ROOM_ID + ") "
                 + ");";
 
+         */
     }
 
 

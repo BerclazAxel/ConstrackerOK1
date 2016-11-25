@@ -29,22 +29,19 @@ public class TopicUserRoomDataSource {
     /**
      * inserts a new topic
      */
-    public long AddTopicByUser(Topic topic){
-
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd", Locale.getDefault());
-        Date date = new Date();
+    public long AddTopic(Topic topic){
 
         long id;
         ContentValues values = new ContentValues();
         values.put(NewConferenceDB.TableTopic.TOPIC_NAME, topic.getNameTopic());
+        values.put(NewConferenceDB.TableTopic.TOPIC_DATE, topic.getDate());
         values.put(NewConferenceDB.TableTopic.TOPIC_START_TIME, topic.getStartTime());
         values.put(NewConferenceDB.TableTopic.TOPIC_END_TIME, topic.getEndTime());
-        values.put(NewConferenceDB.TableTopic.TOPIC_DATE, topic.getDate());
         values.put(NewConferenceDB.TableTopic.TOPIC_ID_SPEAKER, topic.getIdSpeaker());
         values.put(NewConferenceDB.TableTopic.TOPIC_ID_ROOM, topic.getIdRoom());
 
-        return this.db.insert(NewConferenceDB.TableTopic.TABLE_NAME_TOPIC, null, values);
+        id = this.db.insert(NewConferenceDB.TableTopic.TABLE_NAME_TOPIC, null, values);
+        return id;
     }
 
 

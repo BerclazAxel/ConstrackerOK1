@@ -1,6 +1,5 @@
 package com.exemple.constrackerok.Objects;
 
-import java.util.Date;
 
 
 public class Topic {
@@ -29,7 +28,7 @@ public class Topic {
     }
 
     public String getDate() {
-        return date;
+        return this.date;
     }
 
     public void setDate(String date) {
@@ -37,7 +36,7 @@ public class Topic {
     }
 
     public String getEndTime() {
-        return endTime;
+        return this.endTime;
     }
 
     public void setEndTime(String endTime) {
@@ -45,7 +44,7 @@ public class Topic {
     }
 
     public int getIdRoom() {
-        return idRoom;
+        return this.idRoom;
     }
 
     public void setIdRoom(int idRoom) {
@@ -53,7 +52,7 @@ public class Topic {
     }
 
     public int getIdSpeaker() {
-        return idSpeaker;
+        return this.idSpeaker;
     }
 
     public void setIdSpeaker(int idSpeaker) {
@@ -61,7 +60,7 @@ public class Topic {
     }
 
     public int getIdTopic() {
-        return idTopic;
+        return this.idTopic;
     }
 
     public void setIdTopic(int idTopic) {
@@ -77,7 +76,7 @@ public class Topic {
     }
 
     public String getStartTime() {
-        return startTime;
+        return this.startTime;
     }
 
     public void setStartTime(String startTime) {

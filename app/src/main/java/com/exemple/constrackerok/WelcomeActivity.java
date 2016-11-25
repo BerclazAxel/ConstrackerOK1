@@ -24,7 +24,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.List;
 
 public class WelcomeActivity extends AppCompatActivity {
-
+List<Room> rooms;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -59,6 +59,25 @@ public class WelcomeActivity extends AppCompatActivity {
         UserDataSource uds = new UserDataSource(this);
         TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
 
+        top1.setNameTopic("Life on the Moon");
+        top1.setDate("08.01.2017");
+        top1.setStartTime("10:00");
+        top1.setEndTime("12:00");
+        top1.setIdRoom(1);
+        top1.setIdSpeaker(13);
+
+        top2.setNameTopic("Philosophy in JAVA");
+        top2.setDate("03.03.2017");
+        top2.setStartTime("18:00");
+        top2.setEndTime("20:00");
+        top2.setIdRoom(3);
+        top2.setIdSpeaker(8);
+
+        //r1.setIdRoom((int) rds.createRoom(r1));
+        top1.setIdTopic((int) tds.AddTopic(top1));
+        top2.setIdTopic((int) tds.AddTopic(top2));
+
+
         /*speaker1.setTitle("Mr.");
         speaker1.setName("Bob");
         speaker1.setSurname("Marley");
@@ -71,9 +90,9 @@ public class WelcomeActivity extends AppCompatActivity {
         speaker2.setSurname("Gellar");
         speaker2.setTel("+41 78 500 10 10");
         speaker2.setEmail("sg@gmail.com");
-        speaker2.setPassword("test");*/
+        speaker2.setPassword("test");
 
-        /*r1.setNameRoom("Moon");
+        r1.setNameRoom("Moon");
         r1.setNbPeople(20);
         r1.setCity("Sion");
         r2.setNameRoom("Reka");
@@ -96,40 +115,26 @@ public class WelcomeActivity extends AppCompatActivity {
         r4.setIdRoom((int) rds.createRoom(r4));
         r5.setIdRoom((int) rds.createRoom(r5));
 
-        /*top1.setNameTopic("Life on the Moon");
-        top1.setDate("08.01.2017");
-        top1.setStartTime("10:00");
-        top1.setEndTime("12:00");
-        top1.setIdRoom(1);
-        top1.setIdSpeaker(1);
 
-        top2.setNameTopic("Philosophy in JAVA");
-        top2.setDate("03.03.2017");
-        top2.setStartTime("18:00");
-        top2.setEndTime("20:00");
-        top2.setIdRoom(3);
-        top2.setIdSpeaker(2);
 
-        speaker1.setIdUser((int) uds.createUser(speaker1));
-        speaker2.setIdUser((int) uds.createUser(speaker2));
+        /*speaker1.setIdUser((int) uds.createUser(speaker1));
+        speaker2.setIdUser((int) uds.createUser(speaker2));return id; */
 
 
 
-        top1.setIdTopic((int) tds.AddTopicByUser(top1));
-        top2.setIdTopic((int) tds.AddTopicByUser(top2)); */
 
-
-        // Reading all rooms
+        //Reading all rooms
         Log.d("Reading: ", "Reading all rooms..");
         List<Room> rooms = rds.getAllRooms();
-        rds.deleteRoom(1);
+
+        /*rds.deleteRoom(1);
         rds.deleteRoom(2);
         rds.deleteRoom(3);
         rds.deleteRoom(4);
         rds.deleteRoom(5);
         rds.deleteRoom(6);
         rds.deleteRoom(7);
-        rds.deleteRoom(8);
+        rds.deleteRoom(8);*/
 
         for (Room room : rooms) {
             String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();
