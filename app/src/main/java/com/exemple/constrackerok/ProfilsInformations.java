@@ -63,17 +63,22 @@ public class ProfilsInformations extends AppCompatActivity {
         radioGenderButton = (RadioButton) findViewById(selectedId);
         new_gender = radioGenderButton.getText().toString();
         speaker.setTitle(new_gender);
+
         name = (EditText) findViewById(R.id.nametxt);
         nameStr = name.getText().toString();
         speaker.setName(nameStr);
+
         surname = (EditText) findViewById(R.id.surnametxt);
         surnameStr = surname.getText().toString();
+        speaker.setSurname(surnameStr);
 
         tel = (EditText) findViewById(R.id.phoneNumbertxt);
         telStr = tel.getText().toString();
+        speaker.setTel(telStr);
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
+        
         password = getIntent().getStringExtra("passMeUserPassword");
         speaker.setPassword(password);
 
@@ -82,10 +87,14 @@ public class ProfilsInformations extends AppCompatActivity {
         // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.createUser(speaker);
+
+
         Toast.makeText(getBaseContext(), "Account creation is completed", Toast.LENGTH_LONG).show();
 
 //we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);
+        intent.putExtra("passMeUserEmail", email);
+        intent.putExtra("passMeUserPassword", password);
         startActivity(intent);
     }
 
