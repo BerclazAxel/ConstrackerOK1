@@ -64,13 +64,15 @@ public class CreateAccount extends AppCompatActivity {
 
 
                     Toast.makeText(getBaseContext(), "Click the button Continue", Toast.LENGTH_SHORT).show();
+                    //here we pass data to another activity
+                    Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
+                    intent.putExtra("passMeUserEmail", user_email);
+                    intent.putExtra("passMeUserPassword", user_pass);
+                    startActivity(intent);
                 }
-                //here we pass data to another activity
-                Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
-                intent.putExtra("passMeUserEmail", user_email);
-                intent.putExtra("passMeUserPassword", user_pass);
 
-                startActivity(intent);
+
+
             }
         });
 

@@ -56,7 +56,7 @@ public class WelcomeActivity extends AppCompatActivity {
         UserDataSource uds = new UserDataSource(this);
         TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
 
-        /*speaker1.setTitle("Mr.");
+        speaker1.setTitle("Mr.");
         speaker1.setName("Bob");
         speaker1.setSurname("Marley");
         speaker1.setTel("+41 78 800 11 12");
@@ -99,7 +99,7 @@ public class WelcomeActivity extends AppCompatActivity {
         r3.setIdRoom((int) rds.createRoom(r3));
 
         top1.setIdTopic((int) tds.AddTopicByUser(top1));
-        top2.setIdTopic((int) tds.AddTopicByUser(top2));*/
+        top2.setIdTopic((int) tds.AddTopicByUser(top2));
 
 
         // Reading all rooms
