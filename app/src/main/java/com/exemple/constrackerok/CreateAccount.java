@@ -70,9 +70,6 @@ public class CreateAccount extends AppCompatActivity {
                     intent.putExtra("passMeUserPassword", user_pass);
                     startActivity(intent);
                 }
-
-
-
             }
         });
 

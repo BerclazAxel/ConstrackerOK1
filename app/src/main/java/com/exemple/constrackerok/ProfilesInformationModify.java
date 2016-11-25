@@ -74,8 +74,7 @@ public class ProfilesInformationModify extends AppCompatActivity {
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
-        password = getIntent().getStringExtra("passMeUserPassword");
-        speaker.setPassword(password);
+   
 
 
         //check all fields to be filled it

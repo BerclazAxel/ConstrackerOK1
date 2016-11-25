@@ -26,12 +26,10 @@ public class SpeakerSpace extends AppCompatActivity {
 
     //replace it by the object
     Bundle bn;
-    String USERNAME, PASSWORD, email;
-
-    Button del;
-
+    String USERNAME, password, email;
     Context ctx = this;
     UserDataSource uds = new UserDataSource(this);
+    User speakerInSpeakerSpace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,61 +39,64 @@ public class SpeakerSpace extends AppCompatActivity {
         setSupportActionBar(toolbar);
         //Here we receive the User email from Intent
         email = getIntent().getStringExtra("passMeUserEmail");
-        final User speakerInSpeakerSpace = uds.getUserByEmail(email);
+        speakerInSpeakerSpace = uds.getUserByEmail(email);
 
-        //bn = getIntent().getExtras();
-        //USERNAME = bn.getString("user_email");
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
-        del = (Button) findViewById(R.id.deleteAccountbtn);
 
-        del.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-// here we just ask if the user really want us to delete the account
-                Context context = null;
-                new AlertDialog.Builder(context)
-                        .setTitle("Delete confirmation")
-                        .setMessage("Are you sure you want to delete this entry?")
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // continue with delete
-                                // pass the id from the object
-                                int id = speakerInSpeakerSpace.getIdUser();
-                                uds.deleteUser(id);
-                                Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
-                                //finish the activity
-                                finish();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                // do nothing
-                            }
-                        })
-                        .setIcon(android.R.drawable.ic_dialog_alert)
-                        .show();
-            }
-        });
     }
+
 
     public void startProposeTopic(View view) {
 
         Intent intent = new Intent(SpeakerSpace.this, ProposeTopic.class);
 
-        bn.putString("user_name", USERNAME );
-        bn.putString("user_password", PASSWORD);
+        bn.putString("user_name", USERNAME);
+        bn.putString("user_password", password);
         //we attache the bunddle calss to the activity
-         intent.putExtras(bn);
+        intent.putExtras(bn);
         startActivity(intent);
     }
 
-   public void modifyMyProfile(View view) {
 
-       Intent intent = new Intent(SpeakerSpace.this, ProfilesInformationModify.class);
-       intent.putExtra("passuserEmailToSpeakerSpace", email);
-       startActivity(intent);
-   }
+    //android:onClick="deleteMyProfile"
+    public void deleteMyProfile(View view) {
+
+
+        Context context = null;
+        new AlertDialog.Builder(context)
+                .setTitle("Delete confirmation")
+                .setMessage("Are you sure you want to delete this entry?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // continue with delete
+                        // pass the id from the object
+                        long id = speakerInSpeakerSpace.getIdUser();
+                        uds.deleteUser(id);
+                        Toast.makeText(getBaseContext(), "Your profile is deleted", Toast.LENGTH_LONG).show();
+                        //finish the activity
+                        finish();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
+        Intent intent = new Intent(SpeakerSpace.this, WelcomeActivity.class);
+
+
+        startActivity(intent);
+    }
+
+    public void modifyMyProfile(View view) {
+
+        Intent intent = new Intent(SpeakerSpace.this, ProfilesInformationModify.class);
+        intent.putExtra("passMeUserEmail", email);
+        startActivity(intent);
+    }
 
     public boolean onCreateOptionsMenu(Menu menu) {
         Log.d("WelcomeActivity", "onCreateOptionsMenu");
