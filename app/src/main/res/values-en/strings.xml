@@ -67,4 +67,6 @@
     <string name="TitleString">Title :</string>
     <string name="UpdateProfilString">UPDATE MY PROFILE</string>
     <string name="passwordString">Password :</string>
+    <string name="EnterMailString">Enter your e-mail</string>
+    <string name="EnterPasswordString">Enter your password</string>
 </resources>
