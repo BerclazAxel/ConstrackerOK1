@@ -47,6 +47,9 @@ public class WelcomeActivity extends AppCompatActivity {
         Room r1 = new Room(); //id gets automatically incremented
         Room r2 = new Room();
         Room r3 = new Room();
+        Room r4 = new Room();
+        Room r5 = new Room();
+
         User speaker1 = new User();
         User speaker2 = new User();
         Topic top1 = new Topic();
@@ -68,20 +71,32 @@ public class WelcomeActivity extends AppCompatActivity {
         speaker2.setSurname("Gellar");
         speaker2.setTel("+41 78 500 10 10");
         speaker2.setEmail("sg@gmail.com");
-        speaker2.setPassword("test");
+        speaker2.setPassword("test");*/
 
-        r1.setNameRoom("Moon");
+        /*r1.setNameRoom("Moon");
         r1.setNbPeople(20);
+        r1.setCity("Sion");
         r2.setNameRoom("Reka");
         r2.setNbPeople(10);
+        r2.setCity("Geneva");
         r3.setNameRoom("Polo");
         r3.setNbPeople(25);
+        r3.setCity("Bern");
         r4.setNameRoom("Bingo");
         r4.setNbPeople(50);
+        r4.setCity("Zurich");
         r5.setNameRoom("Miracle");
         r5.setNbPeople(100);
+        r5.setCity("Brig");
 
-        top1.setNameTopic("Life on the Moon");
+
+        r1.setIdRoom((int) rds.createRoom(r1));
+        r2.setIdRoom((int) rds.createRoom(r2));
+        r3.setIdRoom((int) rds.createRoom(r3));
+        r4.setIdRoom((int) rds.createRoom(r4));
+        r5.setIdRoom((int) rds.createRoom(r5));
+
+        /*top1.setNameTopic("Life on the Moon");
         top1.setDate("08.01.2017");
         top1.setStartTime("10:00");
         top1.setEndTime("12:00");
@@ -98,20 +113,23 @@ public class WelcomeActivity extends AppCompatActivity {
         speaker1.setIdUser((int) uds.createUser(speaker1));
         speaker2.setIdUser((int) uds.createUser(speaker2));
 
-        r1.setIdRoom((int) rds.createRoom(r1));
-        r2.setIdRoom((int) rds.createRoom(r2));
-        r3.setIdRoom((int) rds.createRoom(r3));
+
 
         top1.setIdTopic((int) tds.AddTopicByUser(top1));
-        top2.setIdTopic((int) tds.AddTopicByUser(top2));*/
+        top2.setIdTopic((int) tds.AddTopicByUser(top2)); */
 
 
         // Reading all rooms
         Log.d("Reading: ", "Reading all rooms..");
         List<Room> rooms = rds.getAllRooms();
-       /*rds.deleteRoom(1);
+        rds.deleteRoom(1);
         rds.deleteRoom(2);
-        rds.deleteRoom(3);*/
+        rds.deleteRoom(3);
+        rds.deleteRoom(4);
+        rds.deleteRoom(5);
+        rds.deleteRoom(6);
+        rds.deleteRoom(7);
+        rds.deleteRoom(8);
 
         for (Room room : rooms) {
             String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();
@@ -119,17 +137,17 @@ public class WelcomeActivity extends AppCompatActivity {
             Log.d("Room: ", log);
         }
 
-            // Reading all users
-            Log.d("Reading: ", "Reading all users..");
-            List<User> users = uds.getAllUsers();
+        // Reading all users
+        Log.d("Reading: ", "Reading all users..");
+        List<User> users = uds.getAllUsers();
 
-            for (User user : users) {
-                String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getTitle() + " , Name: " + user.getName()
-                        + " , Surname: " + user.getSurname() + " , Tel: " + user.getTel() + " , Email: " + user.getEmail()
-                        + " , Password: " + user.getPassword();
-                // Writing users to log
-                Log.d("Users: ", logU);
-            }
+        for (User user : users) {
+            String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getTitle() + " , Name: " + user.getName()
+                    + " , Surname: " + user.getSurname() + " , Tel: " + user.getTel() + " , Email: " + user.getEmail()
+                    + " , Password: " + user.getPassword();
+            // Writing users to log
+            Log.d("Users: ", logU);
+        }
 
         // Reading all topics
         Log.d("Reading: ", "Reading all topics..");
@@ -143,9 +161,9 @@ public class WelcomeActivity extends AppCompatActivity {
             // Writing users to log
             Log.d("Topics: ", logT);
         }
-            //close db instance
-            NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
-            sqlHelper.getWritableDatabase().close();
+        //close db instance
+        NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
+        sqlHelper.getWritableDatabase().close();
 
     }
 
@@ -181,7 +199,6 @@ public class WelcomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
     public void startSpeakerSpace(View view) {
