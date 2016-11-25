@@ -126,7 +126,10 @@ public class ProfilesInformationModify extends AppCompatActivity {
         //Toast.makeText(getBaseContext(), R.string.UpdateCompleteString, Toast.LENGTH_LONG).show();
 
         //we go to next activity
+        email = getIntent().getStringExtra("passMeUserEmail");
+
         Intent intent = new Intent(this, SpeakerSpace.class);
+        intent.putExtra("passMeUserEmail", email);
         startActivity(intent);
     }
 
