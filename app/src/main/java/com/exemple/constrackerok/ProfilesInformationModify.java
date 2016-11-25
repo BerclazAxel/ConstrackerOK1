@@ -39,14 +39,9 @@ public class ProfilesInformationModify extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        addListenerOnButton();
+
     }
 
     public void addListenerOnButton() {
@@ -74,7 +69,7 @@ public class ProfilesInformationModify extends AppCompatActivity {
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
-   
+
 
 
         //check all fields to be filled it
