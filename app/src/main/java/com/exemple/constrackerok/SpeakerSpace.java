@@ -40,7 +40,7 @@ public class SpeakerSpace extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //Here we receive the User email from Intent
-        email = getIntent().getStringExtra("passuserEmailToSpeakerSpace");
+        email = getIntent().getStringExtra("passMeUserEmail");
         final User speakerInSpeakerSpace = uds.getUserByEmail(email);
 
         //bn = getIntent().getExtras();

@@ -73,7 +73,7 @@ public class UserDataSource {
      */
     public User getUserByEmail(String email){
         String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER +
-                " WHERE " + NewConferenceDB.TableUser.USER_EMAIL + " = " + email;
+                " WHERE " + NewConferenceDB.TableUser.USER_EMAIL + " = '" + email + "'";
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
