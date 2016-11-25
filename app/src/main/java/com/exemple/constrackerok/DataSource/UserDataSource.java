@@ -140,7 +140,7 @@ public class UserDataSource {
     /*
 
      */
-   public String searchPass (String uname) {
+   public String searchPass (String email) {
               String sql = "SELECT " + NewConferenceDB.TableUser.USER_EMAIL + ", "
        + NewConferenceDB.TableUser.USER_PASSWORD + " FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER;
                Cursor cursor = db.rawQuery(sql, null);
@@ -151,7 +151,7 @@ public class UserDataSource {
            do {
                a = cursor.getString(0);
 
-               if (a.equals(uname)) {
+               if (a.equals(email)) {
                    b = cursor.getString(1);
                    break;
                }
