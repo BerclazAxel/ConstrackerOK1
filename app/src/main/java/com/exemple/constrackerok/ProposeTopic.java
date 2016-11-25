@@ -26,6 +26,7 @@ public class ProposeTopic extends AppCompatActivity {
     private String email;
     private String[] values;
     List<Room> rooms;
+    Room room = new Room();
     Context ctx = this;
     RoomDataSource rds = new RoomDataSource(this);
 
