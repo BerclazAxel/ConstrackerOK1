@@ -82,7 +82,7 @@ public class ProfilsInformations extends AppCompatActivity {
         password = getIntent().getStringExtra("passMeUserPassword");
         speaker.setPassword(password);
 
-
+//
         //check all fields to be filled it
         // if () {}...code
         UserDataSource uds = new UserDataSource(this);
