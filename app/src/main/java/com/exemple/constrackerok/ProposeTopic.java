@@ -26,7 +26,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.List;
 
-public class ProposeTopic extends AppCompatActivity   {
+public class ProposeTopic extends AppCompatActivity {
     private String email;
     private String[] values;
     List<Room> rooms;
@@ -35,10 +35,7 @@ public class ProposeTopic extends AppCompatActivity   {
     RoomDataSource rds = new RoomDataSource(this);
 
     ImageView Iv = (ImageView) findViewById(R.id.roomList);
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
     @Override
@@ -66,9 +63,9 @@ public class ProposeTopic extends AppCompatActivity   {
         ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
         textView.setText(values[position]);
 
-AccessibilityService context;
+        AccessibilityService context;
 //for (Room room : rooms) {
-            String name = room.getNameRoom(); ///
+        String name = room.getNameRoom(); ///
         // Change icon based on name
         String s = values[position];
 
@@ -93,20 +90,12 @@ AccessibilityService context;
     }
 
 
-
-
-
     public void startSendProposedTopic(View view) {
-
 
         Intent intent = new Intent(this, SpeakerSpace.class);
         startActivity(intent);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("ProposeTopic Page") // TODO: Define a title for the content shown.
@@ -123,8 +112,6 @@ AccessibilityService context;
     public void onStart() {
         super.onStart();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -133,15 +120,11 @@ AccessibilityService context;
     public void onStop() {
         super.onStop();
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
-
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
@@ -149,7 +132,6 @@ AccessibilityService context;
 
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
 // handle presses on the action bar item
         switch (item.getItemId()) {
 

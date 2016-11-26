@@ -94,14 +94,7 @@ public class SearchConference extends AppCompatActivity {
     }
 
 
-    public void startDateFrom(View view) {
 
-    }
-
-
-    public void startDateTo(View view) {
-
-    }
 
 
     public void startSearch(View view) {
@@ -128,9 +121,6 @@ public class SearchConference extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -138,9 +128,6 @@ public class SearchConference extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
@@ -171,4 +158,9 @@ public class SearchConference extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void startDateFrom(View view) {
+    }
+    public void startDateTo(View view) {
+    }
 }

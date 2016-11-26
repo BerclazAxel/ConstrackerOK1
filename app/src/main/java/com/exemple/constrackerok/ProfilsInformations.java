@@ -81,9 +81,6 @@ public class ProfilsInformations extends AppCompatActivity {
         password = getIntent().getStringExtra("passMeUserPassword");
         speaker.setPassword(password);
 
-//
-        //check all fields to be filled it
-        // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.createUser(speaker);
 
@@ -97,10 +94,7 @@ public class ProfilsInformations extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Profile Information Page") // TODO: Define a title for the content shown.
@@ -116,9 +110,6 @@ public class ProfilsInformations extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -126,15 +117,11 @@ public class ProfilsInformations extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
 
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -142,7 +129,6 @@ public class ProfilsInformations extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
 // handle presses on the action bar item
         switch (item.getItemId()) {
 

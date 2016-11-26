@@ -108,16 +108,13 @@ public class Participate extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
-
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
-// handle presses on the action bar item
+   // handle presses on the action bar item
         switch (item.getItemId()) {
 
             case R.id.action_information:

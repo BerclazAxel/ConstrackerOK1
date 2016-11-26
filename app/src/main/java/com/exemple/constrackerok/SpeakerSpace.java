@@ -55,8 +55,6 @@ public class SpeakerSpace extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-    //android:onClick="deleteMyProfile"
     public void deleteMyProfile(View view) {
 
         Context context = this.getApplicationContext();
@@ -97,16 +95,13 @@ public class SpeakerSpace extends AppCompatActivity {
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
-
-        //Inflate the manu; this adds to the action bar if it is present
+                //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
-// handle presses on the action bar item
+      // handle presses on the action bar item
         switch (item.getItemId()) {
 
             case R.id.action_information:
@@ -124,17 +119,10 @@ public class SpeakerSpace extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("SpeakerSpace Page") // TODO: Define a title for the content shown.
@@ -150,9 +138,6 @@ public class SpeakerSpace extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -160,9 +145,6 @@ public class SpeakerSpace extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
