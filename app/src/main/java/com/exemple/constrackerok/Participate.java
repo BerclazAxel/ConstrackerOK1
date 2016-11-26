@@ -1,5 +1,6 @@
 package com.exemple.constrackerok;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -11,7 +12,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.exemple.constrackerok.DataSource.RoomDataSource;
+import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
+import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.Room;
+import com.exemple.constrackerok.Objects.Topic;
+import com.exemple.constrackerok.Objects.User;
+
 public class Participate extends AppCompatActivity {
+    Context ctx = this;
+    TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
+    UserDataSource uds = new UserDataSource(this);
+    RoomDataSource rds = new RoomDataSource(this);
+    Topic topic;
+    User user;
+    Room room;
+    String idStr;
+    int id, idRoom, idSpeaker;
+    String nameTopic, date, startTime, endTime, nameSpeaker, surnameSpeaker, nameRoom;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,15 +38,28 @@ public class Participate extends AppCompatActivity {
         setContentView(R.layout.activity_participate);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        idStr = getIntent().getStringExtra("passMeId");
+        id = Integer.parseInt(idStr);
+        topic = tds.getTopicById(id);
+        idRoom = topic.getIdRoom();
+        idSpeaker = topic.getIdSpeaker();
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
+        nameTopic = topic.getNameTopic();
+        date = topic.getDate();
+        startTime = topic.getStartTime();
+        endTime = topic.getEndTime();
+        user = uds.getUserById(idSpeaker);
+        nameSpeaker = user.getName();
+        surnameSpeaker = user.getSurname();
+
+
+
+
+
+
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

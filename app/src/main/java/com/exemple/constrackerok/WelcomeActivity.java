@@ -47,7 +47,7 @@ List<Room> rooms;
         TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
         // Inserting Rooms
         Log.d("Insert: ", "Inserting ..");
-        Room r1 = new Room(); //id gets automatically incremented
+        /*Room r1 = new Room(); //id gets automatically incremented
         Room r2 = new Room();
         Room r3 = new Room();
         Room r4 = new Room();
@@ -86,7 +86,7 @@ List<Room> rooms;
         speaker2.setPassword("test");
 
 
-        Topic top1 = new Topic();
+        /*Topic top1 = new Topic();
         Topic top2 = new Topic();
         top1.setNameTopic("Life on the Moon");
         top1.setDate("08.01.2017");

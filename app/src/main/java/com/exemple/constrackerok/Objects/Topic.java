@@ -6,17 +6,18 @@ public class Topic {
 
     private int idTopic;
     private String nameTopic;
+    private String date;
     private String startTime;
     private String endTime;
-    private String date;
-    private int idRoom;
     private int idSpeaker;
+    private int idRoom;
+
 
     public Topic() {
 
     }
 
-    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idRoom, int idSpeaker) {
+    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idSpeaker, int idRoom) {
         this.idTopic = idTopic;
         this.nameTopic = nameTopic;
         this.date = date;
