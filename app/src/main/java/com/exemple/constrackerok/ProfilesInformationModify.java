@@ -101,9 +101,6 @@ public class ProfilesInformationModify extends AppCompatActivity {
 
 
     public void startUpdateProfile(View view) {
-        // here we recieve typed data from EditText, Radiobutton
-// get selected radio button from radioGroup
-
 
         int selectedId = groupGenderGR.getCheckedRadioButtonId();
         // find the radiobutton by returned id

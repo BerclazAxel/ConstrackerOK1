@@ -82,7 +82,7 @@ public class RoomDataSource {
     /**
      * Update a Room
      */
-    public int updateRoom(Room room, int minus) {
+    public int updateRoom(Room room) {
 
         ContentValues values = new ContentValues();
         int nb = room.getNbPeople();

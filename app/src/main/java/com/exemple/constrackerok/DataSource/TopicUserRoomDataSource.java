@@ -44,7 +44,6 @@ public class TopicUserRoomDataSource {
         return id;
     }
 
-
     /**
      * show all topics
      */

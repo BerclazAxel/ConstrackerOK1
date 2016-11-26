@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.exemple.constrackerok.DataSource.RoomDataSource;
 import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
@@ -29,7 +30,8 @@ public class Participate extends AppCompatActivity {
     Room room;
     String idStr;
     int id, idRoom, idSpeaker;
-    String nameTopic, date, startTime, endTime, nameSpeaker, surnameSpeaker, nameRoom;
+    String nameTopic, date, startTime, endTime, nameSpeaker, surnameSpeaker, nameRoom, remainingPlaces;
+    TextView nameTopicTV, dateTV, startTimeTV, endTimeTV, nameSpeakerTV, nameRoomTV, remainingPlacesTV;
 
 
     @Override
@@ -53,13 +55,39 @@ public class Participate extends AppCompatActivity {
         nameSpeaker = user.getName();
         surnameSpeaker = user.getSurname();
 
+        room = rds.getRoomById(idRoom);
+        nameRoom = room.getNameRoom();
+        int remainingPlacesInt = room.getNbPeople();
+        remainingPlaces = Integer.toString(remainingPlacesInt);
+
+        TextView nameTopicTV = (TextView) findViewById(R.id.topictxt);
+        nameTopicTV.setText(nameTopic);
+
+        TextView remainingPlacesTV = (TextView) findViewById(R.id.placestxt);
+        remainingPlacesTV.setText(remainingPlaces);
+
+        TextView dateTV = (TextView) findViewById(R.id.datetxt);
+        dateTV.setText(date);
+
+        TextView startTimeTV = (TextView) findViewById(R.id.srartTimetxt);
+        startTimeTV.setText(startTime);
+
+        TextView endTimeTV = (TextView) findViewById(R.id.endTimetxt);
+        endTimeTV.setText(endTime);
+
+        TextView nameSpeakerTV = (TextView) findViewById(R.id.speakertxt);
+        nameSpeakerTV.setText(nameSpeaker + " " + surnameSpeaker.toUpperCase());
+
+        TextView nameRoomTV = (TextView) findViewById(R.id.roomtxt);
+        nameRoomTV.setText(nameRoom);
+    }
 
 
+    public void startSubmitParticipation(View view) {
+        rds.updateRoom(room);
 
-
-
-
-
+        Intent intent = new Intent(this, SearchConference.class);
+        startActivity(intent);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
