@@ -3,6 +3,9 @@ package com.exemple.constrackerok;
 import android.provider.BaseColumns;
 
 
+import android.provider.BaseColumns;
+
+
 public class NewConferenceDB {
 
 

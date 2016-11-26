@@ -1,5 +1,6 @@
 package com.exemple.constrackerok;
 
+import android.accessibilityservice.AccessibilityService;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -7,10 +8,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.exemple.constrackerok.DataSource.RoomDataSource;
@@ -51,37 +55,43 @@ public class ProposeTopic extends AppCompatActivity   {
 
 
     }
-/*
+
     public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context
+
+        LayoutInflater inflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.list_mobile, parent, false);
+        View rowView = inflater.inflate(R.layout.content_propose_topic, parent, false);
         TextView textView = (TextView) rowView.findViewById(R.id.label);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
         textView.setText(values[position]);
 
-
-for (Room room : rooms) {
+AccessibilityService context;
+//for (Room room : rooms) {
             String name = room.getNameRoom(); ///
         // Change icon based on name
         String s = values[position];
 
         System.out.println(s);
 
-        if (s.equals("WindowsMobile")) {
-            imageView.setImageResource(R.drawable.windowsmobile_logo);
-        } else if (s.equals("iOS")) {
-            imageView.setImageResource(R.drawable.ios_logo);
-        } else if (s.equals("Blackberry")) {
-            imageView.setImageResource(R.drawable.blackberry_logo);
-        } else {
-            imageView.setImageResource(R.drawable.android_logo);
+        if (s.equals("Polo")) {
+            imageView.setImageResource(R.drawable.banquet);
+        } else if (s.equals("Reka")) {
+            imageView.setImageResource(R.drawable.boardroom);
+        } else if (s.equals("Bingo")) {
+            imageView.setImageResource(R.drawable.classroom);
+        } else if (s.equals("Miracle")) {
+            imageView.setImageResource(R.drawable.theatre);
+        } else if (s.equals("Polo")) {
+            imageView.setImageResource(R.drawable.ushape);
+        } else if (s.equals("Moon")) {
+            imageView.setImageResource(R.drawable.workshop);
         }
+
 
         return rowView;
     }
-    /*
+
 
 
 
