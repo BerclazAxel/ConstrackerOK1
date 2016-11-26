@@ -44,7 +44,7 @@ public class UserDataSource {
     }
 
     /**
-     * Find one Person by Id
+     * Find one User by Id
      */
     public User getUserById(int id){
         String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER +
@@ -69,7 +69,7 @@ public class UserDataSource {
     }
 
     /**
-     * Find one Person by Email
+     * Find one User by Email
      */
     public User getUserByEmail(String email){
         String sql = "SELECT * FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER +
@@ -137,10 +137,7 @@ public class UserDataSource {
     }
 
 
-    /*
-
-     */
-   public String searchPass (String email) {
+     public String searchPass (String email) {
               String sql = "SELECT " + NewConferenceDB.TableUser.USER_EMAIL + ", "
        + NewConferenceDB.TableUser.USER_PASSWORD + " FROM " + NewConferenceDB.TableUser.TABLE_NAME_USER;
                Cursor cursor = db.rawQuery(sql, null);

@@ -12,136 +12,145 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.exemple.constrackerok.Participate"
     tools:showIn="@layout/activity_participate">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="5dp">
 
         <LinearLayout
-            android:orientation="vertical" android:layout_width="match_parent"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
 
             <TextView
-                android:text="Topic:"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/name"
-                android:textSize="20sp"
-                android:layout_marginTop="5dp"/>
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
+                android:layout_marginTop="5dp"
+                android:text="Topic:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/topictxt"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:text="Remaining places:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/places"
-                android:textSize="20sp"
-                />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:ems="10"
                 android:inputType="textPersonName"
-                android:ems="10"
+                android:textColor="#C71585"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/places"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Remaining places:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/placestxt"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:text="Date:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#C71585"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/date"
-                android:textSize="20sp"/>
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
+                android:text="Date:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/datetxt"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:text="Start time:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:textColor="#C71585"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/startTime"
-                android:textSize="20sp"/>
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
+                android:text="Start time:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/srartTimetxt"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:text="End time:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:textColor="#C71585"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/endTime"
-                android:textSize="20sp"/>
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
+                android:text="End time:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/endTimetxt"
-                android:textSize="20sp"/>
-
-            <TextView
-                android:text="Speaker:"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:textColor="#C71585"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/speaker"
-                android:textSize="20sp"/>
-
-            <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="phone"
-                android:ems="10"
-                android:id="@+id/speakertxt"
-                android:textSize="20sp"/>
+                android:text="Speaker:"
+                android:textSize="20sp" />
+
             <TextView
-                android:text="Room:"
+                android:id="@+id/speakertxt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/room"
-                android:textSize="20sp"/>
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="phone"
                 android:ems="10"
+                android:inputType="phone"
+                android:textSize="20sp"
+                android:textColor="#C71585"/>
+
+            <TextView
+                android:id="@+id/room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Room:"
+                android:textSize="20sp" />
+
+            <TextView
                 android:id="@+id/roomtxt"
-                android:textSize="20sp"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="phone"
+                android:textSize="20sp"
+                android:textColor="#C71585"/>
 
             <Button
-                android:text="PARTICIPATE"
+                android:id="@+id/participateBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:id="@+id/participateBtn"
                 android:onClick="startSubmitParticipation"
-                />
+                android:text="PARTICIPATE"
+                android:textSize="20sp" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
