@@ -11,8 +11,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.exemple.constrackerok.SearchConference"
     tools:showIn="@layout/activity_search_conference"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    android:background="@drawable/triangle">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <TextView
         android:id="@+id/template_list_topic_name"
