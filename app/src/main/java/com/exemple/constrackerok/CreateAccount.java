@@ -55,18 +55,24 @@ public class CreateAccount extends AppCompatActivity {
                 user_email = USER_EMAIL.getText().toString();
                 user_pass = USER_PASS.getText().toString();
                 con_pass = CON_PASS.getText().toString();
-
-                User user = new User();
+                //to check if the email already exists
                 UserDataSource uds = new UserDataSource(ctx);
                 List<User> users = uds.getAllUsers();
+                boolean exist = false;
+                for (User userLook : users) {
 
-                if (!user_pass.equals(con_pass) || user_email.isEmpty() || user_pass.isEmpty() || con_pass.isEmpty()) {
-                   // if ()
-                        Toast.makeText(getBaseContext(), R.string.CheckInfosString, Toast.LENGTH_SHORT).show();
-                    //and we reset all fields
+                    if (userLook.getEmail().equals(user_email)) {
 
+                        exist = true;
+                    }
+                }
+
+                if (!user_pass.equals(con_pass) || exist == true || user_email.isEmpty() || user_pass.isEmpty() || con_pass.isEmpty()) {
+
+                    Toast.makeText(getBaseContext(), "Complete your registration", Toast.LENGTH_SHORT).show();
                     USER_PASS.setText("");
                     CON_PASS.setText("");
+                    USER_EMAIL.setText("");
 
                 } else {
                     Toast.makeText(getBaseContext(), R.string.InformationString, Toast.LENGTH_SHORT).show();

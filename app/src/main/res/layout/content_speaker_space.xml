@@ -29,18 +29,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="14dp">
 
-        <TextView
-            android:text="@string/FutursTopicsString"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/Yourfuturstopics"
-            android:textSize="20sp"/>
-
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="123dp"
-            android:textSize="20sp"/>
-
         <Button
             android:text="@string/ProposeNewTopicString"
             android:layout_width="match_parent"
@@ -67,7 +55,7 @@
             android:textColor="#F00"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="100dp"
             android:textSize="20sp"
             android:id="@+id/deleteAccountbtn"
             android:onClick="deleteMyProfile"

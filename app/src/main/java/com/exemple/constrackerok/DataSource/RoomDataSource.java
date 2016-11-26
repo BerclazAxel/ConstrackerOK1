@@ -84,29 +84,15 @@ public class RoomDataSource {
     public void updateRoom1(Room room){
 
         ContentValues values = new ContentValues();
-      //  values.put(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, room.getNameRoom());
-        values.put(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, room.getNbPeople());
+        values.put(NewConferenceDB.TableRoom.ROOM_NAME, room.getNameRoom());
+        values.put(NewConferenceDB.TableRoom.ROOM_NBPEOPLE, room.getNbPeople());
 
         this.db.update(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, values, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
                 new String[] { String.valueOf(room.getIdRoom()) });
     }
 
 
-    /**
-     * Update a Room
-     */
-    public int updateRoom(Room room) {
 
-        ContentValues values = new ContentValues();
-        int nb = room.getNbPeople();
-        int nbNew = nb - 1;
-        room.setNbPeople(nbNew);
-        values.put(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, room.getNbPeople());
-
-        return this.db.update(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, values, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
-                new String[]{String.valueOf(room.getIdRoom())});
-
-    }
 
 
     /**

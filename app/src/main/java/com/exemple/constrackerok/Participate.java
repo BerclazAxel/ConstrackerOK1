@@ -68,9 +68,6 @@ public class Participate extends AppCompatActivity {
         TextView remainingPlacesTV = (TextView) findViewById(R.id.placestxt);
         remainingPlacesTV.setText(remainingPlaces);
 
-
-
-
         btn = (Button) findViewById(R.id.participateBtn);
         btn.setVisibility(View.GONE);
         TextView dateTV = (TextView) findViewById(R.id.datetxt);
@@ -104,6 +101,7 @@ public class Participate extends AppCompatActivity {
         int nb = room.getNbPeople();
         int newNB = nb-1;
         room.setNbPeople(newNB);
+
         rds.updateRoom1(room);
         Intent intent = new Intent(this, SearchConference.class);
         startActivity(intent);
