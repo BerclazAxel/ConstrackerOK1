@@ -15,10 +15,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.List;
 
 public class CreateAccount extends AppCompatActivity {
 
@@ -53,15 +56,19 @@ public class CreateAccount extends AppCompatActivity {
                 user_pass = USER_PASS.getText().toString();
                 con_pass = CON_PASS.getText().toString();
 
-                if (!user_pass.equals(con_pass)||user_email.isEmpty()||user_pass.isEmpty()||con_pass.isEmpty()) {
-                    Toast.makeText(getBaseContext(), R.string.CheckInfosString, Toast.LENGTH_SHORT).show();
+                User user = new User();
+                UserDataSource uds = new UserDataSource(ctx);
+                List<User> users = uds.getAllUsers();
+
+                if (!user_pass.equals(con_pass) || user_email.isEmpty() || user_pass.isEmpty() || con_pass.isEmpty()) {
+                   // if ()
+                        Toast.makeText(getBaseContext(), R.string.CheckInfosString, Toast.LENGTH_SHORT).show();
                     //and we reset all fields
 
                     USER_PASS.setText("");
                     CON_PASS.setText("");
 
-                } else
-                {
+                } else {
                     Toast.makeText(getBaseContext(), R.string.InformationString, Toast.LENGTH_SHORT).show();
                     //here we pass data to another activity
                     Intent intent = new Intent(CreateAccount.this, ProfilsInformations.class);
@@ -72,10 +79,8 @@ public class CreateAccount extends AppCompatActivity {
             }
         });
 
-
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
-
 
 
     public boolean onCreateOptionsMenu(Menu menu) {

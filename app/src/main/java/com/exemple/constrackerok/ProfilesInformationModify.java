@@ -122,12 +122,9 @@ public class ProfilesInformationModify extends AppCompatActivity {
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
 
-
-        //check all fields to be filled it
-        // if () {}...code
         UserDataSource uds = new UserDataSource(this);
         uds.updateUser(speaker);
-        //Toast.makeText(getBaseContext(), R.string.UpdateCompleteString, Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), R.string.UpdateCompleteString, Toast.LENGTH_SHORT).show();
 
         //we go to next activity
         email = getIntent().getStringExtra("passMeUserEmail");

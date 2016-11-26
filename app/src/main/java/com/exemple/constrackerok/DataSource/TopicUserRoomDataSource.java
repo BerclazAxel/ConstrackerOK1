@@ -49,7 +49,7 @@ public class TopicUserRoomDataSource {
      */
     public List<Topic> getAllTopics(){
         List<Topic> topics = new ArrayList<Topic>();
-        String sql = "SELECT * FROM " + NewConferenceDB.TableTopic.TABLE_NAME_TOPIC + " ORDER BY " + NewConferenceDB.TableTopic.TOPIC_DATE;
+        String sql = "SELECT * FROM " + NewConferenceDB.TableTopic.TABLE_NAME_TOPIC + " ORDER BY " + NewConferenceDB.TableTopic.TOPIC_DATE + " DESC ";
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
