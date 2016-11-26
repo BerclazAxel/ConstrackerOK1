@@ -63,7 +63,6 @@ public class LanguageActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Language Page") // TODO: Define a title for the content shown.
@@ -89,7 +88,4 @@ public class LanguageActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
-
-
-
 }

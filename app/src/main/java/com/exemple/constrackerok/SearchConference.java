@@ -60,6 +60,7 @@ public class SearchConference extends AppCompatActivity {
         //final String [] languageList = getResources().getStringArray(R.array.language_list);
         if (topicList.length > 0) {
             ListView list;
+
             final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.content_search_conference, topicList) {
                 @Override
                 public View getView(int position, View convertView, ViewGroup parent) {
@@ -72,6 +73,7 @@ public class SearchConference extends AppCompatActivity {
                         view = convertView;
                     }
                     TextView textView1 = (TextView) view.findViewById(R.id.template_list_topic_name);
+                    textView1.setHeight(100);
                     textView1.setText(topicList[position]);
 
                     return view;
