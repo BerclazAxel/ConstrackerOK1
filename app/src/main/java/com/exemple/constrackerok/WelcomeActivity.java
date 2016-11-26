@@ -47,7 +47,7 @@ List<Room> rooms;
         TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
         // Inserting Rooms
         Log.d("Insert: ", "Inserting ..");
-        Room r1 = new Room(); //id gets automatically incremented
+        /*Room r1 = new Room(); //id gets automatically incremented
         Room r2 = new Room();
         Room r3 = new Room();
         Room r4 = new Room();

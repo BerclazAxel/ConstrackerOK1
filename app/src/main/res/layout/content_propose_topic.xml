@@ -13,13 +13,13 @@
     tools:context="com.exemple.constrackerok.ProposeTopic"
     tools:showIn="@layout/activity_propose_topic"
     android:background="@drawable/triangle">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="5dp">
+        android:layout_alignParentStart="true">
 
     <LinearLayout
         android:orientation="vertical" android:layout_width="match_parent"
@@ -39,85 +39,92 @@
             android:gravity="center"
             android:layout_weight="0.10" />
 
-        <GridLayout
+        <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="266dp"
+            android:layout_height="280dp"
             android:columnCount="2"
-            android:layout_weight="0.81">
+            android:rowCount="5"
+            android:layout_weight="0.5">
 
 
-            <TextView
-                android:text="@string/Date2String"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Date"
-                android:textSize="20sp"
-                android:paddingTop="45sp"/>
-
-            <Button
-                android:text="@string/DateBtnString"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Room :"
+                    android:id="@+id/textViewRoom"
+                    android:gravity="left"
+                    android:padding="15dip"
+                    />
+                <Spinner
+                    android:text="Pick you room"
+                    android:id="@+id/spinnerRoom"
+                    android:gravity="right"
+                    android:layout_weight="15"
+                    />
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/ChooseDate"
-                android:textSize="20sp"/>
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Name of your topic :"
+                    android:id="@+id/textViewName"
+                    android:gravity="left"
+                    android:padding="15dip"/>
+                <EditText
+                    android:id="@+id/editTextName"
+                    android:gravity="center"
+                    android:layout_weight="15"/>
+            </TableRow>
 
-
-            <TextView
-                android:text="@string/NameString"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Name"
-                android:textSize="20sp"
-                android:paddingTop="20sp"/>
-
-            <EditText
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Date :"
+                    android:id="@+id/textView2"
+                    android:gravity="left"
+                    android:padding="15dip"/>
+                <EditText
+                    android:id="@+id/editTextDate"
+                    android:gravity="center"
+                    android:inputType="date"
+                    android:layout_weight="15"
+                    android:hint="JJ:MM:YYYY"
+                    />
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/Nametxt"
-                android:textSize="20sp"
-                android:paddingTop="20sp"/>
-
-            <TextView
-                android:text="@string/RoomString"
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="Start time :"
+                    android:id="@+id/textViewStart"
+                    android:gravity="left"
+                    android:padding="15dip"/>
+                <EditText
+                    android:id="@+id/editTextStartTime"
+                    android:gravity="center"
+                    android:inputType="time"
+                    android:layout_weight="15"
+                    android:hint="HH:MM"/>
+            </TableRow>
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/Room"
-                android:textSize="20sp"
-                android:paddingTop="20sp"/>
+                android:layout_height="match_parent">
+                <TextView
+                    android:text="End time :"
+                    android:id="@+id/textViewEnd"
+                    android:gravity="left"
+                    android:padding="15dip"/>
+                <EditText
+                    android:id="@+id/editEndTime"
+                    android:gravity="center"
+                    android:inputType="time"
+                    android:layout_weight="15"
+                    android:hint="HH:MM"/>
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/roomList"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:layout_marginLeft="5px"
-                android:layout_marginRight="20px"
-                android:layout_marginTop="5px"
-                >
-            </ImageView>
-
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:layout_marginLeft="5px"
-                android:layout_marginRight="20px"
-                android:layout_marginTop="5px"
-                 >
-            </ImageView>
-
-            <TextView
-                android:id="@+id/label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@+id/label"
-                android:textSize="30px" >
-            </TextView>
-
-
-        </GridLayout>
-
+        </TableLayout>
         <Button
             android:text="@string/ProposeString"
 

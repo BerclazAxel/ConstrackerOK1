@@ -38,6 +38,21 @@ public class RoomDataSource {
         return id;
     }
 
+    public String getRoomName(long id){
+        String sql = "SELECT "+ NewConferenceDB.TableRoom.ROOM_NAME+" FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM+
+                " WHERE " + NewConferenceDB.TableRoom.ROOM_ID + " = " + id;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        /*if(cursor != null){
+            cursor.moveToFirst();
+        }*/
+
+        String name = cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME));
+        return name;
+
+    }
+
     public List<Room> getAllRooms(){
         List<Room> rooms = new ArrayList<Room>();
         String sql = "SELECT * FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM + " ORDER BY " + NewConferenceDB.TableRoom.ROOM_NAME;

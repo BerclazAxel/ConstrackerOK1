@@ -49,7 +49,7 @@ public class SpeakerSpace extends AppCompatActivity {
     public void startProposeTopic(View view) {
 
         Intent intent = new Intent(SpeakerSpace.this, ProposeTopic.class);
-        //we attache the bunddle calss to the activity
+        //we attache the bunddle class to the activity
         intent.putExtra("passMeUserEmail", email);
 
         startActivity(intent);

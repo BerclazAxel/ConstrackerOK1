@@ -1,8 +1,10 @@
 package com.exemple.constrackerok;
 
 import android.accessibilityservice.AccessibilityService;
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,8 +15,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.view.View;
+import android.app.DialogFragment;
+import android.widget.TimePicker;
 
 
 import com.exemple.constrackerok.DataSource.RoomDataSource;
@@ -24,6 +32,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProposeTopic extends AppCompatActivity   {
@@ -33,8 +42,10 @@ public class ProposeTopic extends AppCompatActivity   {
     Room room = new Room();
     Context ctx = this;
     RoomDataSource rds = new RoomDataSource(this);
+    List<String> myArraySpinner = new ArrayList<String>();
 
-    ImageView Iv = (ImageView) findViewById(R.id.roomList);
+
+    //ImageView Iv = (ImageView) findViewById(R.id.roomList);
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -50,11 +61,34 @@ public class ProposeTopic extends AppCompatActivity   {
 
         email = getIntent().getStringExtra("passMeUserEmail");
         rooms = rds.getAllRooms();
+        String name = rds.getRoomName(1);
+        System.out.println(name);
+
+        //fillList();
+
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
 
+        //Spinner spinner = (Spinner) findViewById(R.id.spinnerRoom);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+
     }
+
+    public void fillList(){
+
+        for(int i=0; i<rooms.size();i++){
+
+
+            System.out.println(rds.getRoomName(i));
+
+            //myArraySpinner.add(i, ());
+            //System.out.println("on met "+rooms.get());
+        }
+
+        }
+
+
 
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -62,20 +96,20 @@ public class ProposeTopic extends AppCompatActivity   {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.content_propose_topic, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.label);
-        ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-        textView.setText(values[position]);
+        //TextView textView = (TextView) rowView.findViewById(R.id.label);
+        //ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
+        //textView.setText(values[position]);
 
-AccessibilityService context;
-//for (Room room : rooms) {
+        AccessibilityService context;
+        //for (Room room : rooms) {
             String name = room.getNameRoom(); ///
         // Change icon based on name
         String s = values[position];
 
         System.out.println(s);
-
+/*
         if (s.equals("Polo")) {
-            imageView.setImageResource(R.drawable.banquet);
+            imageView.setImageResource( R.drawable.banquet);
         } else if (s.equals("Reka")) {
             imageView.setImageResource(R.drawable.boardroom);
         } else if (s.equals("Bingo")) {
@@ -87,7 +121,7 @@ AccessibilityService context;
         } else if (s.equals("Moon")) {
             imageView.setImageResource(R.drawable.workshop);
         }
-
+*/
 
         return rowView;
     }
@@ -167,5 +201,13 @@ AccessibilityService context;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //public void openSpinner(){
+
+
+
+
+
+
 
 }
