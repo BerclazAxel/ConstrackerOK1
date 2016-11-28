@@ -76,7 +76,7 @@
             android:label="@string/title_activity_participate"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Objects.EditDatabaseActivity"
+            android:name=".Objects$EditDatabaseActivity"
             android:label="@string/title_activity_edit_database"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

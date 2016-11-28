@@ -9,7 +9,6 @@ import android.database.sqlite.SQLiteDatabase;
 import com.exemple.constrackerok.NewConferenceDB;
 import com.exemple.constrackerok.NewDataBaseHelper;
 import com.exemple.constrackerok.Objects.Room;
-import com.exemple.constrackerok.Objects.User;
 
 import java.util.ArrayList;
 import java.util.List;

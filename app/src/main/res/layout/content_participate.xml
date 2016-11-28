@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="Topic:"
+                android:text="@string/Topic"
                 android:textSize="20sp" />
 
             <TextView
@@ -52,7 +52,7 @@
                 android:id="@+id/places"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Remaining places:"
+                android:text="@string/RemaingPlaces"
                 android:textSize="20sp"
                 />
 
@@ -89,7 +89,7 @@
                 android:id="@+id/startTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Start time:"
+                android:text="@string/Starttime"
                 android:textSize="20sp" />
 
             <TextView
@@ -107,7 +107,7 @@
                 android:id="@+id/endTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="End time:"
+                android:text="@string/EndTimee"
                 android:textSize="20sp" />
 
             <TextView
@@ -125,7 +125,7 @@
                 android:id="@+id/speaker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Speaker:"
+                android:text="@string/SpeakerParticip"
                 android:textSize="20sp" />
 
             <TextView
@@ -143,7 +143,7 @@
                 android:id="@+id/room"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Room:"
+                android:text="@string/RoomParticipate"
                 android:textSize="20sp" />
 
             <TextView
@@ -163,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:onClick="startSubmitParticipation"
-                android:text="PARTICIPATE"
+                android:text="@string/Participatepart"
                 android:textSize="20sp"
                 android:textStyle="bold"/>
 

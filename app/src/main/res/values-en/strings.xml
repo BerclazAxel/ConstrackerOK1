@@ -96,4 +96,16 @@
     <string name="Room">Room :</string>
     <string name="StartTime">Start time :</string>
     <string name="TimeWarning">The begin time have to be before the end time !</string>
+    <string name="TopicCreate">Your topic is create</string>
+    <string name="title_activity_participate">Participate</string>
+    <string name="ConformationOk">Your inscription confirmed. Thank you.</string>
+    <string name="EndTimee">End time :</string>
+    <string name="Participatepart">PARTICIPATE</string>
+    <string name="RemaingPlaces">Remaining places :</string>
+    <string name="RoomParticipate">Room :</string>
+    <string name="SpeakerParticip">Speaker :</string>
+    <string name="Starttime">Start time :</string>
+    <string name="Topic">Topic :</string>
+    <string name="noMorPlace">No more places. Please check another conference.</string>
+    <string name="title_activity_edit_database">EditDatabaseActivity</string>
 </resources>

@@ -10,11 +10,8 @@ import com.exemple.constrackerok.NewConferenceDB;
 import com.exemple.constrackerok.NewDataBaseHelper;
 import com.exemple.constrackerok.Objects.Topic;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 public class TopicUserRoomDataSource {
     private SQLiteDatabase db;

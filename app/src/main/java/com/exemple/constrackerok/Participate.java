@@ -87,7 +87,7 @@ public class Participate extends AppCompatActivity {
 
         if (remainingPlaces.equals("0")) {
             btn = (Button) findViewById(R.id.participateBtn);
-            Toast.makeText(getBaseContext(), "No more places. Please check another conference.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(), R.string.noMorPlace, Toast.LENGTH_LONG).show();
             btn.setVisibility(View.GONE);
         } else {
             btn.setVisibility(View.VISIBLE);
@@ -97,7 +97,7 @@ public class Participate extends AppCompatActivity {
 
 
     public void startSubmitParticipation(View view) {
-        Toast.makeText(getBaseContext(), "Your confirmation confirmed. Thank you.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getBaseContext(), R.string.ConformationOk, Toast.LENGTH_SHORT).show();
         int nb = room.getNbPeople();
         int newNB = nb-1;
         room.setNbPeople(newNB);

@@ -131,11 +131,7 @@ public class ProposeTopic extends AppCompatActivity {
 
 
         if (!(dateTopic.isEmpty())) {
-            try {
                 FormatDate = sdf.parse(dateTopic);
-            } catch(ParseException p){
-                Toast.makeText(getBaseContext(), "False format", Toast.LENGTH_SHORT).show();
-            }
         }
 
         if (nameTopic.isEmpty() || dateTopic.isEmpty() || startTimeTopic.isEmpty() || endTimeTopic.isEmpty() || dateTopic.isEmpty()) {
@@ -168,10 +164,12 @@ public class ProposeTopic extends AppCompatActivity {
 
             TopicUserRoomDataSource turds = new TopicUserRoomDataSource(this);
             turds.AddTopic(t);
+                Toast.makeText(getBaseContext(), R.string.TopicCreate, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
-            //}
+
+
         }
     }
 

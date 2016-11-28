@@ -1,6 +1,6 @@
 package com.exemple.constrackerok;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +22,7 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+@SuppressLint("Registered")
 public class ProfilsInformationsNew extends AppCompatActivity {
     private RadioGroup groupGenderGR;
     private RadioButton radioGenderButton;

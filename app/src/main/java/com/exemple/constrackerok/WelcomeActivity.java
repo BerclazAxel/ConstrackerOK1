@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         NewDataBaseHelper db = new NewDataBaseHelper(this);
@@ -45,8 +45,6 @@ public class WelcomeActivity extends AppCompatActivity {
         // Inserting Rooms
 
         Log.d("Insert: ", "Inserting ..");
-
-
 
     }
 

@@ -88,7 +88,6 @@
     <string name="InformationString">Donnez nous vos informations</string>
     <string name="ProfileInformationUpdateString">Mettre à jour le profil</string>
     <string name="CheckInfosString">Contrôlez vos informations</string>
-    <string name="title_activity_participate">Participate</string>
     <string name="LabelPersons">personnes</string>
     <string name="JJMMAAA">JJ.MM.AAAA</string>
     <string name="PickRoom">Choisissez votre salle</string>
@@ -99,5 +98,16 @@
     <string name="NameTopic">Nom de votre sujet :</string>
     <string name="Presentationdate">La date de la présentation doit être après aujourd\'hui !</string>
     <string name="Room">Salle :</string>
-    <string name="title_activity_edit_database">EditDatabaseActivity</string>
+    <string name="TopicCreate">Votre conférence est créée</string>
+    <string name="title_activity_participate">Participer</string>
+    <string name="noMorPlace">Plus de place. Cherchez une autre conférence.</string>
+    <string name="ConformationOk">Confirmation de l\'inscription</string>
+    <string name="EndTimee">Heure de fin :</string>
+    <string name="Participatepart">PARTICIPER</string>
+    <string name="RemaingPlaces">Places restantes :</string>
+    <string name="RoomParticipate">Salle :</string>
+    <string name="SpeakerParticip">Orateur :</string>
+    <string name="Starttime">Heure de début :</string>
+    <string name="Topic">Thème :</string>
+    <string name="title_activity_edit_database">ActivitéEditDatabase</string>
 </resources>
