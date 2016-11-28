@@ -18,7 +18,7 @@ public class RoomDataSource {
     private SQLiteDatabase db;
     private Context context;
 
-    public RoomDataSource(Context context){
+    public RoomDataSource(Context context) {
         NewDataBaseHelper sqliteHelper = NewDataBaseHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
         this.context = context;
@@ -27,7 +27,7 @@ public class RoomDataSource {
     /**
      * Insert a new room
      */
-    public long createRoom(Room room){
+    public long createRoom(Room room) {
         long id;
         ContentValues values = new ContentValues();
         values.put(NewConferenceDB.TableRoom.ROOM_NAME, room.getNameRoom());
@@ -38,48 +38,69 @@ public class RoomDataSource {
         return id;
     }
 
-    public String getRoomName(long id){
-        String sql = "SELECT "+ NewConferenceDB.TableRoom.ROOM_NAME+" FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM+
-                " WHERE " + NewConferenceDB.TableRoom.ROOM_ID + " = " + id;
-
-        Cursor cursor = this.db.rawQuery(sql, null);
-
-        /*if(cursor != null){
-            cursor.moveToFirst();
-        }*/
-
-        String name = cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME));
-        return name;
-
-    }
-
-    public List<Room> getAllRooms(){
+    public List<Room> getAllRooms() {
         List<Room> rooms = new ArrayList<Room>();
         String sql = "SELECT * FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM + " ORDER BY " + NewConferenceDB.TableRoom.ROOM_NAME;
 
         Cursor cursor = this.db.rawQuery(sql, null);
 
-        if(cursor.moveToFirst()){
-            do{
+        if (cursor.moveToFirst()) {
+            do {
                 Room room = new Room();
                 room.setIdRoom(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
                 room.setNameRoom(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME)));
                 room.setNbPeople(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NBPEOPLE)));
 
                 rooms.add(room);
-            } while(cursor.moveToNext());
+            } while (cursor.moveToNext());
         }
 
         return rooms;
     }
 
+    /**
+     * Find one Room by Id
+     */
+    public Room getRoomById(int id) {
+        String sql = "SELECT * FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM +
+                " WHERE " + NewConferenceDB.TableRoom.ROOM_ID + " = " + id;
+
+        Cursor cursor = this.db.rawQuery(sql, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
+
+        Room room = new Room();
+        room.setIdRoom(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
+        room.setNameRoom(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME)));
+        room.setNbPeople(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NBPEOPLE)));
+
+        return room;
+    }
+    /**
+     *  Update a Room
+     */
+    public void updateRoom1(Room room){
+
+        ContentValues values = new ContentValues();
+        values.put(NewConferenceDB.TableRoom.ROOM_NAME, room.getNameRoom());
+        values.put(NewConferenceDB.TableRoom.ROOM_NBPEOPLE, room.getNbPeople());
+
+        this.db.update(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, values, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
+                new String[] { String.valueOf(room.getIdRoom()) });
+    }
+
+
+
+
 
     /**
-     * Delete a Topic
+     * Delete a Room
      */
-    public void deleteRoom(long id){
+    public void deleteRoom(long id) {
         this.db.delete(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
-                new String[] { String.valueOf(id) });
+                new String[]{String.valueOf(id)});
     }
 
 

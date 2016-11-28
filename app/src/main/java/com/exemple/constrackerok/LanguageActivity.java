@@ -23,10 +23,7 @@ import java.util.Locale;
 
 public class LanguageActivity extends AppCompatActivity {
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     private GoogleApiClient client;
 
 
@@ -34,14 +31,11 @@ public class LanguageActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_language);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    /**
-     * Called when the user clicks the Send button
-     */
+
     public void startEnglish(View view) {
         Intent intent = new Intent(this, WelcomeActivity.class);
         Locale locale = new Locale("English");

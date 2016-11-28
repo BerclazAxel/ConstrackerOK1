@@ -55,18 +55,24 @@ public class CreateAccount extends AppCompatActivity {
                 user_email = USER_EMAIL.getText().toString();
                 user_pass = USER_PASS.getText().toString();
                 con_pass = CON_PASS.getText().toString();
-
-                User user = new User();
+                //to check if the email already exists
                 UserDataSource uds = new UserDataSource(ctx);
                 List<User> users = uds.getAllUsers();
+                boolean exist = false;
+                for (User userLook : users) {
 
-                if (!user_pass.equals(con_pass) || user_email.isEmpty() || user_pass.isEmpty() || con_pass.isEmpty()) {
-                   // if ()
-                        Toast.makeText(getBaseContext(), R.string.CheckInfosString, Toast.LENGTH_SHORT).show();
-                    //and we reset all fields
+                    if (userLook.getEmail().equals(user_email)) {
 
+                        exist = true;
+                    }
+                }
+
+                if (!user_pass.equals(con_pass) || exist == true || user_email.isEmpty() || user_pass.isEmpty() || con_pass.isEmpty()) {
+
+                    Toast.makeText(getBaseContext(), "Complete your registration", Toast.LENGTH_SHORT).show();
                     USER_PASS.setText("");
                     CON_PASS.setText("");
+                    USER_EMAIL.setText("");
 
                 } else {
                     Toast.makeText(getBaseContext(), R.string.InformationString, Toast.LENGTH_SHORT).show();
@@ -84,7 +90,6 @@ public class CreateAccount extends AppCompatActivity {
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
 
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -92,7 +97,7 @@ public class CreateAccount extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
+
 // handle presses on the action bar item
         switch (item.getItemId()) {
 
@@ -111,10 +116,6 @@ public class CreateAccount extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("CreateAccount Page") // TODO: Define a title for the content shown.
@@ -130,9 +131,6 @@ public class CreateAccount extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         client.connect();
         AppIndex.AppIndexApi.start(client, getIndexApiAction());
     }
@@ -140,9 +138,6 @@ public class CreateAccount extends AppCompatActivity {
     @Override
     public void onStop() {
         super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }

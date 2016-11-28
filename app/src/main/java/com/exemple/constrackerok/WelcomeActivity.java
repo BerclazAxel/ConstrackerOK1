@@ -24,11 +24,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.util.List;
 
 public class WelcomeActivity extends AppCompatActivity {
-List<Room> rooms;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+    List<Room> rooms;
+
     private GoogleApiClient client;
 
     @Override
@@ -37,8 +34,7 @@ List<Room> rooms;
         setContentView(R.layout.activity_welcome);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
+
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         NewDataBaseHelper db = new NewDataBaseHelper(this);
@@ -46,48 +42,63 @@ List<Room> rooms;
         UserDataSource uds = new UserDataSource(this);
         TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
         // Inserting Rooms
+
         Log.d("Insert: ", "Inserting ..");
-        /*Room r1 = new Room(); //id gets automatically incremented
+        //Create rooms: 5. To be executed only once
+        Room r1 = new Room(); //id gets automatically incremented
         Room r2 = new Room();
         Room r3 = new Room();
         Room r4 = new Room();
         Room r5 = new Room();
-        r1.setNameRoom("Moon");
+
+       /* r1.setNameRoom("Moon");
         r1.setNbPeople(20);
-        //r1.setCity("Sion");
+
         r2.setNameRoom("Reka");
         r2.setNbPeople(10);
-        //r2.setCity("Geneva");
+
         r3.setNameRoom("Polo");
         r3.setNbPeople(25);
-        //r3.setCity("Bern");
+
         r4.setNameRoom("Bingo");
         r4.setNbPeople(50);
-        //r4.setCity("Zurich");
+
         r5.setNameRoom("Miracle");
         r5.setNbPeople(100);
-        //r5.setCity("Brig");
 
+        r1.setIdRoom((int) rds.createRoom(r1));
+        r2.setIdRoom((int) rds.createRoom(r2));
+        r3.setIdRoom((int) rds.createRoom(r3));
+        r4.setIdRoom((int) rds.createRoom(r4));
+        r5.setIdRoom((int) rds.createRoom(r5));
+
+//Create Users: 2. To be executed only once
         User speaker1 = new User();
         User speaker2 = new User();
 
-        speaker1.setTitle("Mr.");
+        speaker1.setTitle("Male");
         speaker1.setName("Bob");
         speaker1.setSurname("Marley");
         speaker1.setTel("+41 78 800 11 12");
         speaker1.setEmail("bm@gmail.com");
         speaker1.setPassword("test");
 
-        speaker2.setTitle("Mrs.");
+        speaker2.setTitle("Female");
         speaker2.setName("Sarah");
         speaker2.setSurname("Gellar");
         speaker2.setTel("+41 78 500 10 10");
         speaker2.setEmail("sg@gmail.com");
         speaker2.setPassword("test");
 
+        speaker1.setIdUser((int) uds.createUser(speaker1));
+        speaker2.setIdUser((int) uds.createUser(speaker2));*/
 
-        Topic top1 = new Topic();
+
+        //Create Topics: 3. To be executed only once
+        /*Topic top1 = new Topic();
         Topic top2 = new Topic();
+        Topic top3 = new Topic();
+
         top1.setNameTopic("Life on the Moon");
         top1.setDate("08.01.2017");
         top1.setStartTime("10:00");
@@ -100,41 +111,23 @@ List<Room> rooms;
         top2.setStartTime("18:00");
         top2.setEndTime("20:00");
         top2.setIdRoom(3);
-        top2.setIdSpeaker(8);
+        top2.setIdSpeaker(2);
 
-        //r1.setIdRoom((int) rds.createRoom(r1));
+        top3.setNameTopic("Best Team Leader");
+        top3.setDate("07.01.2017");
+        top3.setStartTime("19:00");
+        top3.setEndTime("21:00");
+        top3.setIdRoom(2);
+        top3.setIdSpeaker(2);
+
         top1.setIdTopic((int) tds.AddTopic(top1));
         top2.setIdTopic((int) tds.AddTopic(top2));
-
-
-
-
-        r1.setIdRoom((int) rds.createRoom(r1));
-        r2.setIdRoom((int) rds.createRoom(r2));
-        r3.setIdRoom((int) rds.createRoom(r3));
-        r4.setIdRoom((int) rds.createRoom(r4));
-        r5.setIdRoom((int) rds.createRoom(r5));
-
-
-
-        /* speaker1.setIdUser((int) uds.createUser(speaker1));
-        speaker2.setIdUser((int) uds.createUser(speaker2));return id;*/
-
-
+        top3.setIdTopic((int) tds.AddTopic(top3));*/
 
 
         //Reading all rooms
         Log.d("Reading: ", "Reading all rooms..");
         List<Room> rooms = rds.getAllRooms();
-
-        /*rds.deleteRoom(1);
-        rds.deleteRoom(2);
-        rds.deleteRoom(3);
-        rds.deleteRoom(4);
-        rds.deleteRoom(5);
-        rds.deleteRoom(6);
-        rds.deleteRoom(7);
-        rds.deleteRoom(8);*/
 
         for (Room room : rooms) {
             String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();
@@ -166,6 +159,7 @@ List<Room> rooms;
             // Writing users to log
             Log.d("Topics: ", logT);
         }
+
         //close db instance
         NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
         sqlHelper.getWritableDatabase().close();
@@ -216,10 +210,7 @@ List<Room> rooms;
         startActivity(intent);
     }
 
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
+
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
                 .setName("Welcome Page") // TODO: Define a title for the content shown.
@@ -247,6 +238,5 @@ List<Room> rooms;
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
     }
-
 
 }

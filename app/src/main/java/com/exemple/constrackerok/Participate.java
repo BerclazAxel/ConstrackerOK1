@@ -68,9 +68,6 @@ public class Participate extends AppCompatActivity {
         TextView remainingPlacesTV = (TextView) findViewById(R.id.placestxt);
         remainingPlacesTV.setText(remainingPlaces);
 
-
-
-
         btn = (Button) findViewById(R.id.participateBtn);
         btn.setVisibility(View.GONE);
         TextView dateTV = (TextView) findViewById(R.id.datetxt);
@@ -104,22 +101,20 @@ public class Participate extends AppCompatActivity {
         int nb = room.getNbPeople();
         int newNB = nb-1;
         room.setNbPeople(newNB);
+
         rds.updateRoom1(room);
         Intent intent = new Intent(this, SearchConference.class);
         startActivity(intent);
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
-
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
-        Log.d("WelcomeActivity", "onOptionsItemSelected");
-// handle presses on the action bar item
+   // handle presses on the action bar item
         switch (item.getItemId()) {
 
             case R.id.action_information:

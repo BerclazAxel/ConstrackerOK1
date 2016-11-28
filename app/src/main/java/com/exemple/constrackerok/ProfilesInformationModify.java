@@ -148,7 +148,6 @@ public class ProfilesInformationModify extends AppCompatActivity {
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
-        Log.d("WelcomeActivity", "onCreateOptionsMenu");
 
         //Inflate the manu; this adds to the action bar if it is present
         getMenuInflater().inflate(R.menu.menu_main, menu);

@@ -49,7 +49,6 @@ public class NewConferenceDB {
         public static final String ROOM_NBPEOPLE = "number_people";
 
 
-
         //Table room create statement
         public static final String CREATE_TABLE_ROOM = "CREATE TABLE "
                 + TABLE_NAME_ROOM + "("
