@@ -90,18 +90,34 @@ public class RoomDataSource {
         this.db.update(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, values, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
                 new String[] { String.valueOf(room.getIdRoom()) });
     }
-
-
-
-
-
     /**
      * Delete a Room
      */
     public void deleteRoom(long id) {
         this.db.delete(NewConferenceDB.TableRoom.TABLE_NAME_ROOM, NewConferenceDB.TableRoom.ROOM_ID + " = ?",
                 new String[]{String.valueOf(id)});
+
+
     }
 
+
+    public String[] getAllSpinnerContent(){
+
+        String query = "SELECT"+NewConferenceDB.TableRoom.ROOM_NAME+" FROM " + NewConferenceDB.TableRoom.TABLE_NAME_ROOM;
+        Cursor cursor = this.db.rawQuery(query, null);
+        ArrayList<String> spinnerContent = new ArrayList<String>();
+        if(cursor.moveToFirst()){
+            do{
+                String word = cursor.getString(cursor.getColumnIndexOrThrow("content"));
+                spinnerContent.add(word);
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+
+        String[] allSpinner = new String[spinnerContent.size()];
+        allSpinner = spinnerContent.toArray(allSpinner);
+
+        return allSpinner;
+    }
 
 }

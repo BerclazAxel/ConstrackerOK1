@@ -89,4 +89,15 @@
     <string name="ProfileInformationUpdateString">Mettre à jour le profil</string>
     <string name="CheckInfosString">Contrôlez vos informations</string>
     <string name="title_activity_participate">Participate</string>
+    <string name="LabelPersons">personnes</string>
+    <string name="JJMMAAA">JJ.MM.AAAA</string>
+    <string name="PickRoom">Choisissez votre salle</string>
+    <string name="StartTime">Heure de début :</string>
+    <string name="TimeWarning">L\'heure de début doit être avant l\'heure de fin !</string>
+    <string name="Completeregistr">Contrôlez vos informations</string>
+    <string name="EndTime">Heure de fin :</string>
+    <string name="NameTopic">Nom de votre sujet :</string>
+    <string name="Presentationdate">La date de la présentation doit être après aujourd\'hui !</string>
+    <string name="Room">Salle :</string>
+    <string name="title_activity_edit_database">EditDatabaseActivity</string>
 </resources>

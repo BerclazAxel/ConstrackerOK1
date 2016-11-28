@@ -15,7 +15,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.Spinner;
@@ -23,33 +26,43 @@ import android.widget.TextView;
 import android.view.View;
 import android.app.DialogFragment;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 
 import com.exemple.constrackerok.DataSource.RoomDataSource;
+import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
+import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.exemple.constrackerok.Objects.Room;
+import com.exemple.constrackerok.Objects.Topic;
+import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class ProposeTopic extends AppCompatActivity   {
+import static com.exemple.constrackerok.R.id.room;
+
+public class ProposeTopic extends AppCompatActivity {
     private String email;
-    private String[] values;
     List<Room> rooms;
-    Room room = new Room();
     Context ctx = this;
     RoomDataSource rds = new RoomDataSource(this);
-    List<String> myArraySpinner = new ArrayList<String>();
-
+    Spinner spinner;
+    UserDataSource uds = new UserDataSource(this);
+    User speaker;
+    Room r;
+    String[] spinnerLists;
+    int[] spinnerListSave;
 
     //ImageView Iv = (ImageView) findViewById(R.id.roomList);
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     private GoogleApiClient client;
 
     @Override
@@ -59,82 +72,107 @@ public class ProposeTopic extends AppCompatActivity   {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         email = getIntent().getStringExtra("passMeUserEmail");
+        speaker = uds.getUserByEmail(email);
+
         rooms = rds.getAllRooms();
-        String name = rds.getRoomName(1);
-        System.out.println(name);
-
-        //fillList();
-
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        spinner = (Spinner) findViewById(R.id.spinnerRoom);
 
-        //Spinner spinner = (Spinner) findViewById(R.id.spinnerRoom);
-        // Create an ArrayAdapter using the string array and a default spinner layout
+        spinnerLists = new String[rooms.size()];
+        spinnerListSave = new int[rooms.size()];
+
+        for (int i = 0; i < rooms.size(); i++) {
+            spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + rooms.get(i).getNbPeople() + getString(R.string.LabelPersons);
+            spinnerListSave[i] = rooms.get(i).getIdRoom();
+        }
+        if (spinnerLists.length > 0) {
+
+            final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerLists);
+            spinner.setAdapter(adapter);
+        }
 
     }
-
-    public void fillList(){
-
-        for(int i=0; i<rooms.size();i++){
-
-
-            System.out.println(rds.getRoomName(i));
-
-            //myArraySpinner.add(i, ());
-            //System.out.println("on met "+rooms.get());
-        }
-
-        }
-
-
-
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) ctx
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.content_propose_topic, parent, false);
-        //TextView textView = (TextView) rowView.findViewById(R.id.label);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-        //textView.setText(values[position]);
-
-        AccessibilityService context;
-        //for (Room room : rooms) {
-            String name = room.getNameRoom(); ///
-        // Change icon based on name
-        String s = values[position];
-
-        System.out.println(s);
-/*
-        if (s.equals("Polo")) {
-            imageView.setImageResource( R.drawable.banquet);
-        } else if (s.equals("Reka")) {
-            imageView.setImageResource(R.drawable.boardroom);
-        } else if (s.equals("Bingo")) {
-            imageView.setImageResource(R.drawable.classroom);
-        } else if (s.equals("Miracle")) {
-            imageView.setImageResource(R.drawable.theatre);
-        } else if (s.equals("Polo")) {
-            imageView.setImageResource(R.drawable.ushape);
-        } else if (s.equals("Moon")) {
-            imageView.setImageResource(R.drawable.workshop);
-        }
-*/
 
         return rowView;
     }
 
+    public void startSendProposedTopic(View view) throws ParseException {
+        String nameTopic, dateTopic, startTimeTopic, endTimeTopic;
+        EditText name = (EditText) findViewById(R.id.editTextName);
+        nameTopic = name.getText().toString();
+        EditText date = (EditText) findViewById(R.id.editTextDate);
+        dateTopic = date.getText().toString();
+        EditText startTime = (EditText) findViewById(R.id.editTextStartTime);
+        startTimeTopic = startTime.getText().toString();
+        EditText endTime = (EditText) findViewById(R.id.editEndTime);
+        endTimeTopic = endTime.getText().toString();
+        EditText id = (EditText) findViewById(R.id.editTextDate);
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        Date startTiime = null;
+        Date endTiime = null;
+        Date FormatDate = null;
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
+        Date tomorrow = calendar.getTime();
+        DateFormat formatter = new SimpleDateFormat("HH:MM");
 
 
+        if (!(dateTopic.isEmpty())) {
+            try {
+                FormatDate = sdf.parse(dateTopic);
+            } catch(ParseException p){
+                Toast.makeText(getBaseContext(), "False format", Toast.LENGTH_SHORT).show();
+            }
+        }
 
+        if (nameTopic.isEmpty() || dateTopic.isEmpty() || startTimeTopic.isEmpty() || endTimeTopic.isEmpty() || dateTopic.isEmpty()) {
 
-    public void startSendProposedTopic(View view) {
+            Toast.makeText(getBaseContext(), R.string.Completeregistr, Toast.LENGTH_SHORT).show();
 
+        } else
+            startTiime = formatter.parse(startTimeTopic);
+            endTiime = formatter.parse(endTimeTopic);
 
-        Intent intent = new Intent(this, SpeakerSpace.class);
-        startActivity(intent);
+            if (endTiime.before(startTiime)) {
+            Toast.makeText(getBaseContext(), R.string.TimeWarning, Toast.LENGTH_SHORT).show();
+
+        } else if (FormatDate.before(tomorrow)) {
+            Toast.makeText(getBaseContext(), R.string.Presentationdate, Toast.LENGTH_SHORT).show();
+        } else {
+            Topic t = new Topic();
+            t.setNameTopic(nameTopic);
+            t.setDate((dateTopic));
+            t.setStartTime((startTimeTopic));
+            t.setEndTime((endTimeTopic));
+            t.setDate((dateTopic));
+
+            int idSpeaker = speaker.getIdUser();
+            t.setIdSpeaker(idSpeaker);
+
+            int no = spinner.getBaseline();
+
+            t.setIdRoom(spinnerListSave[no]);
+
+            TopicUserRoomDataSource turds = new TopicUserRoomDataSource(this);
+            turds.AddTopic(t);
+
+            Intent intent = new Intent(this, WelcomeActivity.class);
+            startActivity(intent);
+            //}
+        }
     }
 
     /**
@@ -201,13 +239,5 @@ public class ProposeTopic extends AppCompatActivity   {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    //public void openSpinner(){
-
-
-
-
-
-
 
 }

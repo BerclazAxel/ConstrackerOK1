@@ -51,13 +51,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:text="Room :"
+                    android:text="@string/Room"
                     android:id="@+id/textViewRoom"
                     android:gravity="left"
                     android:padding="15dip"
                     />
                 <Spinner
-                    android:text="Pick you room"
+                    android:text="@string/PickRoom"
                     android:id="@+id/spinnerRoom"
                     android:gravity="right"
                     android:layout_weight="15"
@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:text="Name of your topic :"
+                    android:text="@string/NameTopic"
                     android:id="@+id/textViewName"
                     android:gravity="left"
                     android:padding="15dip"/>
@@ -90,14 +90,14 @@
                     android:gravity="center"
                     android:inputType="date"
                     android:layout_weight="15"
-                    android:hint="JJ:MM:YYYY"
+                    android:hint="@string/JJMMAAA"
                     />
             </TableRow>
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:text="Start time :"
+                    android:text="@string/StartTime"
                     android:id="@+id/textViewStart"
                     android:gravity="left"
                     android:padding="15dip"/>
@@ -112,7 +112,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:text="End time :"
+                    android:text="@string/EndTime"
                     android:id="@+id/textViewEnd"
                     android:gravity="left"
                     android:padding="15dip"/>

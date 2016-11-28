@@ -24,8 +24,6 @@ public class TopicUserRoomDataSource {
         NewDataBaseHelper sqliteHelper = NewDataBaseHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
     }
-
-
     /**
      * inserts a new topic
      */

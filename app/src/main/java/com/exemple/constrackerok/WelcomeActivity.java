@@ -1,5 +1,6 @@
 package com.exemple.constrackerok;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_welcome);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         NewDataBaseHelper db = new NewDataBaseHelper(this);
@@ -44,125 +45,8 @@ public class WelcomeActivity extends AppCompatActivity {
         // Inserting Rooms
 
         Log.d("Insert: ", "Inserting ..");
-        //Create rooms: 5. To be executed only once
-        Room r1 = new Room(); //id gets automatically incremented
-        Room r2 = new Room();
-        Room r3 = new Room();
-        Room r4 = new Room();
-        Room r5 = new Room();
-
-       /* r1.setNameRoom("Moon");
-        r1.setNbPeople(20);
-
-        r2.setNameRoom("Reka");
-        r2.setNbPeople(10);
-
-        r3.setNameRoom("Polo");
-        r3.setNbPeople(25);
-
-        r4.setNameRoom("Bingo");
-        r4.setNbPeople(50);
-
-        r5.setNameRoom("Miracle");
-        r5.setNbPeople(100);
-
-        r1.setIdRoom((int) rds.createRoom(r1));
-        r2.setIdRoom((int) rds.createRoom(r2));
-        r3.setIdRoom((int) rds.createRoom(r3));
-        r4.setIdRoom((int) rds.createRoom(r4));
-        r5.setIdRoom((int) rds.createRoom(r5));
-
-//Create Users: 2. To be executed only once
-        User speaker1 = new User();
-        User speaker2 = new User();
-
-        speaker1.setTitle("Male");
-        speaker1.setName("Bob");
-        speaker1.setSurname("Marley");
-        speaker1.setTel("+41 78 800 11 12");
-        speaker1.setEmail("bm@gmail.com");
-        speaker1.setPassword("test");
-
-        speaker2.setTitle("Female");
-        speaker2.setName("Sarah");
-        speaker2.setSurname("Gellar");
-        speaker2.setTel("+41 78 500 10 10");
-        speaker2.setEmail("sg@gmail.com");
-        speaker2.setPassword("test");
-
-        speaker1.setIdUser((int) uds.createUser(speaker1));
-        speaker2.setIdUser((int) uds.createUser(speaker2));*/
 
 
-        //Create Topics: 3. To be executed only once
-        /*Topic top1 = new Topic();
-        Topic top2 = new Topic();
-        Topic top3 = new Topic();
-
-        top1.setNameTopic("Life on the Moon");
-        top1.setDate("08.01.2017");
-        top1.setStartTime("10:00");
-        top1.setEndTime("12:00");
-        top1.setIdRoom(1);
-        top1.setIdSpeaker(1);
-
-        top2.setNameTopic("Philosophy in JAVA");
-        top2.setDate("03.03.2017");
-        top2.setStartTime("18:00");
-        top2.setEndTime("20:00");
-        top2.setIdRoom(3);
-        top2.setIdSpeaker(2);
-
-        top3.setNameTopic("Best Team Leader");
-        top3.setDate("07.01.2017");
-        top3.setStartTime("19:00");
-        top3.setEndTime("21:00");
-        top3.setIdRoom(2);
-        top3.setIdSpeaker(2);
-
-        top1.setIdTopic((int) tds.AddTopic(top1));
-        top2.setIdTopic((int) tds.AddTopic(top2));
-        top3.setIdTopic((int) tds.AddTopic(top3));*/
-
-
-        //Reading all rooms
-        Log.d("Reading: ", "Reading all rooms..");
-        List<Room> rooms = rds.getAllRooms();
-
-        for (Room room : rooms) {
-            String log = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Nb of people: " + room.getNbPeople();
-            // Writing rooms to log
-            Log.d("Room: ", log);
-        }
-
-        // Reading all users
-        Log.d("Reading: ", "Reading all users..");
-        List<User> users = uds.getAllUsers();
-
-        for (User user : users) {
-            String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getTitle() + " , Name: " + user.getName()
-                    + " , Surname: " + user.getSurname() + " , Tel: " + user.getTel() + " , Email: " + user.getEmail()
-                    + " , Password: " + user.getPassword();
-            // Writing users to log
-            Log.d("Users: ", logU);
-        }
-
-        // Reading all topics
-        Log.d("Reading: ", "Reading all topics..");
-        List<Topic> topics = tds.getAllTopics();
-
-        for (Topic topic : topics) {
-            String logT = "IdTopic: " + topic.getIdTopic() + " , Subject: " + topic.getNameTopic()
-                    + " , Date: " + topic.getDate() + " , Start time: " + topic.getStartTime()
-                    + " , End time: " + topic.getEndTime() + " , Id Speaker: " + topic.getIdSpeaker()
-                    + " , IdRoom: " + topic.getIdRoom();
-            // Writing users to log
-            Log.d("Topics: ", logT);
-        }
-
-        //close db instance
-        NewDataBaseHelper sqlHelper = NewDataBaseHelper.getInstance(this);
-        sqlHelper.getWritableDatabase().close();
 
     }
 

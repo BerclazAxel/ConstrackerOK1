@@ -23,6 +23,7 @@ public class UserDataSource {
         NewDataBaseHelper sqliteHelper = NewDataBaseHelper.getInstance(context);
         db = sqliteHelper.getWritableDatabase();
         this.context = context;
+
     }
 
     /**
@@ -180,6 +181,8 @@ public class UserDataSource {
                     new String[]{String.valueOf(id)});
 
         }
+
+
     }
 
 

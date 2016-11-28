@@ -67,6 +67,7 @@ public class SpeakerSpace extends AppCompatActivity {
                         // pass the id from the object
                         long id = speakerInSpeakerSpace.getIdUser();
                         uds.deleteUser(id);
+
                         Toast.makeText(getBaseContext(), R.string.ProfileDeletedString, Toast.LENGTH_LONG).show();
                         //finish the activity
 

@@ -33,6 +33,7 @@ public class LanguageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_language);
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
 

@@ -80,7 +80,7 @@ public class Participate extends AppCompatActivity {
         endTimeTV.setText(endTime);
 
         TextView nameSpeakerTV = (TextView) findViewById(R.id.speakertxt);
-        nameSpeakerTV.setText(nameSpeaker + " " + surnameSpeaker.toUpperCase());
+        nameSpeakerTV.setText(nameSpeaker + " " + surnameSpeaker);
 
         TextView nameRoomTV = (TextView) findViewById(R.id.roomtxt);
         nameRoomTV.setText(nameRoom);

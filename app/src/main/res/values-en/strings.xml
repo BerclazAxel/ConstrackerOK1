@@ -86,4 +86,14 @@
     <string name="InformationString">Give us your informations</string>
     <string name="ProfileInformationUpdateString">Profile Information Update</string>
     <string name="CheckInfosString">Check your informations</string>
+    <string name="Completeregistr">Complete your registration</string>
+    <string name="EndTime">End time :</string>
+    <string name="JJMMAAA">DD.MM.YYYY</string>
+    <string name="LabelPersons">persons</string>
+    <string name="NameTopic">Name of your topic :</string>
+    <string name="PickRoom">Pick you room</string>
+    <string name="Presentationdate">The date of presentation have to be afther today !</string>
+    <string name="Room">Room :</string>
+    <string name="StartTime">Start time :</string>
+    <string name="TimeWarning">The begin time have to be before the end time !</string>
 </resources>
