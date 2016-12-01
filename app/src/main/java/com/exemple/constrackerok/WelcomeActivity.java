@@ -45,6 +45,33 @@ public class WelcomeActivity extends AppCompatActivity {
         // Inserting Rooms
 
         Log.d("Insert: ", "Inserting ..");
+        /*
+        Room r1 = new Room();
+        r1.setIdRoom(1);
+        r1.setNameRoom("Mont-Blanc");
+        r1.setNbPeople(10);
+
+        Room r2 = new Room();
+        r2.setIdRoom(2);
+        r2.setNameRoom("Mont-Dolent");
+        r2.setNbPeople(25);
+
+        Room r3 = new Room();
+        r3.setIdRoom(3);
+        r3.setNameRoom("Cervin");
+        r3.setNbPeople(50);
+
+        Room r4 = new Room();
+        r4.setIdRoom(4);
+        r4.setNameRoom("Mont-Bonvin");
+        r4.setNbPeople(100);
+
+        RoomDataSource rmds = new RoomDataSource(this);
+        rmds.createRoom(r1);
+        rmds.createRoom(r2);
+        rmds.createRoom(r3);
+        rmds.createRoom(r4);
+        */
 
     }
 

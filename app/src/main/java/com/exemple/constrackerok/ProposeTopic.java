@@ -158,7 +158,8 @@ public class ProposeTopic extends AppCompatActivity {
             int idSpeaker = speaker.getIdUser();
             t.setIdSpeaker(idSpeaker);
 
-            int no = spinner.getBaseline();
+            int no = spinner.getSelectedItemPosition();
+                System.out.println(no);
 
             t.setIdRoom(spinnerListSave[no]);
 
