@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.util.List;
 
 public class ProfilsInformations extends AppCompatActivity {
     private RadioGroup groupGenderGR;
@@ -76,7 +79,7 @@ public class ProfilsInformations extends AppCompatActivity {
 
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker.setEmail(email);
-        
+
         password = getIntent().getStringExtra("passMeUserPassword");
         speaker.setPassword(password);
 
@@ -85,14 +88,25 @@ public class ProfilsInformations extends AppCompatActivity {
 
 
         Toast.makeText(getBaseContext(), R.string.AccountCreationOkString, Toast.LENGTH_SHORT).show();
+        UserDataSource uds1 = new UserDataSource(this);
+        Log.d("Reading: ", "Reading all users..");
+        List<User> users1 = uds1.getAllUsers();
 
+        for (User user : users1) {
+            String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getSurname() + " , Name: " + user.getName() + " , Surname: " + user.getSurname()
+                    + " , Telephone: " + user.getTel() + " , Email: " + user.getEmail() + " , Password: " + user.getPassword();
+            ;
+            // Writing users to log
+            Log.d("Users: ", logU);
 //we go to next activity
         Intent intent = new Intent(this, SpeakerSpace.class);
         intent.putExtra("passMeUserEmail", email);
         intent.putExtra("passMeUserPassword", password);
         startActivity(intent);
-    }
 
+
+        }
+    }
 
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()

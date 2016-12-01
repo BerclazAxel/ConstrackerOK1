@@ -57,6 +57,7 @@ public class ProposeTopic extends AppCompatActivity {
     RoomDataSource rds = new RoomDataSource(this);
     Spinner spinner;
     UserDataSource uds = new UserDataSource(this);
+    TopicUserRoomDataSource tds = new TopicUserRoomDataSource(this);
     User speaker;
     Room r;
     String[] spinnerLists;
@@ -73,7 +74,6 @@ public class ProposeTopic extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker = uds.getUserByEmail(email);
 
@@ -87,7 +87,7 @@ public class ProposeTopic extends AppCompatActivity {
         spinnerListSave = new int[rooms.size()];
 
         for (int i = 0; i < rooms.size(); i++) {
-            spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + rooms.get(i).getNbPeople() + getString(R.string.LabelPersons);
+            spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + rooms.get(i).getNbPeople() + " " + getString(R.string.LabelPersons);
             spinnerListSave[i] = rooms.get(i).getIdRoom();
         }
         if (spinnerLists.length > 0) {
@@ -95,8 +95,8 @@ public class ProposeTopic extends AppCompatActivity {
             final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.support_simple_spinner_dropdown_item, spinnerLists);
             spinner.setAdapter(adapter);
         }
-
     }
+
     public View getView(int position, View convertView, ViewGroup parent) {
 
         LayoutInflater inflater = (LayoutInflater) ctx
@@ -111,43 +111,37 @@ public class ProposeTopic extends AppCompatActivity {
         String nameTopic, dateTopic, startTimeTopic, endTimeTopic;
         EditText name = (EditText) findViewById(R.id.editTextName);
         nameTopic = name.getText().toString();
+
         EditText date = (EditText) findViewById(R.id.editTextDate);
         dateTopic = date.getText().toString();
+
         EditText startTime = (EditText) findViewById(R.id.editTextStartTime);
         startTimeTopic = startTime.getText().toString();
+
         EditText endTime = (EditText) findViewById(R.id.editEndTime);
         endTimeTopic = endTime.getText().toString();
+
         EditText id = (EditText) findViewById(R.id.editTextDate);
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        Date startTiime = null;
-        Date endTiime = null;
+
+        // Date startTiime = null;
+        //Date endTiime = null;
         Date FormatDate = null;
 
         Calendar calendar = Calendar.getInstance();
 
         calendar.add(Calendar.DAY_OF_YEAR, 1);
         Date tomorrow = calendar.getTime();
+
         DateFormat formatter = new SimpleDateFormat("HH:MM");
 
-
-        if (!(dateTopic.isEmpty())) {
-                FormatDate = sdf.parse(dateTopic);
-        }
-
-        if (nameTopic.isEmpty() || dateTopic.isEmpty() || startTimeTopic.isEmpty() || endTimeTopic.isEmpty() || dateTopic.isEmpty()) {
+//FormatDate = sdf.parse(dateTopic);
+        if (nameTopic.isEmpty() || dateTopic.isEmpty() || startTimeTopic.isEmpty() || endTimeTopic.isEmpty()) {
 
             Toast.makeText(getBaseContext(), R.string.Completeregistr, Toast.LENGTH_SHORT).show();
 
-        } else
-            startTiime = formatter.parse(startTimeTopic);
-            endTiime = formatter.parse(endTimeTopic);
-
-            if (endTiime.before(startTiime)) {
-            Toast.makeText(getBaseContext(), R.string.TimeWarning, Toast.LENGTH_SHORT).show();
-
-        } else if (FormatDate.before(tomorrow)) {
-            Toast.makeText(getBaseContext(), R.string.Presentationdate, Toast.LENGTH_SHORT).show();
         } else {
+
             Topic t = new Topic();
             t.setNameTopic(nameTopic);
             t.setDate((dateTopic));
@@ -161,19 +155,28 @@ public class ProposeTopic extends AppCompatActivity {
             int no = spinner.getSelectedItemPosition();
                 System.out.println(no);
 
-            t.setIdRoom(spinnerListSave[no]);
+            //t.setIdRoom(spinnerListSave[no]);
 
             TopicUserRoomDataSource turds = new TopicUserRoomDataSource(this);
             turds.AddTopic(t);
-                Toast.makeText(getBaseContext(), R.string.TopicCreate, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getBaseContext(), R.string.TopicCreate, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(this, WelcomeActivity.class);
             startActivity(intent);
 
 
+// Reading all rooms
+            Log.d("Reading: ", "Reading all rooms..");
+            List<Room> rooms = rds.getAllRooms();
+
+            for (Room room : rooms) {
+                String logR = "IdRoom: " + room.getIdRoom() + " , Name: " + room.getNameRoom() + " , Number people: " + room.getNbPeople();
+                // Writing users to log
+                Log.d("Rooms: ", logR);
+            }
+
         }
     }
-
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.

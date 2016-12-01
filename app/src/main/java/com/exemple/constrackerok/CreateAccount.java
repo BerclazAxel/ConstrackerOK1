@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.exemple.constrackerok.DataSource.UserDataSource;
+import com.exemple.constrackerok.Objects.Room;
 import com.exemple.constrackerok.Objects.User;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -80,10 +82,22 @@ public class CreateAccount extends AppCompatActivity {
                     intent.putExtra("passMeUserEmail", user_email);
                     intent.putExtra("passMeUserPassword", user_pass);
                     startActivity(intent);
+
+
                 }
             }
         });
 
+        UserDataSource uds1 = new UserDataSource(this);
+        Log.d("Reading: ", "Reading all users..");
+        List<User> users1 = uds1.getAllUsers();
+
+        for (User user : users1) {
+        String logU = "IdUser: " + user.getIdUser() + " , Title: " + user.getSurname() + " , Name: " + user.getName() + " , Surname: " + user.getSurname()
+                + " , Telephone: " + user.getTel()  + " , Email: " + user.getEmail() + " , Password: " + user.getPassword() ; ;
+        // Writing users to log
+        Log.d("Users: ", logU);
+        }
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
