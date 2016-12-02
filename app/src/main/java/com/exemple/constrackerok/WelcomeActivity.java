@@ -46,39 +46,35 @@ public class WelcomeActivity extends AppCompatActivity {
 
         Log.d("Insert: ", "Inserting ..");
 
-       /* Room r1 = new Room();
+        /*Room r1 = new Room();
         r1.setIdRoom(1);
         r1.setNameRoom("Mont-Blanc");
         r1.setNbPeople(10);
-        //r1.setIdRoom((int) rds.createRoom(r1));
 
         Room r2 = new Room();
         r2.setIdRoom(2);
         r2.setNameRoom("Mont-Dolent");
         r2.setNbPeople(25);
-        //r2.setIdRoom((int) rds.createRoom(r2));
 
         Room r3 = new Room();
         r3.setIdRoom(3);
         r3.setNameRoom("Cervin");
         r3.setNbPeople(50);
-       // r3.setIdRoom((int) rds.createRoom(r3));
 
         Room r4 = new Room();
         r4.setIdRoom(4);
         r4.setNameRoom("Mont-Bonvin");
         r4.setNbPeople(100);
-        //r4.setIdRoom((int) rds.createRoom(r4));
+
+        RoomDataSource rmds = new RoomDataSource(this);
+        rmds.createRoom(r1);
+        rmds.createRoom(r2);
+        rmds.createRoom(r3);
+        rmds.createRoom(r4);
+*/
 
 
-
-        rds.createRoom(r1);
-        rds.createRoom(r2);
-        rds.createRoom(r3);
-        rds.createRoom(r4); */
-
-
-
+        //RoomDataSource rds = new RoomDataSource(this);
         Log.d("Reading: ", "Reading all rooms..");
         List<Room> rooms = rds.getAllRooms();
 
@@ -116,6 +112,7 @@ public class WelcomeActivity extends AppCompatActivity {
             Log.d("Topic: ", logT);
         }
     }
+
 
 
     public void startConferenceSearch(View view) {
