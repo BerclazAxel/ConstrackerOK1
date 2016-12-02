@@ -85,9 +85,15 @@ public class ProposeTopic extends AppCompatActivity {
 
         spinnerLists = new String[rooms.size()];
         spinnerListSave = new int[rooms.size()];
+        String[] maxPeople = new String[rooms.size()];
+
+        maxPeople[0]="50 parts. ";
+        maxPeople[1]="10 parts. ";
+        maxPeople[2]="100 parts. ";
+        maxPeople[3]="25 parts. ";
 
         for (int i = 0; i < rooms.size(); i++) {
-            spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + rooms.get(i).getNbPeople() + getString(R.string.LabelPersons);
+            spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + maxPeople[i];
             spinnerListSave[i] = rooms.get(i).getIdRoom();
         }
         if (spinnerLists.length > 0) {

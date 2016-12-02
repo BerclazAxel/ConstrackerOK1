@@ -71,9 +71,49 @@ public class WelcomeActivity extends AppCompatActivity {
         rmds.createRoom(r2);
         rmds.createRoom(r3);
         rmds.createRoom(r4);
-        */
+*/
 
+
+        //RoomDataSource rds = new RoomDataSource(this);
+        Log.d("Reading: ", "Reading all rooms..");
+        List<Room> rooms = rds.getAllRooms();
+
+        for (Room room : rooms) {
+            String logR = "IdRoom: " + room.getIdRoom() + ", Room Name: " + room.getNameRoom() + ", Numbre People: " + room.getNbPeople();
+
+            // Writing users to log
+            Log.d("Rooms: ", logR);
+        }
+
+        UserDataSource uds1 = new UserDataSource(this);
+
+        Log.d("Reading: ", "Reading all users..");
+        List<User> users = uds1.getAllUsers();
+
+        for (User user : users) {
+            String logU = "IdUser: " + user.getIdUser() + ", User Title: " + user.getTitle() + ", User Name: " + user.getName()
+                    + ", User Surname: " + user.getSurname() + ", Tel: " + user.getTel() + ", Email: " + user.getEmail()
+                    + ", Password: " + user.getPassword();
+
+            // Writing users to log
+            Log.d("Users: ", logU);
+        }
+
+        TopicUserRoomDataSource tds1 = new TopicUserRoomDataSource(this);
+        Log.d("Reading: ", "Reading all Topic..");
+        List<Topic> topics = tds1.getAllTopics();
+
+        for (Topic topic : topics) {
+            String logT = "IdTopic: " + topic.getIdTopic() + ", Subject: " + topic.getNameTopic() + ", Date: " + topic.getDate()
+                    + ", Start time: " + topic.getStartTime() + ", End Time: " + topic.getEndTime() + ", Id Speaker: " + topic.getIdSpeaker()
+                    + ", Id Room: " + topic.getIdRoom();
+
+            // Writing users to log
+            Log.d("Topic: ", logT);
+        }
     }
+
+
 
     public void startConferenceSearch(View view) {
         Intent intent = new Intent(this, SearchConference.class);
