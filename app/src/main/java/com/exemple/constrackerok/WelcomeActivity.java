@@ -46,7 +46,7 @@ public class WelcomeActivity extends AppCompatActivity {
 
         Log.d("Insert: ", "Inserting ..");
 
-        /*Room r1 = new Room();
+        Room r1 = new Room();
         r1.setIdRoom(1);
         r1.setNameRoom("Mont-Blanc");
         r1.setNbPeople(10);
@@ -71,7 +71,7 @@ public class WelcomeActivity extends AppCompatActivity {
         rmds.createRoom(r2);
         rmds.createRoom(r3);
         rmds.createRoom(r4);
-*/
+
 
 
         //RoomDataSource rds = new RoomDataSource(this);
