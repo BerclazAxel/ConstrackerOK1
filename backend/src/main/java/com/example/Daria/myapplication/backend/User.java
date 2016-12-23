@@ -1,13 +1,18 @@
 package com.example.Daria.myapplication.backend;
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+
 import java.io.Serializable;
 
-/**
- * Created by Daria on 23-Dec-16.
- */
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
+@Entity
 public class User implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy=	GenerationType.IDENTITY)
     private static final long serialVersionUID = 1L;
     private int idUser;
     private String title;

@@ -1,10 +1,17 @@
 package com.example.Daria.myapplication.backend;
 
-/**
- * Created by Daria on 23-Dec-16.
- */
 
+import com.googlecode.objectify.annotation.Entity;
+import com.googlecode.objectify.annotation.Id;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+
+
+@Entity
 public class Room {
+    @Id
+    @GeneratedValue(strategy=	GenerationType.IDENTITY)
     private int idRoom;
     private String nameRoom;
     private int nbPeople;
