@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -45,7 +46,7 @@ public class WelcomeActivity extends AppCompatActivity {
         // Inserting Rooms
 
         Log.d("Insert: ", "Inserting ..");
-
+/*
         Room r1 = new Room();
         r1.setIdRoom(1);
         r1.setNameRoom("Mont-Blanc");
@@ -72,7 +73,7 @@ public class WelcomeActivity extends AppCompatActivity {
         rmds.createRoom(r3);
         rmds.createRoom(r4);
 
-
+*/
 
         //RoomDataSource rds = new RoomDataSource(this);
         Log.d("Reading: ", "Reading all rooms..");
@@ -157,6 +158,11 @@ public class WelcomeActivity extends AppCompatActivity {
     public void startToBeSpeaker(View view) {
         Intent intent = new Intent(this, CreateAccount.class);
         startActivity(intent);
+    }
+
+    public void Cloud(View view){
+        //cloud synchronisation
+        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
     }
 
 

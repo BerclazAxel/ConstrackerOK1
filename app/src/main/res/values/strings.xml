@@ -110,4 +110,5 @@
     <string name="Starttime">Heure de début :</string>
     <string name="Topic">Thème :</string>
     <string name="title_activity_edit_database">ActivitéEditDatabase</string>
+    <string name="actualisation_cloud">Actualisation cloud</string>
 </resources>

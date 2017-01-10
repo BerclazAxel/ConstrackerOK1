@@ -108,4 +108,5 @@
     <string name="Topic">Topic :</string>
     <string name="noMorPlace">No more places. Please check another conference.</string>
     <string name="title_activity_edit_database">EditDatabaseActivity</string>
+    <string name="actualisation_cloud">Refresh cloud</string>
 </resources>
