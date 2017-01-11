@@ -58,7 +58,7 @@ public class RoomEndpoint {
             name = "get",
             path = "room/{idRoom}",
             httpMethod = ApiMethod.HttpMethod.GET)
-    public Room get(@Named("idRoom") int idRoom) throws NotFoundException {
+    public Room get(@Named("idRoom") Long idRoom) throws NotFoundException {
         logger.info("Getting Room with ID: " + idRoom);
         Room room = ofy().load().type(Room.class).id(idRoom).now();
         if (room == null) {
@@ -99,7 +99,7 @@ public class RoomEndpoint {
             name = "update",
             path = "room/{idRoom}",
             httpMethod = ApiMethod.HttpMethod.PUT)
-    public Room update(@Named("idRoom") int idRoom, Room room) throws NotFoundException {
+    public Room update(@Named("idRoom") Long idRoom, Room room) throws NotFoundException {
         // TODO: You should validate your ID parameter against your resource's ID here.
         checkExists(idRoom);
         ofy().save().entity(room).now();
@@ -118,7 +118,7 @@ public class RoomEndpoint {
             name = "remove",
             path = "room/{idRoom}",
             httpMethod = ApiMethod.HttpMethod.DELETE)
-    public void remove(@Named("idRoom") int idRoom) throws NotFoundException {
+    public void remove(@Named("idRoom") Long idRoom) throws NotFoundException {
         checkExists(idRoom);
         ofy().delete().type(Room.class).id(idRoom).now();
         logger.info("Deleted Room with ID: " + idRoom);
@@ -149,7 +149,7 @@ public class RoomEndpoint {
         return CollectionResponse.<Room>builder().setItems(roomList).setNextPageToken(queryIterator.getCursor().toWebSafeString()).build();
     }
 
-    private void checkExists(int idRoom) throws NotFoundException {
+    private void checkExists(Long idRoom) throws NotFoundException {
         try {
             ofy().load().type(Room.class).id(idRoom).safe();
         } catch (com.googlecode.objectify.NotFoundException e) {
