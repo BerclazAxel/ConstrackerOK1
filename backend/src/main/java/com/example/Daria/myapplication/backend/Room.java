@@ -12,7 +12,7 @@ import javax.persistence.GenerationType;
 public class Room {
     @Id
     @GeneratedValue(strategy=	GenerationType.IDENTITY)
-    private int idRoom;
+    private Long idRoom;
     private String nameRoom;
     private int nbPeople;
 
@@ -21,7 +21,7 @@ public class Room {
     }
 
 
-    public Room(int idRoom, String nameRoom, int nbPeople) {
+    public Room(Long idRoom, String nameRoom, int nbPeople) {
         this.idRoom = idRoom;
         this.nameRoom = nameRoom;
         this.nbPeople = nbPeople;
@@ -29,11 +29,11 @@ public class Room {
 
     }
 
-    public int getIdRoom() {
+    public Long getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(int idRoom) {
+    public void setIdRoom(Long idRoom) {
         this.idRoom = idRoom;
     }
 

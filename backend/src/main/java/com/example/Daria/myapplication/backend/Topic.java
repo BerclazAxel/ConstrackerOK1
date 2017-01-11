@@ -11,7 +11,7 @@ import javax.persistence.GenerationType;
 public class Topic {
     @Id
     @GeneratedValue(strategy=	GenerationType.IDENTITY)
-    private int idTopic;
+    private Long idTopic;
     private String nameTopic;
     private String date;
     private String startTime;
@@ -24,7 +24,7 @@ public class Topic {
 
     }
 
-    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idSpeaker, int idRoom) {
+    public Topic(Long idTopic, String nameTopic,  String date, String startTime, String endTime, int idSpeaker, int idRoom) {
         this.idTopic = idTopic;
         this.nameTopic = nameTopic;
         this.date = date;
@@ -67,11 +67,11 @@ public class Topic {
         this.idSpeaker = idSpeaker;
     }
 
-    public int getIdTopic() {
+    public Long getIdTopic() {
         return this.idTopic;
     }
 
-    public void setIdTopic(int idTopic) {
+    public void setIdTopic(Long idTopic) {
         this.idTopic = idTopic;
     }
 
