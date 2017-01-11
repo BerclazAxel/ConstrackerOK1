@@ -78,10 +78,7 @@ public class ProposeTopic extends AppCompatActivity {
         speaker = uds.getUserByEmail(email);
 
         rooms = rds.getAllRooms();
-        //Cloud
-        com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
-        rooms =
-        new EndpointsAsyncTask_Room(answer).execute();
+
 		
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();

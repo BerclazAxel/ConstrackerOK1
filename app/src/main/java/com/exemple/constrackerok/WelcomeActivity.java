@@ -66,8 +66,8 @@ public class WelcomeActivity extends AppCompatActivity {
         r4.setNameRoom("Mont-Bonvin");
         r4.setNbPeople(100);
 
-        RoomEndpoint rmds = new RoomDataSource(this);
-        rmds.RoomEndpointcreateRoom(r1);
+        RoomDataSource rmds = new RoomDataSource(this);
+        rmds.createRoom(r1);
         rmds.createRoom(r2);
         rmds.createRoom(r3);
         rmds.createRoom(r4);
@@ -75,21 +75,21 @@ public class WelcomeActivity extends AppCompatActivity {
 
 
 		//Cloud
-		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
-		room.setName("Mont-Blanc");
-		new EndpointsAsyncTask_Room(room).execute();
+		com.example.daria.myapplication.backend.roomApi.model.Room room0 = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room0.setNameRoom("Mont-Blanc");
+		new EndpointsAsyncTask_Room(room0).execute();
 		
-		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
-		room.setName("Mont-Dolent");
-		new EndpointsAsyncTask_Room(room).execute();
+		com.example.daria.myapplication.backend.roomApi.model.Room room1 = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room1.setNameRoom("Mont-Dolent");
+		new EndpointsAsyncTask_Room(room1).execute();
 		
-		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
-		room.setName("Cervin");
-		new EndpointsAsyncTask_Room(room).execute();
+		com.example.daria.myapplication.backend.roomApi.model.Room room2 = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room2.setNameRoom("Cervin");
+		new EndpointsAsyncTask_Room(room2).execute();
 		
-		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
-		room.setName("Mont-Bonvin");
-		new EndpointsAsyncTask_Room(room).execute();
+		com.example.daria.myapplication.backend.roomApi.model.Room room3 = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room3.setNameRoom("Mont-Bonvin");
+		new EndpointsAsyncTask_Room(room3).execute();
 		
 		
 
