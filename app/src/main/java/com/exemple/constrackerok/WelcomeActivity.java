@@ -66,13 +66,32 @@ public class WelcomeActivity extends AppCompatActivity {
         r4.setNameRoom("Mont-Bonvin");
         r4.setNbPeople(100);
 
-        RoomDataSource rmds = new RoomDataSource(this);
-        rmds.createRoom(r1);
+        RoomEndpoint rmds = new RoomDataSource(this);
+        rmds.RoomEndpointcreateRoom(r1);
         rmds.createRoom(r2);
         rmds.createRoom(r3);
         rmds.createRoom(r4);
 
 
+
+		//Cloud
+		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room.setName("Mont-Blanc");
+		new EndpointsAsyncTask_Room(room).execute();
+		
+		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room.setName("Mont-Dolent");
+		new EndpointsAsyncTask_Room(room).execute();
+		
+		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room.setName("Cervin");
+		new EndpointsAsyncTask_Room(room).execute();
+		
+		com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
+		room.setName("Mont-Bonvin");
+		new EndpointsAsyncTask_Room(room).execute();
+		
+		
 
         //RoomDataSource rds = new RoomDataSource(this);
         Log.d("Reading: ", "Reading all rooms..");

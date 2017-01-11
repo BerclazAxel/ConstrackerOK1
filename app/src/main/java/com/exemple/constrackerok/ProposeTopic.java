@@ -78,6 +78,11 @@ public class ProposeTopic extends AppCompatActivity {
         speaker = uds.getUserByEmail(email);
 
         rooms = rds.getAllRooms();
+        //Cloud
+        com.example.daria.myapplication.backend.roomApi.model.Room room = new com.example.daria.myapplication.backend.roomApi.model.Room();
+        rooms =
+        new EndpointsAsyncTask_Room(answer).execute();
+		
 
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
@@ -94,7 +99,7 @@ public class ProposeTopic extends AppCompatActivity {
 
         for (int i = 0; i < rooms.size(); i++) {
             spinnerLists[i] = rooms.get(i).getNameRoom() + " - " + maxPeople[i];
-            spinnerListSave[i] = rooms.get(i).getIdRoom();
+            spinnerListSave[i] = (int) rooms.get(i).getIdRoom();
         }
         if (spinnerLists.length > 0) {
 
@@ -161,7 +166,7 @@ public class ProposeTopic extends AppCompatActivity {
             t.setEndTime((endTimeTopic));
             t.setDate((dateTopic));
 
-            int idSpeaker = speaker.getIdUser();
+            int idSpeaker = (int) speaker.getIdUser();
             t.setIdSpeaker(idSpeaker);
 
             int no = spinner.getSelectedItemPosition();
