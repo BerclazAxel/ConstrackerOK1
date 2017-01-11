@@ -15,12 +15,17 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.daria.myapplication.backend.roomApi.RoomApi;
 import com.exemple.constrackerok.DataSource.RoomDataSource;
 import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
 import com.exemple.constrackerok.DataSource.UserDataSource;
 import com.exemple.constrackerok.Objects.Room;
 import com.exemple.constrackerok.Objects.Topic;
 import com.exemple.constrackerok.Objects.User;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
+
+import java.io.IOException;
 
 public class Participate extends AppCompatActivity {
     Context ctx = this;
@@ -56,6 +61,30 @@ public class Participate extends AppCompatActivity {
         user = uds.getUserById(topic.getIdSpeaker());
         nameSpeaker = user.getName();
         surnameSpeaker = user.getSurname();
+
+
+        /////////////////////////////////////////////////////////////
+        /*
+        Cloud
+
+        com.example.daria.myapplication.backend.roomApi.RoomApi.Get.Flags roomById;
+                                                                                // K = Key and V = Value
+        roomById = new com.example.daria.myapplication.backend.roomApi.RoomApi.Get() ;
+        RoomApi roomApi = null;
+
+        RoomApi.Builder builder = new RoomApi.Builder(AndroidHttp.newCompatibleTransport(),
+                new AndroidJsonFactory(),null)
+                .setRootUrl("https://questionboard-155021.appspot.com/_ah/api/");
+        roomApi = builder.build();
+
+        try {
+            roomById=roomApi.get((long) 2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        new EndpointsAsyncTask_Room().execute();
+        /////////////////////////////////////////////////////////////
+        */
 
         room = rds.getRoomById(topic.getIdRoom());
         nameRoom = room.getNameRoom();

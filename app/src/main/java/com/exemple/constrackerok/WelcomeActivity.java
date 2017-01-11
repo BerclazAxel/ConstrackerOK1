@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.daria.myapplication.backend.roomApi.RoomApi;
 import com.exemple.constrackerok.DataSource.RoomDataSource;
 import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
 import com.exemple.constrackerok.DataSource.UserDataSource;
@@ -21,7 +22,10 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -95,6 +99,29 @@ public class WelcomeActivity extends AppCompatActivity {
 
         //RoomDataSource rds = new RoomDataSource(this);
         Log.d("Reading: ", "Reading all rooms..");
+
+
+
+
+        /*
+        Cloud
+
+        com.example.daria.myapplication.backend.roomApi.model.CollectionResponseRoom listRoom = new com.example.daria.myapplication.backend.roomApi.model.CollectionResponseRoom();
+        RoomApi roomApi = null;
+        RoomApi.Builder builder = new RoomApi.Builder(AndroidHttp.newCompatibleTransport(),
+                new AndroidJsonFactory(),null)
+                .setRootUrl("https://questionboard-155021.appspot.com/_ah/api/");
+        roomApi = builder.build();
+        try {
+            listRoom = roomApi.list().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        new EndpointsAsyncTask_Room().execute();
+/////////////////////////////////////////////////////////////////////////////////
+
+        */
+
         List<Room> rooms = rds.getAllRooms();
 
         for (Room room : rooms) {

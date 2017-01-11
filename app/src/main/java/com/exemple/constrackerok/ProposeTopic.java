@@ -29,6 +29,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 
+import com.example.daria.myapplication.backend.roomApi.RoomApi;
 import com.exemple.constrackerok.DataSource.RoomDataSource;
 import com.exemple.constrackerok.DataSource.TopicUserRoomDataSource;
 import com.exemple.constrackerok.DataSource.UserDataSource;
@@ -39,7 +40,10 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.api.client.extensions.android.http.AndroidHttp;
+import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -77,6 +81,24 @@ public class ProposeTopic extends AppCompatActivity {
         email = getIntent().getStringExtra("passMeUserEmail");
         speaker = uds.getUserByEmail(email);
 
+
+        /*
+        Cloud
+
+        com.example.daria.myapplication.backend.roomApi.model.CollectionResponseRoom listRoom = new com.example.daria.myapplication.backend.roomApi.model.CollectionResponseRoom();
+        RoomApi roomApi = null;
+        RoomApi.Builder builder = new RoomApi.Builder(AndroidHttp.newCompatibleTransport(),
+                new AndroidJsonFactory(),null)
+                .setRootUrl("https://questionboard-155021.appspot.com/_ah/api/");
+        try {
+            listRoom = roomApi.list().execute();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        roomApi = builder.build();
+        new EndpointsAsyncTask_Room().execute();
+/////////////////////////////////////////////////////////////////////////////////
+        */
         rooms = rds.getAllRooms();
 
 		
