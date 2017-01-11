@@ -4,7 +4,7 @@ package com.exemple.constrackerok.Objects;
 
 public class Topic {
 
-    private int idTopic;
+    private long idTopic;
     private String nameTopic;
     private String date;
     private String startTime;
@@ -17,7 +17,7 @@ public class Topic {
 
     }
 
-    public Topic(int idTopic, String nameTopic,  String date, String startTime, String endTime, int idSpeaker, int idRoom) {
+    public Topic(long idTopic, String nameTopic,  String date, String startTime, String endTime, int idSpeaker, int idRoom) {
         this.idTopic = idTopic;
         this.nameTopic = nameTopic;
         this.date = date;
@@ -60,11 +60,11 @@ public class Topic {
         this.idSpeaker = idSpeaker;
     }
 
-    public int getIdTopic() {
+    public long getIdTopic() {
         return this.idTopic;
     }
 
-    public void setIdTopic(int idTopic) {
+    public void setIdTopic(long idTopic) {
         this.idTopic = idTopic;
     }
 

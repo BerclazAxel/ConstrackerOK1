@@ -2,7 +2,7 @@ package com.exemple.constrackerok.Objects;
 
 
 public class Room {
-    private int idRoom;
+    private long idRoom;
     private String nameRoom;
     private int nbPeople;
 
@@ -11,7 +11,7 @@ public class Room {
     }
 
 
-    public Room(int idRoom, String nameRoom, int nbPeople) {
+    public Room(long idRoom, String nameRoom, int nbPeople) {
         this.idRoom = idRoom;
         this.nameRoom = nameRoom;
         this.nbPeople = nbPeople;
@@ -19,11 +19,11 @@ public class Room {
 
     }
 
-    public int getIdRoom() {
+    public long getIdRoom() {
         return idRoom;
     }
 
-    public void setIdRoom(int idRoom) {
+    public void setIdRoom(long idRoom) {
         this.idRoom = idRoom;
     }
 

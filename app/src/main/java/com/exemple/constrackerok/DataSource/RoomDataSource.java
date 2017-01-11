@@ -46,7 +46,7 @@ public class RoomDataSource {
         if (cursor.moveToFirst()) {
             do {
                 Room room = new Room();
-                room.setIdRoom(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
+                room.setIdRoom(cursor.getLong(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
                 room.setNameRoom(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME)));
                 room.setNbPeople(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NBPEOPLE)));
 
@@ -71,7 +71,7 @@ public class RoomDataSource {
         }
 
         Room room = new Room();
-        room.setIdRoom(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
+        room.setIdRoom(cursor.getLong(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_ID)));
         room.setNameRoom(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NAME)));
         room.setNbPeople(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableRoom.ROOM_NBPEOPLE)));
 

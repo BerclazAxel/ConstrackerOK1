@@ -51,7 +51,7 @@ public class TopicUserRoomDataSource {
         if(cursor.moveToFirst()){
             do{
                 Topic topic = new Topic();
-                topic.setIdTopic(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
+                topic.setIdTopic(cursor.getLong(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
                 topic.setNameTopic(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_NAME)));
                 topic.setDate(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_DATE)));
                 topic.setStartTime(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_START_TIME)));
@@ -79,7 +79,7 @@ public class TopicUserRoomDataSource {
         }
 
         Topic topic = new Topic();
-        topic.setIdTopic(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
+        topic.setIdTopic(cursor.getLong(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
         topic.setNameTopic(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_NAME)));
         topic.setDate(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_DATE)));
         topic.setStartTime(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_START_TIME)));
@@ -108,7 +108,7 @@ public class TopicUserRoomDataSource {
         if(cursor.moveToFirst()){
             do{
                 Topic topic = new Topic();
-                topic.setIdTopic(cursor.getInt(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
+                topic.setIdTopic(cursor.getLong(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_ID)));
                 topic.setNameTopic(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_NAME)));
                 topic.setDate(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_DATE)));
                 topic.setStartTime(cursor.getString(cursor.getColumnIndex(NewConferenceDB.TableTopic.TOPIC_START_TIME)));
